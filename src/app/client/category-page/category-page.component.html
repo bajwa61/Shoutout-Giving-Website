@@ -1,0 +1,78 @@
+
+<!-- <app-header-search></app-header-search> -->
+
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+
+<header class="category-header">
+
+  <div class="category-header-carousel">
+    <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="false">
+      <ng-template ngbSlide *ngFor="let img of images; index as i">
+        <div class="picsum-img-wrapper">
+          <img [src]="img" alt="My image {{i + 1}} description">
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+  </div>
+</header>
+
+<section class="work-block"></section>
+
+<section class="category-info clearfix">
+  <div id="cat_div" class="cat-div">
+    <ul class="cat-menu">
+      <ng-container *ngFor="let category of categories">
+        <li [class.active]="selectedCategory==category">
+          <a style="cursor: pointer" (click)="selectedCategory=category['name'];categoryTap(category)"><img
+              src="{{category['imageUrl']}}" alt="{{category['name']}}"></a>
+          <span *ngIf="langEng; else tempCategoryArb">{{category['name']}}</span>
+          <ng-template #tempCategoryArb>
+            <span>{{category['arabicName']}}</span>
+          </ng-template>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</section>
+
+<section class="stars-block clearfix">
+  <div class="container">
+    <div class="row" *ngIf="selectedCategory">
+      <ng-container *ngFor="let celebrity of selectedCategory['stars']">
+        <a [routerLink]="[ '/star',celebrity.userName]" class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6"
+          style="cursor: pointer;">
+          <a class="background-startimg" style="background: url({{celebrity.imageUrl}});">
+            <i class="favourite-icon fa fa-circle" [ngClass]="{'blink-me active': celebrity['bookableStatus'] && celebrity['price'], 'inactive': !celebrity['bookableStatus'] || !celebrity['price']}"></i>
+          </a>
+          <div class="star-overlay title">
+            <h6 *ngIf="celebrity.title">{{celebrity.title | uppercase}}</h6>
+            <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+          </div>
+          <h6 *ngIf="celebrity.fullName" class="celebrity-name">{{celebrity.fullName}}</h6>
+          <h6 *ngIf="!celebrity.fullName" class="celebrity-name">Star Here!</h6>
+          <div class="star-overlay">
+            <span *ngIf="celebrity.price"><span class="dollar">$</span>{{celebrity.price}}</span>
+            <span *ngIf="!celebrity.price">Coming Soon</span>
+            <section class="book-btn-area">
+              <a class="book-btn" *ngIf="langEng; else tempBookBtnArb">BOOK NOW</a>
+              <ng-template #tempBookBtnArb>
+                <a class="book-btn">
+                  احجز الآن</a>
+              </ng-template>
+            </section>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+<ng-template #t let-fill="fill">
+  <span class="star-review" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+</ng-template>

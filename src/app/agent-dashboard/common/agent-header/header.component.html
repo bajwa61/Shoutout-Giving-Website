@@ -1,0 +1,35 @@
+<header class="header clearfix">
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <a href="/">
+            <img src="../../../../assets/dashboard/assets/img/hala-logo.png" alt="HalaHi" class="logo img-fluid">
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+          <nav class="main-navigation">
+            <ul>
+              <li><a [routerLink]="['/agent-dashboard/home']">Dashboard</a></li>
+              <li><a [routerLink]="['/agent-dashboard/conversions']">Conversions</a></li>
+              <li><a [routerLink]="['/agent-dashboard/orders']">Orders</a></li>
+              <li class="dropdown">
+                <a><img src="../../../../assets/dashboard/assets/img/logo.png" alt="Settings" class="avatar rounded-circle"> Settings</a>
+                <ul>
+                   <li class="profile"><a [routerLink]="['/agent-dashboard/profile']">Profile</a></li>
+                  <li class="profile"><a [routerLink]="['/agent-dashboard/change-password']">Change Password</a></li>
+                  <li class="logout"><a (click)="logout()">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-down">
+    <div class="container">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+</header>

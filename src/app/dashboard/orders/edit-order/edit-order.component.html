@@ -1,0 +1,83 @@
+<app-header></app-header>
+
+<section class="content clearfix">
+    <div class="container">
+        <div class="card-hold">
+            <div class="form-block">
+                <h3 style="color: rgb(92, 23, 156);">Order Details</h3>
+                <div *ngIf="!order.myself" class="semi-row">
+                    <div class="input-hold">
+                        <label>To</label>
+                        <input [(ngModel)]="order['to']" class="check-input" type="text" placeholder="name">
+                    </div>
+                    <div class="input-hold">
+                        <label>From</label>
+                        <input [(ngModel)]="order['from']" class="check-input" type="text" placeholder="email">
+                    </div>
+                </div>
+                <div *ngIf="order.myself" class="semi-row">
+                    <div class="input-hold">
+                        <label>Name</label>
+                        <input [(ngModel)]="order['name']" class="check-input" type="text" placeholder="name">
+                    </div>
+                    <div class="input-hold">
+                        <label>Phone</label>
+                        <input [(ngModel)]="order['phone']" class="check-input" type="text" placeholder="phone">
+                    </div>
+                </div>
+                <div *ngIf="order.myself" class="input-hold">
+                    <label>Customer's Email</label>
+                    <input [(ngModel)]="order['emailAddress']" class="check-input" type="text" placeholder="email">
+                </div>
+                <div *ngIf="!order.myself" class="semi-row">
+                    <div class="input-hold">
+                        <label>Customer's Email</label>
+                        <input [(ngModel)]="order['emailAddress']" class="check-input" type="text" placeholder="email">
+                    </div>
+                    <div class="input-hold">
+                        <label>Phone</label>
+                        <input [(ngModel)]="order['phone']" class="check-input" type="text" placeholder="phone">
+                    </div>
+                </div>
+                <div class="semi-row">
+                    <div class="input-hold">
+                        <label>Status</label>
+                        <select [(ngModel)]="order['status']" class="check-select" name="occasions">
+                            <option *ngFor="let status of statusList" [value]="status.value">{{status.name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="input-hold">
+                        <label>Occasion</label>
+                        <select [(ngModel)]="order['occasion']" class="check-select" name="occasions">
+                            <option value=""></option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Valentine's Day">Valentine's Day</option>
+                            <option value="Mother's Day">Mother's Day</option>
+                            <option value="Pep Talk">Pep Talk</option>
+                            <option value="Announcement">Announcement</option>
+                            <option value="Advice">Advice</option>
+                            <option value="Roast">Roast</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Anniversary">Anniversary</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <h3 style="color: rgb(92, 23, 156);">Celebrity Instructions Details</h3>
+                <div class="input-hold">
+                    <label>Instructions</label>
+                    <textarea [(ngModel)]="order['instructions']" #instructions class="check-textarea" maxlength="300"
+                        type="text"></textarea>
+                    <span *ngIf="instructions.value.length > 0">{{300 - instructions.value.length}} / 300</span>
+                </div>
+                <div class="input-hold mt-4">
+                    <input (click)="updateOrder()" type="submit" class="btn-submit" value="Update Changes">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

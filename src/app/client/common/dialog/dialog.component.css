@@ -1,0 +1,227 @@
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    /* Stay in place */
+    z-index: 50001;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black w/opacity */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%;
+    /* 25% from the top */
+    width: 100%;
+    /* 100% width */
+    text-align: center;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.overlay-content .dialog-bg {
+    background: url("/assets/client/assets/img/dialog/dialog.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 600px;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.overlay-content .dialog-logo {
+    position: absolute;
+    width: auto;
+    height: 150px;
+    left: -50px;
+    top: -50px;
+}
+
+.overlay-content .dialog-yes-fav {
+    position: absolute;
+    width: auto;
+    height: 150px;
+    right: -100px;
+    bottom: -30px;
+}
+
+/* Position the close button (top right corner) */
+.overlay a.closebtn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.overlay a.closebtn:hover {
+    cursor: pointer;
+}
+
+.overlay-content .dialog-bg a.closebtn img {
+    width: 50px;
+    height: 50px;
+}
+
+.overlay-content .dialog-content-area {
+    padding: 60px 100px;
+    width: 100%;
+    height: 300px;
+    color: #ffffff;
+}
+
+.overlay-content .dialog-content-area .dialog-text-disclaimer {
+    margin-bottom: 30px;
+}
+
+.overlay-content .dialog-content-area .subscribe-hold {
+    height: 75px;
+}
+
+.overlay-content .dialog-content-area .subscribe-hold .subinputholder {
+    display: flex;
+}
+
+.overlay-content .dialog-content-area .subscribe-hold .sub-input {
+    border: none;
+    padding: 6px 12px;
+    background: #FFFFFF;
+    box-shadow: inset 0 -1px 0 #DDDDDD;
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.overlay-content .dialog-content-area .subscribe-hold .sub-btn {
+    border: none;
+    padding: 10px 24px;
+    background: #FE4600;
+    color: #FFFFFF;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    outline: none;
+}
+
+.overlay-content .dialog-content-area .dialog-text-terms {
+    font-size: 10px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .overlay-content {
+        top: 5%;
+    }
+
+    .overlay-content .dialog-bg {
+        background-size: cover;
+        max-width: 600px;
+        width: 80%;
+        height: 500px;
+        border-radius: 10px;
+    }
+
+    .overlay-content .dialog-content-area {
+        padding: 80px 10px;
+        height: 100%;
+    }
+
+    .overlay-content .dialog-content-area .dialog-text-disclaimer {
+        font-size: 17px;
+        margin-bottom: 20px;    
+        padding: 0 50px;
+    }
+
+    .overlay-content .dialog-content-area .dialog-text-disclaimer span{
+        display: none;
+    }
+
+    .overlay-content .dialog-logo {
+        height: 125px;
+        left: -25px;
+        top: -40px;
+    }
+
+    .overlay-content .dialog-yes-fav {
+        position: relative;
+        width: auto;
+        margin: 0 auto;
+        height: 100px;
+        bottom: 50px;
+        left: 0px;
+    }
+
+    .overlay-content .dialog-content-area .subscribe-hold .subinputholder {
+        display: block;
+    }
+    
+    .overlay-content .dialog-content-area .subscribe-hold {
+        height: 150px;
+    }
+
+    .overlay-content .dialog-content-area .subscribe-hold .sub-input {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    .overlay-content .dialog-content-area .subscribe-hold .sub-btn {
+        margin-top: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+
+    /* .overlay a.closebtn {
+        top: -150px;
+        right: 10px;
+    } */
+
+    .overlay .error-msg {
+        line-height: 1;
+        font-size: 10px;
+    }
+
+    .overlay-content .dialog-content-area .dialog-text-terms {
+        line-height: 1.5;
+        font-size: 15px;
+        padding: 0 42px;
+    }
+}
+
+@media(max-width: 340px) {
+   
+    .overlay-content .dialog-content-area .dialog-text-disclaimer {  
+        padding: 0 30px;
+    }
+}

@@ -1,0 +1,261 @@
+<app-header></app-header>
+<section class="content profile-content clearfix">
+  <div class="container">
+    <div class="semi-row mt-3 mb-3">
+      <div class="input-hold">
+        <a [routerLink]="[ '/dashboard/star-single',celebrity['id']]" class="btn btn-dark" value="Back">Back</a>
+      </div>
+    </div>
+    <div class="card-hold position-relative">
+      <div class="profile-info">
+        <div class="form-block">
+          <div class="semi-row">
+            <h3 style="color:purple;text-decoration:underline">Personal Details</h3>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>Star Name</label>
+              <input [(ngModel)]="celebrity['name']" class="check-input" type="text" placeholder="Sara">
+            </div>
+            <div class="input-hold">
+              <label>Username</label>
+              <input [(ngModel)]="celebrity['userName']" class="check-input" type="text" placeholder="sara">
+            </div>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold">
+              <label>Title</label>
+              <input [(ngModel)]="celebrity['title']" class="check-input" type="text" placeholder="Hollywood Actor">
+            </div>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold">
+              <label>Price ($)</label>
+              <input [(ngModel)]="celebrity['price']" class="check-input" type="number" min="5" placeholder="100">
+            </div>
+            <div class="input-hold">
+              <label>Typical Response Time (Days)</label>
+              <input [(ngModel)]="responseTime" class="check-input" type="number" min="1" placeholder="Response Time">
+              <div *ngIf="responseTime<1">
+                <span style="color: red;">At least one day required.</span>
+              </div>
+            </div>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold">
+              <label>Date of Birth</label>
+              <input [(ngModel)]="celebrity['dob']" class="check-input" type="date" placeholder="1990/12/13">
+            </div>
+            <div class="input-hold">
+              <label>Phone</label>
+              <div class="d-flex">
+                <input style="width: 100px;" [(ngModel)]="celebrity['code']" class="check-input" type="text"
+                  placeholder="+977">
+                <input [(ngModel)]="celebrity['phone']" class="check-input" type="text" placeholder="555 555 5555">
+              </div>
+            </div>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold">
+              <label>Categories</label>
+              <angular2-multiselect [data]="categories" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+                (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+              </angular2-multiselect>
+            </div>
+            <div class="input-hold">
+              <label>Assigned Agent</label>
+              <select class="check-input" [(ngModel)]="agentRef">
+                <option *ngFor="let opt of agents" [value]="opt.ref">{{opt.email}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-hold mt-3">
+            <label>Bio</label>
+            <textarea [(ngModel)]="celebrity['bio']" class="check-textarea" placeholder="Bio Text"
+              maxlength="500"></textarea>
+          </div>
+          <hr>
+          <div class="semi-row">
+            <h3 style="color:purple;text-decoration:underline">Social Details</h3>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold">
+              <label>Instagram Handle</label>
+              <input [(ngModel)]="celebrity['instagramHandle']" class="check-input" type="text"
+                placeholder="@Instagram">
+            </div>
+            <div class="input-hold">
+              <label>Instagram Followers</label>
+              <input [(ngModel)]="celebrity['instagramFollowers']" class="check-input" type="text" placeholder="30 K">
+            </div>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>Facebook Handle</label>
+              <input [(ngModel)]="celebrity['facebookHandle']" class="check-input" type="text" placeholder="@Facebook">
+            </div>
+            <div class="input-hold">
+              <label>Facebook Followers</label>
+              <input [(ngModel)]="celebrity['facebookFollowers']" class="check-input" type="text" placeholder="30 K">
+            </div>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>Twitter Handle</label>
+              <input [(ngModel)]="celebrity['twitterHandle']" class="check-input" type="text" placeholder="@Twitter">
+            </div>
+            <div class="input-hold">
+              <label>Twitter Followers</label>
+              <input [(ngModel)]="celebrity['twitterFollowers']" class="check-input" type="text" placeholder="30 K">
+            </div>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>Youtube Handle</label>
+              <input [(ngModel)]="celebrity['youtubeHandle']" class="check-input" type="text" placeholder="@Youtube">
+            </div>
+            <div class="input-hold">
+              <label>Youtube Followers</label>
+              <input [(ngModel)]="celebrity['youtubeFollowers']" class="check-input" type="text" placeholder="30 K">
+            </div>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>Tiktok Handle</label>
+              <input [(ngModel)]="celebrity['tiktokHandle']" class="check-input" type="text" placeholder="@Tiktok">
+            </div>
+            <div class="input-hold">
+              <label>Tiktok Followers</label>
+              <input [(ngModel)]="celebrity['tiktokFollowers']" class="check-input" type="text" placeholder="30 K">
+            </div>
+          </div>
+          <hr>
+          <div class="semi-row">
+            <h3 style="color:purple;text-decoration:underline">Bank Details</h3>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>Bank Name</label>
+              <input [(ngModel)]="celebrity['bankName']" class="check-input" type="text" placeholder="BankName">
+            </div>
+            <div class="input-hold">
+              <label>Account </label>
+              <input [(ngModel)]="celebrity['bankNo']" class="check-input" type="text" placeholder="BankNo">
+            </div>
+          </div>
+          <div class="semi-row">
+            <div class="input-hold">
+              <label>IBAN</label>
+              <input [(ngModel)]="celebrity['IBAN']" class="check-input" type="text" placeholder="IBAN">
+            </div>
+            <div class="input-hold">
+              <label>Swift Code</label>
+              <input [(ngModel)]="celebrity['swiftCode']" class="check-input" type="text" placeholder="SwiftCode">
+            </div>
+          </div>
+          <hr>
+          <div class="semi-row">
+            <h3 style="color:purple;text-decoration:underline">Configuration Switches</h3>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold-switch input-hold">
+              <label>Active?</label>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="activeStatus">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="input-hold-switch input-hold">
+              <label>Featured?</label>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="featuredStatus">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="input-hold-switch input-hold">
+              <label>Bookable?</label>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="bookableStatus">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="input-hold-switch input-hold">
+              <label>Email Notifications?</label>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="emailNotifications">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="input-hold-switch input-hold">
+              <label>Push Notifications?</label>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="pushNotifications">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="input-hold-switch input-hold">
+              <label>SMS Notifications?</label>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="smsNotifications">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="semi-row">
+            <h3 style="color:purple;text-decoration:underline">Upload Media</h3>
+          </div>
+          <div class="semi-row mt-3">
+            <div class="input-hold">
+              <label for="file">Intro Video</label>
+              <input class="btn-submit" type="file" id="file" accept="video/*"
+                (change)="handleFileInput($event.target.files)">
+              <br>
+              <div *ngIf="videoUploadPercentage | async as pct">
+                <progress [value]="pct" max="100"></progress>
+                <span *ngIf="!this._uploadvideoService.downloadURLvid"> Uploading Please Wait...
+                  {{ pct | number }}%</span>
+                <span *ngIf="this._uploadvideoService.downloadURLvid"> Done</span>
+              </div>
+              <div *ngIf="videoUploadSnapshot | async as snap">
+                {{ snap.bytesTransferred }} of {{ snap.totalBytes }}
+                <button (click)="this._uploadvideoService.videoUploadTask.pause();"
+                  [disabled]="!this._uploadvideoService.isActive(snap)">Pause</button>
+                <button (click)="this._uploadvideoService.videoUploadTask.cancel()"
+                  [disabled]="!this._uploadvideoService.isActive(snap)">Cancel</button>
+                <button (click)="this._uploadvideoService.videoUploadTask.resume()"
+                  [disabled]="!(snap?.state === 'paused')">Resume</button>
+              </div>
+            </div>
+            <div class="input-hold">
+              <label for="fileimg">Profile Image</label>
+              <input class="btn-submit" type="file" id="fileimg" accept="image/*" (change)="handleFileImage($event)">
+              <br>
+              <div *ngIf="imageUploadPercentage | async as pctimg">
+                <progress [value]="pctimg" max="100"></progress>
+                <span *ngIf="!this._uploadvideoService.downloadURLimg"> Uploading Please Wait...
+                  {{ pctimg | number }}%</span>
+                <span *ngIf="this._uploadvideoService.downloadURLimg"> Done</span>
+              </div>
+              <div *ngIf="imageUploadSnapshot | async as snapimg">
+                {{ snapimg.bytesTransferred }} of {{ snapimg.totalBytes }}
+                <button (click)="this._uploadvideoService.imageUploadTask.pause();"
+                  [disabled]="!this._uploadvideoService.isActive(snapimg)">Pause</button>
+                <button (click)="this._uploadvideoService.imageUploadTask.cancel()"
+                  [disabled]="!this._uploadvideoService.isActive(snapimg)">Cancel</button>
+                <button (click)="this._uploadvideoService.imageUploadTask.resume()"
+                  [disabled]="!(snapimg?.state === 'paused')">Resume</button>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="input-hold mt-4">
+            <input (click)="update(celebrity)" type="submit" class="btn-submit" value="Update Changes">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

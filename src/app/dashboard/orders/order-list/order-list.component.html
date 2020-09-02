@@ -1,0 +1,54 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <div class="container">
+    <div class="card-hold">
+      <div class="table-responsive table-sm">
+        <table class="table table-hover mb-0">
+          <thead>
+            <tr>
+              <th>S.N</th>
+              <th>Order ID</th>
+              <th>Celebrity</th>
+              <th>Price ($)</th>
+              <th>From<br>To</th>
+              <th>Customer Email <br> Phone Number</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="isDataAvailable">
+            <tr *ngFor="let order of orders;let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{order.id}}</td>
+              <td>{{order.celebrityName}}</td>
+              <td>{{order.price}}</td>
+              <td>{{order.myself?order.name:order['from']}}<hr>{{order.myself?order.name:order['to']}}</td>
+              <td><a [href]="'mailto:' + order.emailAddress">{{order.emailAddress}}</a> <br> <b>{{order.phone}}</b></td>
+              <td><span *ngIf="order['date']">{{order.date.toDate() | date:'EEE, dd-MMM-yyyy'}}</span></td>
+              <td><span *ngIf="order['date']">{{order.date.toDate() | date:'hh:mm:ss a'}}</span></td>
+              <td><span
+                  [ngClass]="order.status == 'submitted'?'badge-primary': order.status == 'cancelled'?'badge-danger':order.status == 'overdue'? 'badge-warning':'badge-success'"
+                  class="badge ">{{order.status.toUpperCase()}}</span></td>
+              <td>
+                <div class="btn-group" role="group">
+                  <a [routerLink]="[ '/dashboard/order-single',order.id]">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip"
+                      data-placement="top" title="View">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+          <td *ngIf="!isDataAvailable" colspan="10" align="center">Data Not Available</td>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

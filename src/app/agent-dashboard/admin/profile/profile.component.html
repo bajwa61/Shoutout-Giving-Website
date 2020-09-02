@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+<section class="content clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-hold">
+          <div class="form-block">
+            <h2>Profile Details</h2>
+
+            <table class="table profile-table">
+              <tr>
+                <th>Email</th>
+                <td>{{ agentProfile.email }}</td>
+              </tr>
+              <tr>
+                <th>First Name</th>
+                <td>{{ agentProfile.firstname }}</td>
+              </tr>
+              <tr>
+                <th>Last Name</th>
+                <td>{{ agentProfile.lastname }}</td>
+              </tr>
+              <tr>
+                <th>Phone</th>
+                <td>{{ agentProfile.code + "-" + agentProfile.phone }}</td>
+              </tr>
+              <tr>
+                <th>Ref Link</th>
+                <td>{{ agentProfile.refLink }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-hold">
+          <div class="form-block">
+            <h2>Bank Account Details</h2>
+            <table class="table profile-table">
+              <tr>
+                <th>Bank Name</th>
+                <td>{{ agentProfile.bankName }}</td>
+              </tr>
+              <tr>
+                <th>Account</th>
+                <td>{{ agentProfile.account }}</td>
+              </tr>
+              <tr>
+                <th>IBAN</th>
+                <td>{{ agentProfile.iBAN }}</td>
+              </tr>
+              <tr>
+                <th>Swift Code</th>
+                <td>{{ agentProfile.swiftCode }}</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">
+                  <a [routerLink]="['/agent-dashboard/edit-profile']">
+                    <button style="width: 75%;"
+                      type="submit"
+                      class="btn btn-dark"
+                      title="Edit Profile"
+                    >
+                    Edit Profile
+                    </button>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+  </div>
+
+  <app-footer></app-footer>
+</section>

@@ -1,0 +1,83 @@
+<!--<header class="header clearfix">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-3">
+        <a [routerLink]="[ '/']">
+             <a [routerLink]="['/home']"> -->
+<!-- <img src="../../../../assets/client/assets/img/logo.png" alt="HalaHi" class="logo">
+        </a>
+      </div>
+      <div class="col-9 d-flex justify-content-end">
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a [routerLink]="[ '/category']" *ngIf="langEng; else temp3Arb">EXPLORE</a>
+              <ng-template #temp3Arb>
+                <a [routerLink]="[ '/category']">إكتشف</a>
+              </ng-template>
+            </li>
+            <li>
+              <a [routerLink]="[ '/enroll-talent']" *ngIf="langEng; else temp1Arb">ENROL AS TALENT</a>
+              <ng-template #temp1Arb>
+                <a [routerLink]="[ '/enroll-talent']">التسجيل كشريك</a>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+-->
+
+<header class="header clearfix">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-3">
+        <a [routerLink]="['/']">
+          <!-- <a [routerLink]="['/home']"> -->
+          <img
+            src="../../../../assets/client/assets/img/logo.png"
+            alt="HalaHi"
+            class="logo"
+          />
+        </a>
+      </div>
+      <div class="col-9 d-flex justify-content-end">
+        <div class="main-menu">
+          <ul>
+            <li>
+              <span *ngIf="isLogin">
+                <a [routerLink]="['/category']" *ngIf="langEng; else temp3Arb"
+                  ><span>WELCOME MARK</span></a
+                >
+              </span>
+              <ng-template #temp3Arb>
+                <a [routerLink]="['/category']">إكتشف</a>
+              </ng-template>
+            </li>
+            <li>
+              <span *ngIf="!isLogin">
+                <a
+                  data-toggle="modal"
+                  (click)="loadSingUpFrom()"
+                  data-target="#exampleModalCenter"
+                  >SIGN IN / SIGN UP</a
+                >
+              </span>
+              <span *ngIf="isLogin">
+                <a>LOGOUT</a>
+              </span>
+
+              <!--<a [routerLink]="[ '/enroll-talent']" *ngIf="langEng; else temp1Arb">LOG OUT</a>-->
+              <ng-template #temp1Arb>
+                <a [routerLink]="['/enroll-talent']">التسجيل كشريك</a>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div #signUpForm></div>

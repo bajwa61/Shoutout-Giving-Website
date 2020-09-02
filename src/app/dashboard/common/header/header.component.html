@@ -1,0 +1,65 @@
+<header class="header clearfix">
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <a href="/">
+            <img src="../../../../assets/dashboard/assets/img/hala-logo.png" alt="HalaHi" class="logo img-fluid">
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+          <nav class="main-navigation">
+            <ul>
+              <li><a [routerLink]="['/dashboard/home']">Dashboard</a></li>
+              <li><a [routerLink]="['/dashboard/all-pages']">Pages</a></li>
+              <li class="dropdown">
+                <a>Affiliates</a>
+                <ul>
+                  <li class="allstars"><a [routerLink]="['/dashboard/agent']">All Agent</a></li>
+                  <li class="newstar"><a [routerLink]="['/dashboard/new-agent']">Add New Agent</a></li>
+                  <li class="allstars"><a [routerLink]="['/dashboard/conversions']">Conversions</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a>Stars</a>
+                <ul>
+                  <li class="allstars"><a [routerLink]="['/dashboard/all-star']">All Stars</a></li>
+                  <li class="newstar"><a [routerLink]="['/dashboard/new-star']">Add New Star</a></li>
+                  <li class="categories"><a [routerLink]="['/dashboard/categories']">Categories</a></li>
+                </ul>
+              </li>
+              <li><a [routerLink]="['/dashboard/enroll-talent']">Enrol Talent</a></li>
+              <li class="dropdown">
+                <a>Orders</a>
+              <ul>
+                <li class="allstars"><a [routerLink]="['/dashboard/orders']">All Orders</a></li>
+                <li class="allstars"><a [routerLink]="['/dashboard/add-new-order']">Add New Order</a></li>
+              </ul>
+              </li>
+              <li class="dropdown">
+                <a>Marketing</a>
+                <ul>
+                  <li class="allstars"><a [routerLink]="['/dashboard/marketing-signups']">Signups</a></li>
+                </ul>
+              </li>
+              <li><a [routerLink]="['/dashboard/push-notifications']">Notifications</a></li>
+              <li class="dropdown">
+                <a><img src="../../../../assets/dashboard/assets/img/logo.png" alt="Admin" class="avatar rounded-circle"> Admin</a>
+                <ul>
+                  <li class="profile"><a [routerLink]="['/dashboard/profile']">Profile</a></li>
+                  <li class=""><a [routerLink]="['/dashboard/change-password']">Change Password</a></li>
+                  <li class="logout"><a (click)="logout()">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-down">
+    <div class="container">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+</header>

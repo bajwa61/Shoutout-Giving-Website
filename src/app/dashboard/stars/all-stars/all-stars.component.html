@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+  <section class="content clearfix">
+    <section class="search-hold clearfix">
+      <div class="container">
+        <input class="big-search" type="text" placeholder="Quick Search..." [(ngModel)]="searchText">    
+      </div>
+    </section>
+    <div class="container">      
+      <div class="card-hold">
+        <div class="table-responsive table-sm">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Image</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Rate ($)</th>
+                <th>Enrolment Date</th>
+                <th>Intro Video</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="isDataAvailable">
+              <tr *ngFor="let i = index;let celebrity of celebrities | filter:searchText">
+                <td>{{i+1}}</td>
+                <td><img src="{{celebrity.imageUrl}}" alt="{{celebrity.name}}" class="star-thumb"></td>
+                <td>{{celebrity.name}}</td>
+                <td>{{celebrity.emailAddress}}</td>
+                <td>{{celebrity.price}}</td>
+                <td><span *ngIf="celebrity['createdDate']">{{celebrity['createdDate'].toDate() | date:'EEE, dd MMM yyyy'}}</span></td>
+                <td align="center">
+                  <i *ngIf="celebrity.videoUrl" class="fa fa-check" style="color: green;"></i>
+                  <i *ngIf="!celebrity.videoUrl || !celebrity.hasOwnProperty('videoUrl')" class="fa fa-times" style="color: red;"></i>
+                </td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <a [routerLink]="[ '/dashboard/star-single',celebrity['id']]">
+                      <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                        <i class="fa fa-eye"></i>
+                      </button>
+                    </a>
+                    <button (click)="deleteStar(celebrity['id'], celebrity['name'])" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                      <i class="fa fa-trash-o"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <td *ngIf="!isDataAvailable" colspan="8" align="center">Data Not Available</td>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>

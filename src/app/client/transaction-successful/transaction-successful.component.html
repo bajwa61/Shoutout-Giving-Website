@@ -1,0 +1,117 @@
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<section class="header-thankyou">
+</section>
+
+<section class="section_1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-12" style="padding-bottom:100px;">
+                <div class="top_headings">
+                    <h2>Your request is booked!</h2>
+                </div>
+
+                <div class="top_headings">
+                    <p>Your request was sent to <span>{{celebrity['fullName']}}</span>.<br>Your should receive and email
+                        shortly. 🤩</p>
+                </div>
+
+                <div class="what-happen">
+                    <h3>what happens next</h3>
+                    <i *ngIf="!next" class="fa fa-angle-down" aria-hidden="true" title="Show More"
+                        (click)="nextSetting(true); requestDetailsSetting(false);"></i>
+                    <i *ngIf="next" class="fa fa-angle-up" aria-hidden="true" title="Show Less"
+                        (click)="nextSetting(false); requestDetailsSetting(true);"></i>
+                    <hr class="bottom_borders">
+                </div>
+
+                <div *ngIf="next" class="row" style="padding-right: 80px;">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="img-icons">
+                            <img src="assets/thankyou-customer-img/thankyouCustomer1.png">
+                            <p>{{celebrity['fullName']}} has {{celebrity['responseTime']}} days to complete your request</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="img-icons">
+                            <img src="assets/thankyou-customer-img/thankyouCustomer2.png">
+                            <p>Your receipt and order updates will be sent to the email provided under Delivery
+                                information</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="img-icons">
+                            <img src="assets/thankyou-customer-img/thankyouCustomer3.png">
+                            <p>When your request is completed, well email and text you link to view, share, or download your video</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="charged">
+                            <p>If for some reason your video isn't completed the ${{celebrity['price']}} charged to your<br>card will be
+                                refunded within 5-7 business days.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="what-happen">
+                    <h3>REQUEST DETAILS</h3>
+                    <i *ngIf="!requestDetails" class="fa fa-angle-down" aria-hidden="true" title="Show More"
+                        (click)="nextSetting(false); requestDetailsSetting(true);"></i>
+                    <i *ngIf="requestDetails" class="fa fa-angle-up" aria-hidden="true" title="Show Less"
+                        (click)="nextSetting(true); requestDetailsSetting(false);"></i>
+                    <hr class="bottom_borders">
+                </div>
+
+                <div *ngIf="requestDetails" class="row" style="padding-right: 80px;margin-top: 30px;">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="booked_headings1">
+                            <h5>Celebrity Booked:</h5>
+                            <h3>{{celebrity['fullName']}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="booked_headings1">
+                            <h5>From:</h5>
+                            <h3>{{order['name']}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="booked_headings1">
+                            <h5>Cost:</h5>
+                            <h3>{{transaction['amount'] | currency}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="booked_headings1">
+                            <h5>Transaction #:</h5>
+                            <h3>{{transaction['trackingId']}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="booked_headings1">
+                            <h5>Transaction Date:</h5>
+                            <h3><span *ngIf="transaction['date']">{{transaction['date'].toDate() | date:'EEEE, dd MMM yyyy'}}</span></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="booked_headings1">
+                            <h5>Transaction Time:</h5>
+                            <h3><span *ngIf="transaction['date']">{{transaction['date'].toDate() | date:'hh:mm aaa'}}</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 d-none d-sm-block" [ngStyle]="{'background': 'url(' + celebrity['imageUrl'] + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover', 'background-position': 'center'}" 
+            style="
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

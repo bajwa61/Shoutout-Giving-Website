@@ -1,0 +1,46 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <section *ngIf="totalConversions" class="search-hold clearfix">
+    <div class="container">
+      <input class="big-search" type="text" placeholder="Quick Search..." [(ngModel)]="searchText">
+    </div>
+  </section>
+  <div class="container">
+    <div class="card-hold">
+      <div class="table-responsive table-sm">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Celebrity</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="totalConversions">
+            <ng-container *ngFor="let i = index;let agent of conversions | filter:searchText">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{agent['name']}}</td>
+                <td>{{agent['email']}}</td>
+                <td>
+
+                  <div class="btn-group" role="group">
+                    <a [routerLink]="[ '/agent-dashboard/conversions-details',agent['id']]">
+                      <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip"
+                        data-placement="top" title="View">
+                        <i class="fa fa-eye"></i>
+                      </button></a>
+                  </div>
+                </td>
+              </tr>
+
+            </ng-container>
+          </tbody>
+          <td *ngIf="!totalConversions" colspan="4" align="center"><br />Data Not Available</td>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

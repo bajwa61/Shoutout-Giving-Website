@@ -1,0 +1,134 @@
+<!-- <app-header></app-header> -->
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<section class="enroll-form-block clearfix" style="padding-bottom: 10px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-10 mx-auto">
+        <a [routerLink]="[ '/agent-page']" class="btn btn-dark">BACK</a><br/>
+        <br>
+        <h2 *ngIf="langEng; else temp1Arb">Join HalaHi's Referral Program</h2>
+        <ng-template #temp1Arb>
+          <h2>انضم إلى برنامج الوكيل على هلا هاي</h2>
+        </ng-template>
+        
+        <h3 *ngIf="langEng; else temp2Arb">If you think your celebrity friends would be a great fit for HalaHi, then this opportunity is for you!
+          Sign up and earn 5% commission for every video bought from your stars as a gift from us! Oh, and that's
+          valid on all orders placed with your referred celebrities for 1 YEAR!</h3>
+          <ng-template #temp2Arb>
+            <h3>إذا كنت تعتقد أن أصدقائك المشهورين سيكونون مناسبين لهلا هاي، فهذه الفرصة مناسبة لك! سجلهم عن طريقك و اكسب عمولة 5٪ لكل فيديو يتم شراؤه من نجومك كهدية منا لمدة عام واحد!</h3>
+          </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<form [formGroup]="agentForm" *ngIf="!urlSwitch">
+  <section class="enroll-form-block clearfix" style="padding-top: 10px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-10 mx-auto">
+          <div class="input-hold mt-4">
+            <label *ngIf="langEng; else temp3Arb">Email *</label>
+            <ng-template #temp3Arb> <label> البريد الإلكتروني* </label> </ng-template>
+            <input formControlName="email" class="check-input" type="email" placeholder="hello@halahi.com">
+            <br>
+            <div
+              *ngIf="agentForm.controls.email.errors && (agentForm.controls.email.dirty || agentForm.controls.email.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="agentForm.controls.email.errors.required" style="color: red">Please enter valid email
+                address.</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label *ngIf="langEng; else temp4Arb">First Name *</label>
+            <ng-template #temp4Arb> <label> البريد الإلكتروني* </label> </ng-template>
+            <input formControlName="firstname" class="check-input" type="text" placeholder="Ibrahim">
+            <br>
+            <div
+              *ngIf="agentForm.controls.firstname.errors && (agentForm.controls.firstname.dirty || agentForm.controls.firstname.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="agentForm.controls.firstname.errors.required" style="color: red">Please enter first
+                name.</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label *ngIf="langEng; else temp5Arb">Last Name *</label>
+            <ng-template #temp5Arb> <label>اسم العائلة*</label> </ng-template>
+            <input formControlName="lastname" class="check-input" type="text" placeholder="Ibrahim">
+            <br>
+            <div
+              *ngIf="agentForm.controls.lastname.errors && (agentForm.controls.lastname.dirty || agentForm.controls.lastname.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="agentForm.controls.lastname.errors.required" style="color: red">Please enter last
+                name.</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label *ngIf="langEng; else temp6Arb">Phone Number *</label>
+            <ng-template #temp6Arb> <label>رقم الهاتف*</label> </ng-template>
+            <div class="d-flex">
+
+              <select formControlName="code" name="phonecode" class="check-input">
+                <option *ngFor="let codes of codesJson" [value]="codes.dial_code">{{codes.name}} ({{codes.dial_code}})</option>
+              </select>
+
+              <input formControlName="phone" class="check-input" type="number" placeholder="555 555 5555">
+            </div>
+            <div
+              *ngIf="agentForm.controls.code.errors && (agentForm.controls.code.dirty || agentForm.controls.code.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="agentForm.controls.code.errors.required" style="color: red">Please enter phone code.</span>
+            </div>
+            <div
+              *ngIf="agentForm.controls.phone.errors && (agentForm.controls.phone.dirty || agentForm.controls.phone.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="agentForm.controls.phone.errors.required" style="color: red">Please enter phone
+                number.</span>
+            </div>
+          </div>
+          <div class="radio-hold mt-5">
+            <label *ngIf="langEng; else temp7Arb"><input formControlName="termsAgreement" type="checkbox" name="acceptTerms">You agree to recieve other
+              communications from us</label>
+              <ng-template #temp7Arb>
+                 <label *ngIf="langEng; else temp7Arb"><input formControlName="termsAgreement" type="checkbox" name="acceptTerms">أنا أوافق  على تلقي رسائل أخرى من هلا هاي</label> 
+                </ng-template>
+            <br>
+            <div
+              *ngIf="agentForm.controls.termsAgreement.errors && (agentForm.controls.termsAgreement.dirty || agentForm.controls.termsAgreement.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="agentForm.controls.termsAgreement.errors.required" style="color: red">Please agree to recieve
+                other communications from us</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <input type="submit" class="btn-book" value="Submit" (click)="submitEnrollRequest()" *ngIf="langEng; else temp8Arb">
+            <ng-template #temp8Arb>
+              <input type="submit" class="btn-book" value="إرسال" (click)="submitEnrollRequest()" >
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+<section class="enroll-form-block clearfix" style="padding-top: 10px;" *ngIf="urlSwitch">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-10 mx-auto">
+        <h3 style="font-weight: 600;">Share your unique referral link</h3>
+        <div class="input-hold mt-4">
+          <div class="input-group mb-3">
+            <input class="form-control check-input" style="height:calc(2.5em + 0.75rem + 2px);" type="url" placeholder="https://halahi.com/enroll/" [(ngModel)]="uniqueUrl"  #userinput>
+            <div class="input-group-append">
+              <a class="btn enroll-btn" type="button" style="top: -1px;" (click)="copyMessage(userinput)">Copy Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

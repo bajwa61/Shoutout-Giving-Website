@@ -1,0 +1,388 @@
+.category-header-nav {
+    background-color: unset;
+}
+
+.category-navbar .nav-link {
+    color: purple;
+}
+
+.category-navbar .nav-item.rotated {
+    /* color: white; */
+    border: 1px solid purple;
+    border-radius: 15px;
+    padding: 2px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    transform-origin: center;
+    margin: 10px auto;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: visible;
+}
+
+.category-navbar .nav-item.rotated:hover,
+.category-navbar .nav-item.rotated a:hover {
+    background-color: purple;
+    color: #ececec;
+}
+
+.signup-banner {
+    background: #F7F7F7 url('src/assets/client/assets/img/enroll-bg.png') no-repeat bottom right;
+    background-size: 100%;
+    min-height: calc(81vh);
+    display: flex;
+}
+
+.signup-banner .row {
+    height: 100%;
+}
+
+.signup-banner .celebrity-img {
+    margin: 0 auto;
+    display: block;
+    max-height: 420px;
+}
+
+.signup-banner h1 {
+    font-size: 54px;
+    line-height: 1.1em;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 21px;
+}
+
+.signup-banner p {
+    margin: 0;
+}
+
+.align-self-center {
+    padding-left: 50px;
+}
+
+.search-hold .live-search {
+    position: absolute;
+    text-align: left;
+    display: block;
+}
+
+.sticky-search-hold .live-search {
+    position: absolute;
+    text-align: left;
+    display: block;
+    left: 340px;
+    top: 0px;
+}
+
+.search-hold .search-slide {
+    width: 250px;
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 60px;
+}
+
+.sticky-search-hold .search-slide {
+    width: 250px;
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    right: 25px;
+}
+
+.search-slide ul {
+    list-style: none;
+}
+
+.search-slide li {
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.search-slide li a {
+    padding: 15px 21px;
+    display: flex;
+}
+
+.search-slide li a .simg img {
+    width: 48px;
+    border-radius: 10px;
+}
+
+.search-slide li a .scat {
+    font-size: 13px;
+    line-height: 1.9em;
+    font-weight: 400;
+    color: #606060;
+    display: block;
+}
+
+.search-slide li a .sinfo {
+    padding-left: 15px;
+}
+
+.search-slide li a .sdetail {
+    display: inline-flex;
+}
+
+.search-slide li a .sname {
+    font-size: 15px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.search-slide li a .sprice {
+    font-size: 12px;
+    border-radius: 6px;
+    background-color: rgba(60, 30, 84, 0.6);
+    font-weight: 400;
+    padding: 0 9px;
+    margin-left: 11px;
+    color: #FFFFFF;
+    height: fit-content;
+}
+
+/* .celeb-block .row>[class*=col-] a .star-overlay {
+    max-width: 200px !important;
+} */
+
+
+.background-startimg {
+    border-radius: 15px;
+    height: 240px !important;
+    position: relative;
+    display: flex;
+}
+
+.background-startimg .star-overlay {
+    border-radius: 40px !important;
+}
+
+
+.star {
+    flex: 0 0 146px;
+    margin: 6px 6px 20px;
+    position: relative;
+    color: #d3d3d3;
+}
+
+.celebrity-name {
+    font-family: 'Futura New Book', sans-serif;
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+    color: #1a2531;
+    margin-top: 5px;
+    margin-bottom: -3px;
+    font-size: 1rem;
+    max-width: 200px;
+}
+
+.star-overlay {
+    font-family: 'Futura New Bold', sans-serif;
+    text-align: center;
+    color: #0e394b;
+    font-size: .8rem;
+    margin:0 auto;
+    max-width: 200px;
+}
+
+.star-overlay.title {
+    background: #28023f;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.star-overlay.title h6 {
+    font-family: 'Futura New', sans-serif;
+    color: #ffffff;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.star-overlay .dollar {
+    font-size: .7rem;
+}
+
+.stars-block a .star-overlay-trans {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+
+.stars-block a:hover .star-overlay-trans {
+    visibility: visible;
+    opacity: 1;
+    background: rgba(60, 30, 84, 0.4);
+    border-radius: 10px;
+}
+
+.star.star--influencer {
+    flex: 0 0 210px;
+}
+
+/* min width */
+
+@media (min-width : 414px) {
+    .background-startimg {
+        height: 240px !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .align-self-center {
+        padding-left: 10px;
+    }
+
+}
+
+@media (min-width : 768px) {
+    .background-startimg {
+        height: 240px !important;
+    }
+}
+
+@media (min-width : 980px) {
+    .background-startimg {
+        height: 240px !important;
+    }
+}
+
+
+@media (min-width : 992px) {
+    .stars-block .row>[class*=col-] {
+        width: 25% !important;
+        min-width: 25% !important;
+    }
+}
+
+@media (min-width : 1200px) {
+    .background-startimg {
+        height: 240px !important;
+        max-width: 200px !important;
+        margin:0 auto;
+    }
+
+    .stars-block .row>[class*=col-] {
+        width: 25% !important;
+        min-width: 25% !important;
+    }
+}
+
+/* max width */
+
+@media (max-width : 991px) {
+    .align-self-center {
+        padding-left: 0px;
+    }
+
+}
+
+@media (max-width : 767px) {
+    .category-header-nav {
+        display: none;
+    }
+
+    .signup-banner {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-background-startimg {
+        max-width: 150px !important;
+    }
+}
+
+@media (max-width : 375px) {
+    .carousel-background-startimg {
+        max-width: 125px !important;
+    }
+
+    .background-startimg {
+        height: 200px !important;
+    }
+}
+
+/* Book Button */
+.book-btn-area a.book-btn {
+    font-family: 'Futura New Heavy', sans-serif;
+    background-color: #28023F;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    /* padding: 5px 15px; */
+    padding: 0px 35px;
+    display: inline-block;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 9px 26px 2px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 9px 26px 2px rgba(0, 0, 0, 0.57);
+    box-shadow: 0px 9px 26px 2px rgba(0, 0, 0, 0.57);
+}
+
+.book-btn-area.book-btn-area-slick {
+    min-height: 60px;
+}
+
+
+
+
+
+
+
+.enroll-info h2 {
+    font-weight: 600;
+}
+
+.celeb-block h3 {
+    font-weight: 800;
+}
+
+.signup-banner .align-items-end .logout_buttons{
+    width: 100%;
+    max-width: 310px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top:35px;
+}
+
+.signup-banner .align-items-end .logout_buttons p{
+    float: left;
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    padding-top:8px;
+     font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+.signup-banner .align-items-end .logout_buttons a{
+    border:2px solid #838383;
+    margin:0;
+    float: right;
+    border-radius: 50px;
+    padding:4px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #040000;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+

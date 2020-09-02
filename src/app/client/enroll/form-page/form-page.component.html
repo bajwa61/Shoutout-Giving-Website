@@ -1,0 +1,193 @@
+<!-- <app-header></app-header> -->
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<form [formGroup]="talentForm">
+  <section class="enroll-form-block clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-10 mx-auto">
+          <h2>Apply to join HalaHi Brand</h2>
+
+          <h3>
+            If you have fans and want to join HalaHi as brand, you can enrol
+            here and we'll be in touch.
+          </h3>
+
+          <div class="input-hold mt-4">
+            <label>Company Name</label>
+
+            <input formControlName="companyName" class="check-input" type="text"
+              placeholder="Company name or alias here..." />
+
+            <div *ngIf="
+                talentForm.controls.companyName.errors &&
+                (talentForm.controls.companyName.dirty ||
+                  talentForm.controls.companyName.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.companyName.errors.required" style="color: red;">Please prove us your
+                company
+                name</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label>Company website</label>
+
+            <input formControlName="companyWebsite" class="check-input" type="text" placeholder="www.abc.com" />
+            <div *ngIf="
+                talentForm.controls.companyWebsite.errors &&
+                (talentForm.controls.companyWebsite.dirty ||
+                  talentForm.controls.companyWebsite.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.companyWebsite.errors.required" style="color: red;">Please provide us
+                your
+                website</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label>Company Bio</label>
+
+            <textarea formControlName="companyBio" class="check-input" type="text" placeholder="Company Bio"></textarea>
+            <div *ngIf="
+                talentForm.controls.companyBio.errors &&
+                (talentForm.controls.companyBio.dirty ||
+                  talentForm.controls.companyBio.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.companyBio.errors.required" style="color: red;">Please provide us your
+                company bio</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label>Company representative</label>
+
+            <input formControlName="companyRepresentativeName" class="check-input" type="text"
+              placeholder="Company representative" />
+            <div *ngIf="
+                talentForm.controls.companyRepresentativeName.errors &&
+                (talentForm.controls.companyRepresentativeName.dirty ||
+                  talentForm.controls.companyRepresentativeName.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.companyRepresentativeName.errors.required" style="color: red;">Please
+                provide us your
+                company representative name</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <label>Representative contact person</label>
+
+            <input formControlName="representativeContactPersonName" class="check-input" type="text"
+              placeholder="Representative contact person" />
+            <div *ngIf="
+                talentForm.controls.representativeContactPersonName.errors &&
+                (talentForm.controls.representativeContactPersonName.dirty ||
+                  talentForm.controls.representativeContactPersonName.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.representativeContactPersonName.errors.required"
+                style="color: red;">Please provide
+                Representative contact person</span>
+            </div>
+          </div>
+
+          <!--Phone Number --->
+          <div class="input-hold mt-4">
+            <label>Representative contact person name *</label>
+
+            <div class="d-flex">
+
+              <select formControlName="code" name="phonecode" class="check-input">
+                <option *ngFor="let codes of codesJson" [value]="codes.dial_code">{{codes.name}} ({{codes.dial_code}})</option>
+              </select>
+
+              <input formControlName="phone" class="check-input" type="number" placeholder="555 555 5555">
+            </div>
+            <div
+              *ngIf="talentForm.controls.code.errors && (talentForm.controls.code.dirty || talentForm.controls.code.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.code.errors.required" style="color: red">Please enter phone code.</span>
+            </div>
+            <div
+              *ngIf="talentForm.controls.phone.errors && (talentForm.controls.phone.dirty || talentForm.controls.phone.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.phone.errors.required" style="color: red">Please enter phone
+                number.</span>
+            </div>
+          </div>
+          <!-- <div class="input-hold mt-4">
+            <label>Why are you joining HalaHi for Brands?</label>
+            <input formControlName="joiningPurpose" type="radio" value="Collaborate with celebrities" name="Reason" />
+            <span> Collaborate with celebrities</span> <br />
+            <input formControlName="joiningPurpose" type="radio" value="Send celebrities gifts" name="Reason" />
+            <span> Send celebrities gifts</span><br />
+            <input formControlName="joiningPurpose" type="radio" value="Just exploring" name="Reason" />
+            <span> Just exploring</span>
+          </div> -->
+          <div class="input-hold mt-4">
+            <label>Email</label>
+
+            <input formControlName="emailAddress" class="check-input" type="text" placeholder="hello@halahi.com" />
+            <div *ngIf="
+                talentForm.controls.emailAddress.errors &&
+                (talentForm.controls.emailAddress.dirty ||
+                  talentForm.controls.emailAddress.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.emailAddress.errors.required" style="color: red;">Please provide us your
+                email address</span>
+              <span *ngIf="talentForm.controls.emailAddress.errors.pattern" style="color: red;">Please provide valid
+                email address and in lower case</span>
+            </div>
+          </div>
+
+          <div class="input-hold mt-3">
+            <label>Password</label>
+            <input formControlName="password" class="check-input" [type]="fieldTextType ? 'text' : 'password'"
+              style="width:100%;">
+
+            <div
+              *ngIf="talentForm.controls.password.errors && (talentForm.controls.password.dirty || talentForm.controls.password.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.password.errors.required">Password is required.</span>
+            </div>
+          </div>
+          <div class="input-hold mt-3">
+            <label>Retype Password</label>
+            <input formControlName="confirmPassword" class="check-input" [type]="fieldTextType ? 'text' : 'password'">
+            <div
+              *ngIf="talentForm.controls.confirmPassword.errors && (talentForm.controls.confirmPassword.dirty || talentForm.controls.confirmPassword.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.confirmPassword.errors.required">Retype password is required</span>
+            </div>
+            <div *ngIf="(talentForm.controls.confirmPassword.dirty || talentForm.controls.confirmPassword.touched)"
+              class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.getRawValue()['password'] != talentForm.getRawValue()['confirmPassword']">Your
+                password and confirmation password do not match..</span>
+            </div>
+          </div>
+          <div class="radio-hold mt-5">
+            <label><input formControlName="termsAgreement" type="checkbox" name="acceptTerms" />I accept the
+              <a style="cursor: pointer;" [routerLink]="['/terms']">Terms & Conditions</a>.</label>
+
+            <div *ngIf="
+                talentForm.controls.termsAgreement.errors &&
+                (talentForm.controls.termsAgreement.dirty ||
+                  talentForm.controls.termsAgreement.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="talentForm.controls.termsAgreement.errors.required" style="color: red;">Please accept terms &
+                conditions.</span>
+            </div>
+          </div>
+          <div class="input-hold mt-4">
+            <input type="submit" class="btn-book" value="Submit" (click)="submitEnrollRequest()" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+<form #form ngNoForm id="nonseamless" method="post" name="redirect"
+  action="https://secure.ccavenue.ae/transaction/transaction.do?command=initiateTransaction">
+  <input type="hidden" id="encRequest" name="encRequest" [ngModel]="encRequest" />
+  <input type="hidden" name="access_code" id="access_code" [ngModel]="accessCode" />
+</form>
+
+<app-footer></app-footer>

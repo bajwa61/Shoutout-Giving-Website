@@ -1,0 +1,57 @@
+
+<app-header></app-header>
+  <section class="content clearfix">
+    <div class="container">
+      <div class="card-hold">
+        <h2>Here is {{enrollRequest['name']}} Enrol form entry</h2>
+        <table class="table profile-table">
+          <tr>
+            <th>Your Name</th>
+            <td>{{enrollRequest['name']}}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{enrollRequest['emailAddress']}}</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td>{{enrollRequest['code']}} - {{enrollRequest['phone']}}</td>
+          </tr>
+          <tr>
+            <th>Instagram Handle</th>
+            <td>{{enrollRequest['instagramHandle']}}</td>
+          </tr>
+          <tr>
+            <th>Instagram Followers</th>
+            <td>{{enrollRequest['instagramFollowers']}}</td>
+          </tr>
+          <tr>
+            <th>Facebook Handle</th>
+            <td>{{enrollRequest['facebookHandle']}}</td>
+          </tr>
+          <tr>
+            <th>Facebook followers</th>
+            <td>{{enrollRequest['facebookFollowers']}}</td>
+          </tr>
+          <tr>
+            <th>Youtube Handle</th>
+            <td>{{enrollRequest['youtubeHandle']}}</td>
+          </tr>
+          <tr>
+            <th>Youtube Followers</th>
+            <td>{{enrollRequest['youtubeFollowers']}}</td>
+          </tr>
+          <tr>
+            <th>Tiktok Handle</th>
+            <td>{{enrollRequest['tiktokHandle']}}</td>
+          </tr>
+          <tr>
+            <th>Tiktok Followers</th>
+            <td>{{enrollRequest['tiktokFollowers']}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>

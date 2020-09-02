@@ -1,0 +1,51 @@
+<app-header></app-header>
+  <section class="content clearfix">
+    <div class="container">
+      <div class="card-hold">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>S.N</th>
+                <th>Celebrity</th>
+                <th>Price ($)</th>
+                <th>To</th>
+                <th>From</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{order.celebrityName}}</td>
+                <td>{{order.price}}</td>
+                <td>{{order.myself?order.name:order['to']}}</td>
+                <td>{{order.myself?order.name:order['from']}}</td>
+                <td>{{order.emailAddress}}</td>
+                <td>{{order.phone}}</td>
+                <td><span [ngClass]="order.status == 'submitted'?'badge-primary': order.status == 'cancelled'?'badge-danger':order.status == 'overdue'? 'badge-warning':'badge-success'" class="badge ">{{order.status.toUpperCase()}}</span></td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <a [routerLink]="[ '/dashboard/order-single',order.id]">
+                      <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    </a>
+<!--                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">-->
+<!--                      <i class="fa fa-trash-o"></i>-->
+<!--                    </button>-->
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>

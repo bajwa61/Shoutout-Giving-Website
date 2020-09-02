@@ -1,0 +1,73 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <div class="container">
+    <div class="profile-info mb-3">
+      <div class="input-hold">
+        <a [routerLink]="['/agent-dashboard/conversions']" class="btn btn-dark" value="Back">Back</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container">
+        <div class="card-hold">
+          <div class="table-responsive table-sm">
+            <h2>Celebrity</h2>
+            <table class="table table-hover mb-0">
+              <tr>
+                <td>Name</td>
+                <td>{{ celebrity.name }}</td>
+              </tr>
+              <tr>
+                <td>Approval Date</td>
+                <td>
+                  <span *ngIf="celebrity.createdDate">{{
+                    celebrity.createdDate.toDate() | date: "EEEE, dd MMM yyyy"
+                  }}</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <br /><br />
+          <h2>Orders</h2>
+          <div class="table-responsive table-sm">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>S.N</th>
+                  <th>Occasion</th>
+                  <th>Amount ($)</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Status</th>
+                  <th>Earnings</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="totalOrders">
+                <tr *ngFor="let order of orders; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ order.occasion }}</td>
+                  <td>{{ order.price }}</td>
+                  <td>
+                    <span *ngIf="order.date">{{
+                      order.date.toDate() | date: "EEE, dd MMM yyyy"
+                    }}</span>
+                  </td>
+                  <td>
+                    <span *ngIf="order.date">{{
+                      order.date.toDate() | date: "hh:mm aaa"
+                    }}</span>
+                  </td>
+                  <td>
+                    <span [ngClass]="order.status == 'submitted'?'badge-primary': order.status == 'cancelled'?'badge-danger':order.status == 'overdue'? 'badge-warning':'badge-success'" class="badge">{{ order.status }}</span>
+                  </td>
+                  <td>{{ (order.price * 5) / 100 }}</td>
+                </tr>
+              </tbody>
+              <td *ngIf="!totalOrders" colspan="7"  align="center"><br />Data Not Available</td>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

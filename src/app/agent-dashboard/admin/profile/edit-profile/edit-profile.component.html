@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<section class="content clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-hold">
+          <div class="form-block">
+            <h2>Profile Details</h2>
+            <!-- <div class="input-hold">
+              <label>Email</label>
+              <input
+                disabled   
+                class="check-input"
+                type="text"
+                #email="ngModel"
+                [(ngModel)]="agentProfileModel.email"
+              />
+            </div> -->
+            <div class="input-hold">
+              <label>First Name</label>
+              <input
+                class="check-input"
+                type="text"
+                #firstname="ngModel"
+                [(ngModel)]="agentProfileModel.firstname"
+              />
+            </div>
+            <div class="input-hold">
+              <label>Last Name</label>
+              <input
+                class="check-input"
+                type="text"
+                #lastname="ngModel"
+                [(ngModel)]="agentProfileModel.lastname"
+              />
+            </div>
+            <div class="input-hold">
+              <label>Code</label>
+              <select  #code="ngModel"
+              [(ngModel)]="agentProfileModel.code" name="phonecode" class="check-input">
+                <option *ngFor="let codes of codesJson" [value]="codes.dial_code">{{codes.name}} ({{codes.dial_code}})</option>
+              </select>
+            </div>
+            <div class="input-hold">
+              <label>Phone</label>
+              <input
+                class="check-input"
+                type="text"
+                #phone="ngModel"
+                [(ngModel)]="agentProfileModel.phone"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-hold">
+          <div class="form-block">
+           <h2>Bank Account Details</h2>
+            <div class="input-hold">
+              <label>Bank Name</label>
+              <input
+                class="check-input"
+                type="text"
+                #bankName="ngModel"
+                [(ngModel)]="agentProfileModel.bankName"
+              />
+            </div>
+            <div class="input-hold">
+              <label>Account</label>
+              <input
+                class="check-input"
+                type="number"
+                #account="ngModel"
+                [(ngModel)]="agentProfileModel.account"
+              />
+            </div>
+            <div class="input-hold">
+              <label>IBAN</label>
+              <input
+                class="check-input"
+                type="text"
+                #iBAN="ngModel"
+                [(ngModel)]="agentProfileModel.iBAN"
+              />
+            </div>
+            <div class="input-hold">
+              <label>Swift Code</label>
+              <input
+                class="check-input"
+                type="number"
+                #swiftCode="ngModel"
+                [(ngModel)]="agentProfileModel.swiftCode"
+              />
+            </div>
+            <br />
+            <div align="center" class="input-hold">
+              <button style="width: 40%;"
+                type="submit"
+                class="btn btn-dark"
+                (click)="updateAgentProfile()"
+              >
+                Update Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <app-footer></app-footer>
+

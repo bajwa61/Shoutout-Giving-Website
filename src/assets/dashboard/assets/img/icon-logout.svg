@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="15" viewBox="0 0 18 15">
+  <g id="Mask_Group_1" data-name="Mask Group 1" clip-path="url(#clip-path)">
+    <g id="icon-logout" transform="translate(2.094 0.275)">
+      <path id="Path_151" data-name="Path 151" d="M398.838,261.365,398.2,262l1.935,1.934h-6.386v.9h6.386l-1.935,1.934.637.637,3.022-3.022Z" transform="translate(-387.441 -257.177)" fill="#505050"/>
+      <path id="Path_152" data-name="Path 152" d="M9.914,13.518H.9V.9H9.914v.9h.9V.451A.45.45,0,0,0,10.364,0H.451A.45.45,0,0,0,0,.451V13.969a.45.45,0,0,0,.451.451h9.913a.45.45,0,0,0,.451-.451V12.617h-.9Z" transform="translate(0 0)" fill="#505050"/>
+    </g>
+  </g>
+</svg>

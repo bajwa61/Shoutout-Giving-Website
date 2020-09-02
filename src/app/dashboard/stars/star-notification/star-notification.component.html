@@ -1,0 +1,23 @@
+<app-header></app-header>
+<section class="content clearfix">
+    <div class="container">
+        <div class="card-hold">
+            <div class="form-block">
+                <h2>Miscellaneous Announcements/Updates</h2>
+                <h5>Send custom notifications for miscellaneous announcements/updates.</h5>
+                <div class="input-hold">
+                    <label>Notification Title</label>
+                    <input [(ngModel)]="title" class="check-input" type="text" placeholder="Title" name="titlemau">
+                </div>
+                <div class="input-hold mt-4">
+                    <label>Notification Text</label>
+                    <textarea [(ngModel)]="text" class="check-input" placeholder="Text"></textarea>
+                </div>
+                <div class="input-hold">
+                    <input type="submit" class="btn-submit" (click)="sendNotification(title, text)">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

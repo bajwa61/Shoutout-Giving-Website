@@ -1,0 +1,83 @@
+<app-header></app-header>
+
+<section class="content clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8   ">
+        <div class="card-hold position-relative">
+          <!--            <div class="update-profile">-->
+          <!--              <a href="#">Delete Order</a>-->
+          <!--            </div>-->
+          <div class="update-profile">
+            <a [routerLink]="[ '/dashboard/edit-order',order['id']]" class="mr-2">Edit Order</a>
+            <a *ngIf="order['status'] == 'submitted' || order['status'] == 'overdue' "
+              [routerLink]="[ '/dashboard/deliver-order',order['id']]" class="mr-2">Deliver Order</a>
+          </div>
+          <div class="profile-info mb-3">
+            <h2>Order ID # {{order['id']}}</h2>
+          </div>
+          <table class="table profile-table">
+            <tr>
+              <th>Order Status</th>
+              <td><span
+                  [ngClass]="order['status'] == 'submitted'?'badge-primary': order['status'] == 'cancelled'?'badge-danger': order['status'] == 'overdue'? 'badge-warning': 'badge-success'"
+                  class="badge ">{{order['status'].toUpperCase()}}</span></td>
+            </tr>
+            <tr>
+              <th>Date</th>
+              <td><span *ngIf="order['date']">{{order['date'].toDate() | date:'EEE, dd MMM yyyy'}}</span></td>
+            </tr>
+            <tr>
+              <th>To</th>
+              <td>{{order['myself']?order['name']:order['to']}}</td>
+            </tr>
+            <tr>
+              <th>From</th>
+              <td>{{order['myself']?order['name']:order['from']}}</td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td>{{order['name']}}</td>
+            </tr>
+            <tr>
+              <th>Occasion</th>
+              <td>{{order['occasion']}}</td>
+            </tr>
+            <tr>
+              <th>Instructions for shoutout</th>
+              <td>{{order['instructions']}}</td>
+            </tr>
+            <tr>
+              <th>Customer Email</th>
+              <td>{{order['emailAddress']}}</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>{{order['phone']}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-hold">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="profile-info mb-3">
+              <div class="video-hold">
+                <div class="star-video">
+                  <div class="position-relative">
+                    <video width="270" height="450" src="{{videoUrl}}" preload="none" controlsList="nodownload" muted
+                      controls>
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>

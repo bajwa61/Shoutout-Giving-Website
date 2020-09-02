@@ -1,0 +1,315 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <div class="container">
+    <div class="card-hold">
+      <h2>Edit Page</h2>
+
+      <!-- Home Page -->
+      <ng-container *ngIf="pageDetail == 'home'">
+
+        <div class="language-block">
+          <!-- <h3>English</h3> -->
+          <div class="form-block mb-5 pb-4">
+            <div class="input-hold mt-4">
+              <label>Page Title</label>
+              <input class="check-input" type="text" [(ngModel)]="title" name="title" placeholder="Page Title">
+            </div>
+
+            <!-- Banner Upload -->
+            <section class="row">
+              <div class="input-hold col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="margin: 10px 0;">
+                <label for="fileimg">Upload Banner Image</label>
+                <input class="btn-submit" type="file" id="fileimg" accept="image/*" (change)="uploadHomeBanner($event)">
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="margin: 10px 0;min-height: 30px;">
+                <p *ngIf="bannerTotalBytes > 0" style="position: absolute;top: 50%;width: 50%;">
+                  <ngb-progressbar [showValue]="true" type="success" [value]="bannerBytesTransferred"
+                    [max]="bannerTotalBytes"></ngb-progressbar>
+                </p>
+              </div>
+            </section>
+
+            <section class="row" style="position: relative;">
+              <ng-container *ngFor="let banner of banners;let i = index">
+                <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" style="margin-bottom: 10px;">
+                  <i class="remove-icon fa fa-minus-circle" aria-hidden="true" (click)="banners.splice(i,1)"></i>
+                  <img width="auto" height="125" [src]="banner">
+                </section>
+              </ng-container>
+            </section>
+      
+            <!-- Mobile Banner Upload -->
+            <section class="row">
+              <div class="input-hold col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="margin: 10px 0;">
+                <label for="fileimg">Upload Mobile Banner Image</label>
+                <input class="btn-submit" type="file" id="fileimge" accept="image/*"
+                  (change)="uploadMobileBanner($event)">
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="margin: 10px 0;min-height: 30px;">
+                <p *ngIf="mobileBannerTotalBytes > 0" style="position: absolute;top: 50%;width: 50%;">
+                  <ngb-progressbar [showValue]="true" type="success" [value]="mobileBannerBytesTransferred"
+                    [max]="mobileBannerTotalBytes"></ngb-progressbar>
+                </p>
+              </div>
+            </section>
+            <section class="row" style="position: relative;">
+              <ng-container *ngFor="let banner of mobileBanner;let i = index">
+                <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" style="margin-bottom: 10px;">
+                  <i class="remove-icon fa fa-minus-circle" aria-hidden="true" (click)="mobileBanner.splice(i,1)"></i>
+                  <img width="auto" height="125" [src]="banner">
+                </section>
+              </ng-container>
+            </section>
+
+            <!-- Advertisement Upload -->
+            <section class="row">
+              <!-- Ad 1 -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+                <div class="input-hold" style="margin: 10px 0;">
+                  <label for="leftadverturl">Left Advertisment</label>
+                  <input class="check-input" type="url" [(ngModel)]="leftAdvertUrl" name="leftadverturl"
+                    placeholder="Left Advertisment">
+                </div>
+
+                <div class="input-hold" style="margin: 10px 0;">
+                  <label for="fileimg">Upload Image</label>
+                  <input class="btn-submit" type="file" id="fileimg" accept="image/*"
+                    (change)="uploadAdvertisement($event, 'left')">
+                </div>
+
+                <section class="row" style="position: relative;">
+                  <ng-container>
+                    <section class="col-12">
+                      <!-- <i class="remove-icon fa fa-minus-circle" aria-hidden="true" (click)="leftAdvert.splice(i,1)"></i> -->
+                      <img width="100%" [src]="leftAdvert">
+                    </section>
+                  </ng-container>
+                </section>
+              </div>
+
+              <!-- Ad 2 -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+                <div class="input-hold" style="margin: 10px 0;">
+                  <label for="rightadverturl">Right Advertisment</label>
+                  <input class="check-input" type="url" [(ngModel)]="rightAdvertUrl" name="rightadverturl"
+                    placeholder="Right Advertisment">
+                </div>
+
+                <div class="input-hold" style="margin: 10px 0;">
+                  <label for="fileimg">Upload Image</label>
+                  <input class="btn-submit" type="file" id="fileimg" accept="image/*"
+                    (change)="uploadAdvertisement($event, 'right')">
+                </div>
+
+                <section class="row" style="position: relative;">
+                  <ng-container>
+                    <section class="col-12">
+                      <!-- <i class="remove-icon fa fa-minus-circle" aria-hidden="true"
+                        (click)="rightAdvert.splice(i,1)"></i> -->
+                      <img width="100%" [src]="rightAdvert">
+                    </section>
+                  </ng-container>
+                </section>
+              </div>
+
+            </section>
+
+            <div class="input-hold mt-4">
+              <input type="submit" class="btn-submit" value="Publish" (click)="updatePageData()">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Enrol Page -->
+      <ng-container *ngIf="pageDetail == 'enroll'">
+        <div class="language-block">
+          <h3>English</h3>
+          <div class="form-block">
+            <div class="input-hold mt-4">
+              <label>Page Title</label>
+              <input class="check-input" type="text" name="title" [(ngModel)]="title" placeholder="Page Title">
+            </div>
+
+            <div class="input-hold mt-4">
+              <label>Banner Title</label>
+              <input class="check-input" type="text" [(ngModel)]="bannerTitle" name="bannerTitle"
+                placeholder="Banner Title">
+            </div>
+
+            <div class="input-hold mt-4">
+              <label>Banner Content</label>
+              <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="content"></angular-editor>
+            </div>
+
+            <div class="semi-row">
+              <div class="input-hold mt-4">
+                <label>Good Company Title</label>
+                <input class="check-input" type="text" placeholder="Page Title" name="companyTitle"
+                  [(ngModel)]="companyTitle">
+              </div>
+
+              <div class="input-hold mt-4">
+                <label>Good Company Subtitle</label>
+                <input class="check-input" type="text" placeholder="Page Title" name="companySubtitle"
+                  [(ngModel)]="companySubtitle">
+              </div>
+            </div>
+
+            <div class="input-hold mt-4">
+              <label>Multi Select Stars</label>
+              <select [disabled]="featuredStars.length >3" class="check-select"
+                (change)="addCelebrity($event.target.value)">
+                <option [disabled]="true">Select Stars</option>
+                <option *ngFor="let celebrity of celebrities" [value]="celebrity.id">{{celebrity['fullName']}}</option>
+              </select>
+            </div>
+
+            <ng-container *ngFor="let star of featuredStars;let i = index">
+              <div class="faq-headline">
+                <h4>{{star['fullName']}}</h4>
+                <i class="fa fa-minus-circle" aria-hidden="true" (click)="featuredStars.splice(i,1)"></i>
+              </div>
+
+            </ng-container>
+
+            <div class="input-hold mt-4">
+              <input type="submit" class="btn-submit" value="Publish" (click)="updatePageData()">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- FAQ Page -->
+      <ng-container *ngIf="pageDetail == 'faq'">
+        <div class="language-block">
+          <h3>English</h3>
+          <div class="form-block mb-5 pb-4">
+            <div class="input-hold mt-4">
+              <label>Page Title</label>
+              <input class="check-input" type="text" name="title" [(ngModel)]="title" placeholder="Page Title">
+            </div>
+            <div class="input-hold mt-4">
+              <label>Page Content</label>
+              <angular-editor [placeholder]="'Answer'" [(ngModel)]="content"></angular-editor>
+            </div>
+
+            <div class="faq-headline mb-3 mt-5">
+              <h4>FAQ Blocks</h4>
+
+            </div>
+
+            <ng-container *ngFor="let data of faq;let i = index">
+              <div class="faq-headline">
+                <h4></h4>
+                <div class="add-delete">
+                  <i class="fa fa-plus-circle" aria-hidden="true" (click)="addFaq()"></i>
+                  <i *ngIf="i!=0" class="fa fa-minus-circle" aria-hidden="true" (click)="removeFaq(i)"></i>
+                </div>
+              </div>
+
+              <div class="repeater">
+                <div class="input-hold mt-4">
+                  <input class="check-input" type="text" name="{{data.question}}" [(ngModel)]="data.question"
+                    placeholder="Question">
+                </div>
+                <div class="input-hold mt-1 mb-5">
+                  <textarea class="check-textarea" name="{{data.answer}}" [(ngModel)]="data.answer"
+                    placeholder="Answer"></textarea>
+                </div>
+              </div>
+            </ng-container>
+
+          </div>
+        </div>
+
+        <div class="language-block">
+          <h3>Arabic</h3>
+          <div class="form-block mb-5 pb-4">
+            <div class="input-hold mt-4">
+              <label>Page Title</label>
+              <input class="check-input" type="text" name="title" [(ngModel)]="arabicTitle" placeholder="Page Title">
+            </div>
+            <div class="input-hold mt-4">
+              <label>Page Content</label>
+              <angular-editor [placeholder]="'Answer'" [(ngModel)]="arabicContent"></angular-editor>
+            </div>
+
+            <div class="faq-headline mb-3 mt-5">
+              <h4>FAQ Blocks</h4>
+
+            </div>
+
+            <ng-container *ngFor="let data of faqArabic;let i = index">
+              <div class="faq-headline">
+                <h4></h4>
+                <div class="add-delete">
+                  <i class="fa fa-plus-circle" aria-hidden="true" (click)="addArabicFaq()"></i>
+                  <i *ngIf="i!=0" class="fa fa-minus-circle" aria-hidden="true" (click)="removeArabicFaq(i)"></i>
+                </div>
+              </div>
+
+              <div class="repeater">
+                <div class="input-hold mt-4">
+                  <input class="check-input" type="text" name="{{data.question}}" [(ngModel)]="data.question"
+                    placeholder="Question">
+                </div>
+                <div class="input-hold mt-1 mb-5">
+                  <textarea class="check-textarea" name="{{data.answer}}" [(ngModel)]="data.answer"
+                    placeholder="Answer"></textarea>
+                </div>
+              </div>
+            </ng-container>
+
+            <div class="input-hold mt-4">
+              <input type="submit" class="btn-submit" value="Publish" (click)="updatePageData()">
+            </div>
+
+          </div>
+        </div>
+
+      </ng-container>
+
+      <!-- Default -->
+      <ng-container *ngIf="pageDetail != 'enroll'&&pageDetail != 'faq'&&pageDetail != 'home'">
+        <div class="language-block">
+          <h3>English</h3>
+          <div class="form-block mb-5 pb-4">
+            <div class="input-hold mt-4">
+              <label>Page Title</label>
+              <input class="check-input" type="text" [(ngModel)]="title" name="title" placeholder="Page Title">
+            </div>
+
+            <div class="input-hold mt-4">
+              <label>Page Content</label>
+              <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="content"></angular-editor>
+            </div>
+          </div>
+        </div>
+
+        <div class="language-block">
+          <h3>Arabic</h3>
+          <div class="form-block mb-5 pb-4">
+            <div class="input-hold mt-4">
+              <label>Page Title</label>
+              <input class="check-input" type="text" placeholder="Page Title" name="arabicTitle"
+                [(ngModel)]="arabicTitle">
+            </div>
+
+            <div class="input-hold mt-4">
+              <label>Page Content</label>
+              <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="arabicContent"></angular-editor>
+            </div>
+            <div class="input-hold mt-4">
+              <input type="submit" class="btn-submit" value="Publish" (click)="updatePageData()">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

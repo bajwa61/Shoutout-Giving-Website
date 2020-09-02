@@ -1,0 +1,36 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <div class="container">
+    <div class="card-hold">
+      <div class="table-responsive table-sm">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>S.N</th>
+              <th>Occasion</th>
+              <th>Value ($)</th>
+              <th>Status</th>
+              <th>Earnings ($)</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="totalOrders">
+            <tr *ngFor="let order of orders;let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{order.occasion}}</td>
+              <td>{{order.price}}</td>
+              <td>
+                <span
+                  [ngClass]="order.status == 'submitted'?'badge-primary': order.status == 'cancelled'?'badge-danger':order.status == 'overdue'? 'badge-warning':'badge-success'"
+                  class="badge ">{{order.status}}</span>
+              </td>
+              <td>{{order.price*5/100}}</td>
+            </tr>
+          </tbody>
+          <td *ngIf="!totalOrders" colspan="5" align="center"><br />Data Not Available</td>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

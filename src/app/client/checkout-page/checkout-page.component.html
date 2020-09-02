@@ -1,0 +1,363 @@
+<!-- <app-header-search></app-header-search> -->
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<section class="section_1">
+  <div class="container">
+    <div class="row">
+      <!-- Celebrity name -->
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="book_img">
+          <div class="small_image">
+            <img [src]="celebrity['imageUrl']" class="img-fluid" />
+            <h4>{{ celebrity["name"] }}</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- What Happens Next? -->
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="top_heading">
+          <img src="../../../../assets/client/assets/img/what-happen.png" />
+        </div>
+        <div class="what-happen-heading">
+          <div class="heading_with_icons">
+            <hr class="left_line" />
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/calendar.png" />
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  {{ celebrity["name"] }} has
+                  {{ celebrity["responseTime"] }} days to complete your request.
+                </p>
+              </section>
+            </div>
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/bill.png" />
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  Your receipt and order updates will be sent to the email
+                  provided under Delivery Information.
+                </p>
+              </section>
+            </div>
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/gift.png" />
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  When your request is completed, we'll email and text you a
+                  link to view, share, or download your video.
+                </p>
+              </section>
+            </div>
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/money-back.png" />
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  If for some reason your video isn't completed, the ${{
+                    celebrity["price"]
+                  }}
+                  charged to your card will be refunded within 5-7 business
+                  days.
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12 pull-right">
+        <!--<div class="booking_form">
+            <p>Booking form for companies<br>Fields TBD</p>
+        </div>-->
+
+        <div class="radio-hold mt-2">
+          <h3>Step 1. Choose Deliverables</h3>
+          <label>
+            <input formControlName="agree" type="checkbox" name="acceptTerms" />
+            <p style="cursor: pointer;">Facebook Story</p>
+          </label>
+        </div>
+
+        <div class="radio-hold mt-2">
+          <label>
+            <input formControlName="agree" type="checkbox" name="acceptTerms" />
+            <p style="cursor: pointer;">Instagram Storys</p>
+          </label>
+        </div>
+
+        <div class="radio-hold mt-2">
+          <label>
+            <input formControlName="agree" type="checkbox" name="acceptTerms" />
+            <p style="cursor: pointer;">TikTok Video</p>
+          </label>
+        </div>
+
+        <div class="radio-hold mt-2">
+          <label>
+            <input formControlName="agree" type="checkbox" name="acceptTerms" />
+            <p style="cursor: pointer;">Snapchat Story</p>
+          </label>
+        </div>
+
+        <div class="radio-hold mt-2">
+          <div class="checkout_headings">
+            <!--<label class="radio-inline"><input type="radio" name="optradio" checked><strong>Facebook Story</strong></label>
+            <label class="radio-inline"><input type="radio" name="optradio" checked><strong>Instagram Storys</strong></label>
+              <label class="radio-inline"><input type="radio" name="optradio"><strong>TikTok Video</strong></label>
+              <label class="radio-inline"><input type="radio" name="optradio"><strong>Snapchat Story</strong></label>-->
+            <h3>STEP 2. BRIEF</h3>
+            <p>
+              Please make sure to be as specific as possible in order for the
+              celebrity to understand what do to when posting. Don’t forget to
+              include your social media handles, swipe-up links and everything
+              else needed for the celebrity to deliver.
+            </p>
+          </div>
+
+          <div class="form-group green-border-focus">
+            <!--
+              <strong>Message</strong>
+              <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
+            -->
+          </div>
+        </div>
+
+        <form [formGroup]="checkoutForm">
+          <section class="checkout-block clearfix">
+            <div class="container">
+              <!--<div class="row">-->
+
+              <!-- Video recipient switch -->
+              <!-- <div class="list_heading">
+                  <a class="btn btn-primary">this video is for</a>
+                  <div class="form-check">
+                    <input class="form-check-input" id="exampleRadios1" type="radio" name="videoRequest"
+                      (change)="forMyself(false)" checked="">
+                    <label class="form-check-label" for="exampleRadios1">
+                      SOMEONE ELSE
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" id="exampleRadios2" type="radio" name="videoRequest"
+                      (change)="forMyself(true)">
+                    <label class="form-check-label" for="exampleRadios2">
+                      MYSELF
+                    </label>
+                  </div>
+                </div> -->
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <!-- Video for Someone else -->
+                <!-- <div class="row" *ngIf="!myself">
+                    <div class="col-md-6 mt-4">
+                      <div class="input-hold">
+                        <label>To</label>
+                        <input formControlName="to" class="check-input" type="text" placeholder="">
+                        <div
+                          *ngIf="checkoutForm.controls.to.errors && (checkoutForm.controls.to.dirty || checkoutForm.controls.to.touched)"
+                          class="error-msg mt-1" role="alert">
+                          <span *ngIf="checkoutForm.controls.to.errors.required" style="color: blueviolet;">Please
+                            provide recipient's name</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                      <div class="input-hold">
+                        <label>From</label>
+                        <input formControlName="from" class="check-input" type="text" placeholder="">
+                        <div
+                          *ngIf="checkoutForm.controls.from.errors && (checkoutForm.controls.from.dirty || checkoutForm.controls.from.touched)"
+                          class="error-msg mt-1" role="alert">
+                          <span *ngIf="checkoutForm.controls.from.errors.required" style="color: blueviolet;">Please
+                            provide sender's name</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+                <!-- Video for Myself -->
+                <!-- <div class="input-hold mt-4" *ngIf="myself">
+                    <label>My name is</label>
+                    <input formControlName="name" class="check-input" type="text" placeholder="">
+                    <div
+                      *ngIf="checkoutForm.controls.name.errors && (checkoutForm.controls.name.dirty || checkoutForm.controls.name.touched)"
+                      class="error-msg mt-1" role="alert">
+                      <span *ngIf="checkoutForm.controls.name.errors.required" style="color: blueviolet;">Please provide
+                        us your name</span>
+                    </div>
+                  </div>-->
+
+                <!-- Occasion -->
+                <!--<div class="input-hold mt-4">
+                    <label>Select an occasion</label>
+                    <select formControlName="occasion" class="check-select" name="occasions">
+                      <option value=""></option>
+                      <option value="Birthday">Birthday</option>
+                      <option value="Valentine's Day">Valentine's Day</option>
+                      <option value="Mother's Day">Mother's Day</option>
+                      <option value="Pep Talk">Pep Talk</option>
+                      <option value="Announcement">Announcement</option>
+                      <option value="Advice">Advice</option>
+                      <option value="Roast">Roast</option>
+                      <option value="Wedding">Wedding</option>
+                      <option value="Anniversary">Anniversary</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div
+                      *ngIf="checkoutForm.controls.occasion.errors && (checkoutForm.controls.occasion.dirty || checkoutForm.controls.occasion.touched)"
+                      class="error-msg mt-1" role="alert">
+                      <span *ngIf="checkoutForm.controls.occasion.errors.required" style="color: blueviolet;">Please
+                        choose an occasion</span>
+                    </div>
+                  </div>-->
+
+                <!-- Instructions -->
+                <div class="input-hold mt-4">
+                  <label>My instructions to
+                    <span style="color: blueviolet;">{{
+                      celebrity["name"]
+                    }}</span></label>
+                  <textarea maxlength="300" formControlName="instructions" #instructions class="check-textarea"
+                    placeholder=""></textarea>
+                  <span *ngIf="instructions.value.length > 0">{{ 300 - instructions.value.length }} / 300</span>
+                  <div *ngIf="
+                      checkoutForm.controls.instructions.errors &&
+                      (checkoutForm.controls.instructions.dirty ||
+                        checkoutForm.controls.instructions.touched)
+                    " class="error-msg mt-0" role="alert">
+                    <span *ngIf="checkoutForm.controls.instructions.errors.required" style="color: blueviolet;">Please
+                      provide instructions to the celebrity</span>
+                  </div>
+
+                  <div class="calendar">
+                    <h3>Step 3. Preferred date of Delivery</h3>
+                    <p>
+                      This is the preferred date you want the celebrity to post.
+                      Note however that the celebrity has a total of 4 days to
+                      deliver.
+                    </p>
+                    <br /><br /><br /><br />
+                    <form action="/action_page.php">
+                      <input type="date" id="date" name="Date" class="form-control btm-block" />
+                      <!--<input type="submit" class="">-->
+                    </form>
+
+                    <div class="step3_headings">
+                      <div class="input-hold">
+                        <h3>Step 4. PAY</h3>
+                      </div>
+                      <div class="radio-hold">
+                        <label>
+                          <input formControlName="notPublic" type="checkbox" name="notPublic" />
+                          <p>Don't make this video public on HalaHi</p>
+                        </label>
+                      </div>
+                      <div class="radio-hold mt-2">
+                        <label>
+                          <input formControlName="agree" type="checkbox" name="acceptTerms" />
+                          <p style="cursor: pointer;" [routerLink]="['/terms']">
+                            I accept the Terms & Conditions
+                          </p>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div class="input-hold mt-4">
+                    <h3>Delivery Information</h3>
+                  </div>-->
+                  <!--<div class="row">-->
+
+                  <!-- Email Address -->
+                  <!-- <div class="col-md-6">
+                      <div class="input-hold">
+                        <label>Email Address</label>
+                        <input formControlName="emailAddress" class="check-input" type="email" placeholder="">
+                        <div
+                          *ngIf="checkoutForm.controls.emailAddress.errors && (checkoutForm.controls.emailAddress.dirty || checkoutForm.controls.emailAddress.touched)"
+                          class="error-msg mt-1" role="alert">
+                          <span style="color: blueviolet;" *ngIf="checkoutForm.controls.emailAddress.errors.required">Please provide us your email address ❤️</span>
+                          <span style="color: blueviolet;" *ngIf="checkoutForm.controls.emailAddress.errors.pattern">Please provide valid email address and in lower case</span>
+                        </div>
+                      </div>
+                    </div>-->
+
+                  <!-- Phone Number -->
+                  <!--<div class="col-md-6">
+                      <div class="input-hold">
+                        <label>Phone</label>
+                        <input formControlName="phone" class="check-input" type="text" placeholder="">
+                        <div
+                          *ngIf="checkoutForm.controls.phone.errors && (checkoutForm.controls.phone.dirty || checkoutForm.controls.phone.touched)"
+                          class="error-msg mt-1" role="alert">
+                          <span *ngIf="checkoutForm.controls.phone.errors.required" style="color: blueviolet;">Please
+                            provide us your phone number 📞</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>-->
+
+                  <!-- More Information -->
+
+                  <!--<div>
+                      *ngIf="checkoutForm.controls.agree.errors && (checkoutForm.controls.agree.dirty || checkoutForm.controls.agree.touched)"
+                      class="error-msg mt-1" role="alert">
+                      <span *ngIf="checkoutForm.controls.agree.errors.required" style="color: blueviolet;">Please accept
+                        terms & conditions</span>
+                    </div>-->
+                </div>
+              </div>
+            </div>
+          </section>
+        </form>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="rit_back_image"></div>
+      </div>
+    </div>
+
+    <!-- Book Now button -->
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-sm-12 col-12"></div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-12 pull-left">
+        <div class="booked_image text-center">
+          <a (click)="submitData()" class="btn btn-default">PAY<br />
+            <!--{{celebrity['price']}}--></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12"></div>
+    </div>
+  </div>
+</section>
+
+<form #form ngNoForm id="nonseamless" method="post" name="redirect"
+  action="https://secure.ccavenue.ae/transaction/transaction.do?command=initiateTransaction">
+  <input type="hidden" id="encRequest" name="encRequest" [ngModel]="encRequest" />
+  <input type="hidden" name="access_code" id="access_code" [ngModel]="accessCode" />
+</form>
+
+<app-footer></app-footer>

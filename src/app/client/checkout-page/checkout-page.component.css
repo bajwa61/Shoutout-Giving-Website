@@ -1,0 +1,959 @@
+.section_1 {
+	background: url('./../../../assets/client/assets/img/left_dotted_background.png');
+	background-position: top left;
+	height: auto;
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding-top: 100px;
+}
+
+.section_1 .book_img {
+	background: url('./../../../assets/client/assets/img/flower_with_text.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 400px;
+}
+
+.section_1 .book_img .small_image {
+	width: 100%;
+	max-width: 320px;
+	height: 200px;
+	position: absolute;
+	top: 25%;
+	left: 35%;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+
+.section_1 .book_img .small_image img {
+	width: 70px;
+	height: 70px;
+	margin-left: 60px;
+	border-radius: 100%;
+	margin-top: 40px;
+	border: 2px solid #C18EE1;
+	margin-bottom: 20px;
+	object-fit: cover;
+}
+
+.section_1 .book_img .small_image h4 {
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 19px;
+	letter-spacing: 2px;
+	font-family: 'Futura New bold', sans-serif;
+}
+
+.form_section .list_heading {
+	margin-left: 15px;
+}
+
+.form_section .list_heading .btn-primary {
+	background: #831CC3;
+	color: #fff;
+	border: none;
+	text-transform: uppercase;
+	padding: 4px 20px;
+	font-size: 21px;
+	font-family: 'Futura New bold', sans-serif;
+	margin-top: 10px;
+}
+
+.form_section .list_heading .form-check label {
+	color: #000;
+	font-size: 21px;
+	margin: 0;
+	text-transform: uppercase;
+	font-family: 'Futura New bold', sans-serif;
+}
+
+.form_section .list_heading .fa-circle {
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	background: #831CC3;
+	color: #831CC3;
+	margin-right: 7px;
+}
+
+.section_1 .top_heading img {
+	width: 100%;
+	max-width: 450px;
+	height: 250px;
+	z-index: 1;
+	position: relative;
+	left: 0;
+}
+
+.section_1 .what-happen-heading .heading_with_icons {
+	background: #831CC3;
+	height: auto;
+	width: 100%;
+	max-width: 560px;
+	border-radius: 25px;
+	padding-right: 30px;
+	padding-top: 100px;
+	position: absolute;
+	top: 170px;
+	right: 0;
+}
+
+.section_1 .top_heading {
+	text-align: center;
+}
+
+.section_1 .what-happen-heading .top_heading {
+	margin-bottom: 50px;
+}
+
+.section_1 .heading_with_icons .left_line {
+	width: 2px;
+	height: 280px;
+	float: left;
+	background: #4D1073;
+	position: absolute;
+	left: 11%;
+}
+
+.section_1 .heading_with_icons {
+	padding-left: 35px;
+	padding-top: 70px;
+}
+
+.section_1 .heading_with_icons .whn_icon {
+	padding: 5px;
+	padding-bottom: 30px;
+	float: left;
+	z-index: 1;
+	position: relative;
+	width: 100%;
+}
+
+.section_1 .heading_with_icons .whn_icon .icon_section {
+	width: 15%;
+	display: inline-flex;
+}
+
+.section_1 .heading_with_icons .whn_icon .icon_section .icon_frame {
+	width: 45px;
+	height: 45px;
+	border-radius: 100%;
+	background-color: #ffffff;
+}
+
+.section_1 .heading_with_icons .whn_icon .icon_section .icon_frame img {
+	width: 37px;
+	padding: 8px 0px 0px 10px;
+}
+
+.section_1 .heading_with_icons .whn_icon .text_section {
+	width: 85%;
+	display: inline-flex;
+}
+
+.section_1 .heading_with_icons .whn_icon .text_section p {
+	color: #fff;
+	font-size: 16px;
+	text-align: left;
+	/* font-family: 'Abject Failure', sans-serif; */
+	font-family: 'Futura New Medium', sans-serif;
+}
+
+.form_section form {
+	position: relative;
+	top: -120px;
+}
+
+.form_section:after {
+	content: url('./../../../assets/client/assets/img/right_dotted_background.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 40%;
+	right: 0;
+	bottom: 0;
+}
+
+.form_section .input-hold label {
+	font-size: 22px;
+	color: #000;
+	font-family: 'Futura New bold', sans-serif;
+	text-transform: uppercase;
+}
+
+.form_section .input-hold h3 {
+	font-size: 22px;
+	color: #000;
+	font-family: 'Futura New bold', sans-serif;
+	text-transform: uppercase;
+}
+
+.form_section .input-hold input {
+	border: 1px solid #525252;
+}
+
+.form_section .input-hold select {
+	border: 1px solid #525252;
+}
+
+.form_section .input-hold textarea {
+	border: 1px solid #525252;
+}
+
+.form_section .radio-hold label p {
+	font-size: 17px;
+	font-family: 'Futura New bold', sans-serif;
+	color: #000;
+}
+
+.form_section .booked_image {
+	background: url('./../../../assets/client/assets/img/full_bottom_image.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	max-width: 700px;
+	height: 500px;
+	margin-top: -140px;
+	padding-left: 30px;
+}
+
+.form_section .booked_image .btn-default {
+	font-size: 30px;
+	color: #fff;
+	font-family: 'Futura New bold', sans-serif;
+	position: relative;
+	top: 140px;
+	line-height: 40px;
+	text-transform: uppercase;
+}
+
+
+
+.form_section{
+	padding-left: 20px;
+}
+.form_section .booking_form{
+	width: 100%;
+	max-width: 900px;
+	background: #D8D8D8;
+	border:2px solid #B4B4B4;
+	height: 800px;
+	text-align: center;
+	padding-top: 100px;
+	position: relative;
+	z-index: 1;
+}
+
+.form_section .booking_form p{
+	font-size: 28px;
+	color: #000;
+	padding-top:30px;
+	line-height: 35px;
+	font-weight: 500;
+}
+
+.form_section .checkout_headings{
+	margin-bottom: 0px;
+}
+.form_section .checkout_headings p{
+	font-size: 16px;
+	color: #000;
+	padding-top:0px;
+	margin:0;
+}
+
+
+
+.form_section .calendar	form{
+	margin-top:30px;
+}
+
+.form_section .calendar	form input{
+	width: 100%;
+}
+
+.form_section .form-group{
+	margin-bottom: 50px;
+}
+
+.form_section .calender p{
+	padding-bottom: 0px;
+	font-size: 16px;
+	color: #000;
+}
+
+.form_section .radio-hold .form-group strong{
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+.form_section .radio-hold h3{
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;
+	margin:0;
+	padding:20px 0;
+	font-family: 'Futura New bold', sans-serif;
+	text-transform: uppercase;
+}
+
+.form_section .calendar h3{
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;
+	margin:0;
+	padding-top:30px;
+	padding-bottom: 5px;
+	font-family: 'Futura New bold', sans-serif;
+
+}
+
+.form_section .input-hold .step3_headings{
+	margin-top:-118px;
+}
+
+.form_section .radio-hold .checkout_headings h3{
+	margin:0;
+	padding-top:15px;
+	padding-bottom:0;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: 'Futura New bold', sans-serif;
+
+}
+
+
+.form_section form .checkout-block .container .row{
+	margin-left: -30px;
+}
+
+
+
+
+
+
+
+
+/*START MEDIA QEUERY*/
+@media (max-width: 1439px) {
+	.section_1 .book_img .small_image {
+		width: 100%;
+		max-width: 230px;
+		height: 200px;
+		position: absolute;
+		top: 25%;
+		left: 45%;
+		padding-top: 10px;
+		padding-left: 15px;
+	}
+}
+
+@media (max-width: 1280px) {
+	.section_1 .book_img .small_image {
+
+		position: absolute;
+		top: 119px;
+		right: -14px;
+
+	}
+
+	.section_1 .book_img .small_image img {
+		width: 70px;
+		height: 70px;
+		margin-left: 60px;
+		border-radius: 100%;
+		margin-top: 40px;
+		border: 2px solid #C18EE1;
+		margin-bottom: 20px;
+		object-fit: cover;
+	}
+
+}
+
+@media (max-width: 1199px) {
+
+
+	.section_1 .book_img .small_image {
+		position: absolute;
+		top: 140px;
+		padding-left: 0px;
+		right: -35px;
+	}
+
+	.section_1 .book_img .small_image img {
+		width: 60px;
+		height: 60px;
+		margin-left: 35%;
+		margin-bottom: -2px;
+		margin-top: -10px;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		font-size: 15px;
+		padding-left: 45px;
+		padding-top: 10px;
+		letter-spacing: 0px;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		left: 13%;
+	}
+}
+
+
+@media (max-width: 1150px) {
+
+	.section_1 .heading_with_icons .left_line {
+		height: 300px;
+		position: absolute;
+		left: 12%;
+	}
+
+	.form_section .checkout_headings p{
+		padding-bottom: 100px;
+	}
+
+	.checkout-block {
+		padding: 0px 0;
+
+	}
+
+	.form_section .booked_image {
+		margin-top: -130px;
+	}
+}
+
+@media (max-width: 1050px) {
+	.form_section .list_heading .btn-primary {
+		font-size: 15px;
+	}
+
+	.section_1 .book_img .small_image {
+		position: absolute;
+		top: 140px;
+		padding-left: 30px;
+	}
+
+	.section_1 .book_img .small_image img {
+		width: 60px;
+		height: 60px;
+		margin-left: 20%;
+		margin-bottom: -2px;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		font-size: 15px;
+		padding-left: 0px;
+	}
+
+
+}
+
+@media (max-width: 991px) {
+
+	.section_1 .book_img {
+		background: url('./../../../assets/client/assets/img/mobile_image.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: 400px;
+	}
+
+	.section_1 .book_img .small_image {
+		position: absolute;
+		top: 20%;
+		left: 35%;
+	}
+
+	.section_1 .book_img .small_image img {
+		width: 80px;
+		height: 80px;
+		margin-top: 25px;
+		margin-bottom: 0px;
+		margin-left: 60px;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		letter-spacing: 0px;
+		top: 50%;
+		left: -50px;
+		font-size: 15px;
+		position: absolute;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		left: 16%;
+		height: 350px;
+	}
+
+	.form_section form {
+		position: relative;
+		top: -105px;
+	}
+}
+
+@media (max-width: 768px) {
+	.form_section .input-hold label {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.form_section {
+		margin-top:-200px;
+		padding-bottom: 800px;
+	}
+
+	.form_section .list_heading .testing {
+		background: #831CC3;
+		padding: 2px 10px;
+		color: #fff;
+		margin-top: 100px;
+		width: 50px;
+		border-radius: 20px;
+		font-size: 15px;
+	}
+
+
+	.form_section .list_heading .btn-primary {
+		background: none;
+		color: #000;
+		border: none;
+		text-transform: uppercase;
+		padding: 4px 0px;
+		font-size: 21px;
+		margin-bottom: 0px;
+		font-family: 'Futura New Bold', sans-serif;
+	}
+
+	.section_1 {
+		background: #fff;
+		padding: 100px 0px 30px;
+	}
+
+	.section_1 .book_img .small_image {
+		position: absolute;
+		top: 62px;
+		left: 115px;
+	}
+
+	.section_1 .book_img {
+		background: url('./../../../assets/client/assets/img/mobile_image.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: 305px;
+	}
+
+	.section_1 .book_img .small_image img {
+		position: absolute;
+		top: 25%;
+		left: 45%;
+		width: 80px;
+		height: 80px;
+		border: 2px solid #C48DDE;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		top: 80%;
+		bottom: 0%;
+		left: 0px;
+		font-size: 18px;
+		position: absolute;
+	}
+
+	.form_section .list_heading span {
+		color: #000;
+		background: #831CC3;
+		color: #fff;
+	}
+
+	.section_1 .what-happen-heading .heading_with_icons {
+		background: #831CC3;
+		position: absolute;
+		right: 0;
+		top: 1460px;
+		margin-bottom: 800px;
+	}
+
+	.section_1 .top_heading img {
+		position: relative;
+		left: 0;
+		top: 1298px;
+
+	}
+
+	.form_section {
+		padding-bottom: 800px;
+	}
+
+	.form_section .booked_image {
+		background: #fff;
+		margin-top: 50px;
+		width: 1px;
+		height: 1px;
+	}
+
+	.form_section .booked_image .btn-default {
+		background: #831CC3;
+		position: absolute;
+		top: -70px;
+		left: 30%;
+		padding: 0 20px;
+	}
+
+	.form_section:after {
+		position: absolute;
+		right: 0;
+		top: 700px;
+		z-index: -10;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		height: 300px;
+		position: absolute;
+		left: 11%;
+	}
+
+	.form_section:before {
+		content: url('./../../../assets/client/assets/img/left_dotted_background.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: absolute;
+		left: 0;
+		top: 1530px;
+	}
+
+	.form_section .booking_form{
+		margin-top:-200px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 576px) {
+	.form_section .input-hold textarea {
+	width: 100%;
+	max-width: 450px;
+	margin:0 auto;
+}
+
+.form_section .calendar	form input{
+	width: 100%;
+	max-width: 450px;
+	margin:0 auto;
+}
+
+
+	.section_1 .book_img .small_image img {
+		position: absolute;
+		top: 20%;
+		right: 30%;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		top: 80%;
+		left: 0px;
+		font-size: 15px;
+		position: absolute;
+	}
+
+	.section_1 .top_heading img {
+		position: relative;
+		left: 0;
+		top: 1218px;
+
+	}
+	.section_1 .what-happen-heading .heading_with_icons {
+		position: absolute;
+		top: 1390px;
+	}
+
+.form_section .booked_image .btn-default {
+	top: 20px;
+}
+
+
+
+
+}
+
+@media (max-width: 568px) {
+
+	.form_section .booked_image .btn-default {
+		position: absolute;
+		right: 50px;
+		line-height: unset;
+		font-size: 15px;
+	}
+
+	.form_section .list_heading .testing {
+		background: #831CC3;
+		padding: 2px 10px;
+		color: #fff;
+		margin-top: 100px;
+		width: 50px;
+		border-radius: 20px;
+		font-size: 15px;
+	}
+
+	.section_1 .top_heading img {
+		position: relative;
+		top: 1020px;
+	}
+
+	.section_1 .what-happen-heading .heading_with_icons {
+		position: absolute;
+		right: 0;
+		top: 1195px;
+	}
+
+	
+
+}
+
+@media (max-width: 520px) {
+	body{
+		overflow: hidden;
+	}
+	.form_section{
+		margin-top: -100px;
+	}
+
+	.section_1 .top_heading {
+		height: 100px;
+	}
+
+	.section_1 .what-happen-heading .heading_with_icons {
+		position: absolute;
+		top: 1380px;
+	}
+
+	.section_1 .top_heading img {
+		position: relative;
+		top: 1200px;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		height: 286px;
+		position: absolute;
+		left: 12%;
+	}
+
+	.form_section .list_heading .radio-button {
+		margin-right: 10px;
+	}
+
+	.form_section .list_heading .testing {
+		background: #831CC3;
+		padding: 2px 10px;
+		color: #fff;
+		margin-top: 100px;
+		width: 50px;
+		border-radius: 20px;
+		font-size: 15px;
+	}
+
+	.form_section .booking_form{
+		margin-top:-80px;
+	}
+
+	.form_section .booked_image .btn-default {
+		position: absolute;
+		top: -20px;
+		
+	}
+
+
+}
+
+@media (max-width: 480px) {
+	.section_1 .book_img .small_image img {
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		width: 60px;
+		height: 60px;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		top: 80%;
+		left: 0px;
+		font-size: 17px;
+		position: absolute;
+	}
+
+	.section_1 .what-happen-heading .heading_with_icons {
+		position: absolute;
+		top: 1330px;
+	}
+
+	.section_1 .top_heading img {
+		position: relative;
+		top: 1180px;
+		width: 80%;
+		height: auto;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		height: 300px;
+		position: absolute;
+		left: 13%;
+	}
+
+	.section_1 .heading_with_icons p {
+		font-size: 15px;
+		text-align: center;
+	}
+
+	.form_section .list_heading .testing {
+		background: #831CC3;
+		padding: 2px 10px;
+		color: #fff;
+		margin-top: 100px;
+		width: 50px;
+		border-radius: 20px;
+		font-size: 15px;
+	}
+
+}
+
+@media (max-width: 414px) {
+	.section_1 .book_img .small_image {
+		top: 75px;
+		left: 15px;
+	}
+
+	.section_1 .book_img .small_image h4 {
+		top: 75%;
+		left: 75px;
+		font-size: 15px;
+		position: absolute;
+	}
+
+	.section_1 .book_img .small_image img {
+		position: absolute;
+		top: 20%;
+		left: 90%;
+		width: 60px;
+		height: 60px;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		height: 320px;
+		left: 15%;
+	}
+
+	.section_1 .heading_with_icons .whn_icon .icon_section {
+		width: 17%;
+	}
+
+	.section_1 .heading_with_icons .whn_icon .text_section {
+		width: 83%;
+	}
+}
+
+@media (max-width: 375px) {
+	.form_section{
+	padding-left: 0px;
+}
+
+	.section_1 .book_img {
+		height: 230px;
+	}
+
+	.section_1 .book_img .small_image {
+		position: absolute;
+		top: 21px;
+		left: 5px;
+	}
+
+	.section_1 .book_img .small_image img {
+		position: absolute;
+		top: 30%;
+		left: 70%;
+		width: 46px;
+		height: 46px;
+	}
+
+	.section_1 .top_heading img {
+		height: 150px;
+		position: relative;
+		top: 1325px;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		height: 365px;
+		position: absolute;
+		left: 17%;
+	}
+
+	.form_section {
+		padding-bottom: 900px;
+	}
+
+	.form_section .list_heading .radio-button {
+		margin-right: 10px;
+	}
+
+	.form_section .list_heading .testing {
+		background: #831CC3;
+		padding: 2px 10px;
+		color: #fff;
+		margin-top: 100px;
+		width: 50px;
+		border-radius: 20px;
+		font-size: 15px;
+	}
+
+	.form_section:before {
+		background-size: cover;
+		position: absolute;
+		left: -50px;
+		top: 1650px;
+	}
+
+	.section_1 .what-happen-heading .heading_with_icons {
+		position: absolute;
+		top: 1430px;
+	}
+}
+
+@media (max-width: 360px) {
+	.form_section:before {
+		position: absolute;
+		left: -70px;
+	}
+
+	.section_1 .book_img .small_image img {
+		position: absolute;
+		top: 50px;
+		right: 75px;
+		width: 50px;
+		height: 50px;
+	}
+
+	.section_1 .heading_with_icons .left_line {
+		left: 18%;
+	}
+
+	.section_1 .heading_with_icons .whn_icon .icon_section {
+		width: 20%;
+	}
+
+	.section_1 .heading_with_icons .whn_icon .text_section {
+		width: 80%;
+	}
+}

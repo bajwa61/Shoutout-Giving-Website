@@ -1,0 +1,115 @@
+<!-- <app-header></app-header> -->
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<section class="signup-banner clearfix">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-xl-6 col-md-7 align-self-center">
+        <h1 *ngIf="langEng; else temp1Arb">Refer stars<br>
+          and earn money</h1>
+        <ng-template #temp1Arb>
+          <h1>سجل نجومك<br>
+            واكسب المال</h1>
+        </ng-template>
+        <p *ngIf="langEng; else temp2Arb">HalaHi’s affiliate program lets you refer stars and earn 5% of all orders
+          placed with them for, wait for it,
+          ONE YEAR! Leverage your network and introduce celebrities, athletes, singers, actors and influencers to HalaHi
+          and make big bucks as a result!</p>
+        <ng-template #temp2Arb>
+          <p> يتيح لك برنامج هلاهاي للشركاء تسجيل نجومك و كسب 5 ٪ من جميع الطلبات المقدمة لهم لمدة سنة كاملة! استفد من
+            دائرة أصدقائك من المشاهير والرياضيين والمطربين والممثلين والمؤثرين و اكسب مبالغ طائلة نتيجة لذلك</p>
+        </ng-template>
+        <div class="btn-hold">
+          <a *ngIf="langEng; else temp3Arb" [routerLink]="[ '/agent-signup']" style="cursor: pointer"
+            class="enroll-btn">ENROL AS AGENT</a>
+          <ng-template #temp3Arb>
+            <a [routerLink]="[ '/agent-signup']" style="cursor: pointer" class="enroll-btn">التسجيل كشريك</a>
+          </ng-template>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-5 d-none d-md-flex align-items-end">
+        <img src="../../../../assets/client/assets/img/agent-enroll.png" alt="Banner Girl" class="celebrity-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enroll-info clearfix" style="padding-bottom:0px;">
+  <div class="container">
+    <div class="row" *ngIf="langEng; else temp4Arb">
+      <div class="col-lg-4">
+        <img src="../../../../assets/client/assets/img/icon-select-star.svg" alt="Block Title" class="icon-info">
+        <h2>Sign Up</h2>
+        <p>Sign up to our referral program through the affiliate sign up form and you're all set!</p>
+      </div>
+      <div class="col-lg-4">
+        <img src="../../../../assets/client/assets/img/link.svg" alt="Block Title" class="icon-info">
+        <h2>Get your code</h2>
+        <p>Use your affiliate link to sign up stars, all you have to do is share your personalized star enrollment link
+          with celebrities</p>
+      </div>
+      <div class="col-lg-4">
+        <img src="../../../../assets/client/assets/img/icon-send-request.svg" alt="Block Title" class="icon-info">
+        <h2>Earn money</h2>
+        <p>Keep track of all the star signups referred by you on your personal dashboards well as your earnings per star
+        </p>
+      </div>
+    </div>
+    <ng-template #temp4Arb>
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="../../../../assets/client/assets/img/icon-select-star.svg" alt="Block Title" class="icon-info">
+          <h2>سجل</h2>
+          <p>قم بالتسجيل في برنامج هلاهاي للشركاء من خلال استمارة التقديم</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="../../../../assets/client/assets/img/link.svg" alt="Block Title" class="icon-info">
+          <h2>احصل على رمزك الخاص</h2>
+          <p>استخدم رابط التسجيل الخاص بك لتسجيل نجومك على المنصة، أو إبعث الرابط إليهم ليسجلوا بأنفسهم</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="../../../../assets/client/assets/img/icon-send-request.svg" alt="Block Title" class="icon-info">
+          <h2>إكسب المال</h2>
+          <p>تتبع جميع النجوم الذين سجلو عن طريقك و عدد الطلبات التي أكملوها من خلال حسابك الخاص </p>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</section>
+
+<div id="enroll-form-block" class="enroll-form-block" style="padding: 100px 0;">
+  <div class="container">
+    <div class="col-xs-11 col-sm-8 col-md-8 col-lg-8 mx-auto" *ngIf="langEng; else temp5Arb">
+      <h2 style="margin-bottom: 0;">Join HalaHi's Referral Program</h2>
+      <p style="margin-bottom: 21px;">If you think your celebrity friends would be a great fit for HalaHi, then this
+        opportunity is for you! Sign up and earn 5% commission for every video bought from your stars as a gift from us!
+        Oh, and that's valid on all orders placed with your referred celebrities for 1 YEAR!</p>
+    </div>
+    <ng-template #temp5Arb>
+      <div class="col-xs-11 col-sm-8 col-md-8 col-lg-8 mx-auto">
+        <h2 style="margin-bottom: 0;">انضم إلى برنامج هلاهاي للشركاء</h2>
+        <p style="margin-bottom: 21px;"> إذا كنت تعتقد أن أصدقائك المشهورين سيكونون مناسبين لهلا هاي، فهذه الفرصة مناسبة لك! سجل واربح عمولة ٥٪ لكل فيديو تم شراؤه من نجومك المسجلين كهدية منا! العمولة تنطبق على جميع الطلبات المقدمة مع المشاهير المحالين من طرفك لمدة عام واحد!</p>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<section class="calculation-block clearfix">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 *ngIf="langEng; else temp6Arb">If star prices their video at $ <input type="number" class="calc-input" id="pricepervideo" placeholder="0">
+          and make <input type="number" class="calc-input" id="numberofvideo" placeholder="0"> Hala. <br
+            class="d-none d-md-block">Your projected earning is <span>$</span><span id="videoearning">0</span>.</h3>
+        <ng-template #temp6Arb>
+          <h3>إذا كان سعرنجمك $<input type="number" class="calc-input" id="pricepervideo" placeholder="0">
+            و يكمل <input type="number" class="calc-input" id="numberofvideo" placeholder="0"> هلا. <br
+            class="d-none d-md-block">أرباحك المتوقعة هي <span>$</span><span id="videoearning">0</span>.</h3>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

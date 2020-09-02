@@ -1,0 +1,484 @@
+<!-- <app-header></app-header> -->
+
+<header class="category-header">
+  <nav class="category-header-nav navbar">
+    <div class="header-logo">
+      <a [routerLink]="['/']">
+        <!-- <a [routerLink]="['/home']"> -->
+        <img
+          src="../../../assets/client/assets/img/logo.png"
+          class="logo"
+          alt=""
+        />
+      </a>
+    </div>
+
+    <ul class="navbar-nav category-navbar">
+      <li class="nav-item rotated">
+        <a
+          class="nav-link"
+          [routerLink]="['/category']"
+          *ngIf="langEng; else temp2Arb"
+          >EXPLORE</a
+        >
+        <ng-template #temp2Arb>
+          <a class="nav-link" [routerLink]="['/category']">إكتشف</a>
+        </ng-template>
+      </li>
+      <li class="nav-item rotated">
+        <a
+          class="nav-link"
+          [routerLink]="['/enroll-talent']"
+          *ngIf="langEng; else temp1Arb"
+          >ENROL AS TALENT</a
+        >
+        <ng-template #temp1Arb>
+          <a class="nav-link" [routerLink]="['/enroll-talent']">سجل كنجم</a>
+        </ng-template>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <div class="category-header-scroll">
+      <img
+        src="../../../assets/client/assets/img/hand-scroll.gif"
+        class="logo"
+        alt=""
+      />
+      <!-- <p>SCROLL DOWN</p> -->
+    </div>
+  </nav>
+
+  <!-- Carousel Section -->
+  <div class="category-header-carousel">
+    <div
+      class="picsum-img-wrapper"
+      style="
+        background: url(assets/client/assets/img/banners/celebrity-banner.png);
+      "
+    >
+      <div class="cloud-top-left fancy-clouds"></div>
+      <div class="cloud-top-right fancy-clouds"></div>
+      <div class="cloud-bottom-left fancy-clouds"></div>
+      <div class="cloud-bottom-right fancy-clouds"></div>
+      <section class="container">
+        <div class="row video-section">
+          <section class="col-xs-12 col-sm-12 col-md-5 col-lg-5 left-block">
+            <div class="mobile-frame mx-auto">
+              <video
+                poster="{{ celebrity['imageUrl'] }}"
+                #videoPlayer
+                src="{{ celebrity['videoUrl'] }}"
+                preload="auto"
+                controlsList="nodownload"
+                loop
+              ></video>
+              <img
+                class="mobile-frame img-responsive"
+                (click)="toggleIntroVideo()"
+                src="/assets/client/assets/img/celebrity-page/mobile-frame.png"
+              />
+
+              <img
+                class="play-button"
+                *ngIf="playButton && !comingSoon"
+                (click)="toggleIntroVideo()"
+                src="/assets/client/assets/img/celebrity-page/play-button.png"
+              />
+              <img
+                class="thumb-fav"
+                src="/assets/client/assets/img/celebrity-page/thumb-fav.png"
+              />
+              <img
+                class="heart-fav"
+                src="/assets/client/assets/img/celebrity-page/heart-fav.png"
+              />
+              <img
+                class="heart-fav-t"
+                src="/assets/client/assets/img/celebrity-page/heart-fav-2.png"
+              />
+              <img
+                class="hala-logo-digonal"
+                src="/assets/client/assets/img/hala-logo-digonal.png"
+              />
+            </div>
+          </section>
+          <section class="col-xs-12 col-sm-12 col-md-7 col-lg-7 right-block">
+            <div class="popup-frame mx-auto">
+              <div class="cloud">
+                <p *ngIf="celebrity.title" class="celebrity-title">
+                  {{ celebrity["title"] }}
+                </p>
+
+                <p *ngIf="!celebrity.title" class="celebrity-title">
+                  CELEBRITY<br />
+                  <strong>MICHELE MORRONE</strong>
+                </p>
+
+                <p class="celebrity-name">
+                  {{ celebrity["fullName"] }}
+                </p>
+
+                <ul class="cloud-social-items">
+                  <li>
+                    <a
+                      href="https://www.facebook.com/halahiofficial/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.twitter.com/halahiofficial/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/halahiofficial/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="popup-bg">
+                <img
+                  class="wishlist-img"
+                  src="/assets/client/assets/img/celebrity-page/omg-frame.png"
+                />
+                <section class="content-section">
+                  <div class="bio-sec">
+                    <p class="star-article">
+                      Hey everyone! This is my official Halahi account Cant wait
+                      to receive all of your request All of the proceeds from
+                      Halahi will be donated to local charities from around the
+                      world
+                    </p>
+
+                    <p class="celeb-info">{{ celebrity["bio"] }}</p>
+                  </div>
+                  <div class="btn-hold">
+                    <!-- Temporarily removed `&& !comingSoon` from all the *ngIf below -->
+                    <a
+                      class="book-btn"
+                      *ngIf="
+                        celebrity['bookableStatus'] &&
+                          celebrity['price'] &&
+                          langEng;
+                        else temp3Arb
+                      "
+                      [routerLink]="['/checkout', celebrity['userName']]"
+                    >
+                      BOOK NOW FOR ${{ celebrity["price"] }}</a
+                    >
+                    <ng-template #temp3Arb>
+                      <a
+                        class="book-btn"
+                        *ngIf="
+                          celebrity['bookableStatus'] && celebrity['price']
+                        "
+                      >
+                        احجز الآن${{ celebrity["price"] }}</a
+                      >
+                    </ng-template>
+
+                    <!--<a class="book-btn-disabled" *ngIf="!celebrity['price'] && langEng; else temp6Arb">COMING SOON</a>-->
+
+                    <div class="buttons">
+                      <a href="#" class="btn bt-primary">BOOK NOW</a>
+                      <a href="#" class="btn bt-default pull-right"
+                        >SEND GIFT</a
+                      >
+                    </div>
+
+                    <ng-template #temp6Arb>
+                      <a class="book-btn-disabled" *ngIf="!celebrity['price']"
+                        >لم يتم التعيين بعد</a
+                      >
+                    </ng-template>
+
+                    <a
+                      class="book-btn-disabled"
+                      *ngIf="
+                        !celebrity['bookableStatus'] &&
+                          celebrity['price'] &&
+                          langEng;
+                        else temp4Arb
+                      "
+                      >NOT AVAILABLE RIGHT NOW</a
+                    >
+                    <ng-template #temp4Arb>
+                      <a
+                        class="book-btn-disabled"
+                        *ngIf="
+                          !celebrity['bookableStatus'] && celebrity['price']
+                        "
+                        >غير متوفر حاليا</a
+                      >
+                    </ng-template>
+
+                    <!-- <a class="book-btn-disabled" *ngIf="comingSoon && langEng; else temp5Arb">COMING SOON</a>
+                    <ng-template #temp5Arb>
+                      <a class="book-btn-disabled" *ngIf="comingSoon">قريبا</a>
+                    </ng-template> -->
+                  </div>
+                  <div class="payment-section">
+                    <a>
+                      <img
+                        class="gateways-img"
+                        src="/assets/client/assets/img/celebrity-page/payment-gateways.png"
+                      />
+                    </a>
+                  </div>
+                </section>
+              </div>
+              <!-- <div class="detail-frame">
+                <section class="ratings-block">
+                  <p>1K REVIEWS</p>
+                  <div class="star-overlay">
+                    <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
+                  <p>SEE ALL REVIEWS</p>
+                </section>
+                <section class="review-block">
+                  <p class="review">"Thank you so much for the great video and quick turnaround! My wife absolutely
+                    loved it."</p>
+                </section>
+              </div> -->
+              <div class="detail-frame" style="margin-left: 20px;">
+                <section class="review-block">
+                  <p class="review">
+                    Typically responds within
+                    <span *ngIf="celebrity['responseTime']">{{
+                      celebrity["responseTime"]
+                    }}</span
+                    ><span *ngIf="!celebrity['responseTime']">7</span> days.
+                  </p>
+                </section>
+              </div>
+              <div class="categories-frame">
+                <span *ngFor="let item of selectedItems | slice: 0:12">
+                  <a
+                    [routerLink]="['/category']"
+                    [state]="{ data: item.name }"
+                    >{{ item.name }}</a
+                  >
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+</header>
+
+<!-- How it works -->
+<section class="work-block info-block info-block-white clearfix">
+  <div class="container text-center text-white">
+    <h5
+      class="info-block-title text-white mb-4 heading-600"
+      *ngIf="langEng; else temp6Arb"
+    >
+      HOW IT WORKS
+    </h5>
+    <ng-template #temp6Arb>
+      <h5 class="info-block-title text-white mb-4 heading-600">طريقة الطلب</h5>
+    </ng-template>
+
+    <div class="row" style="flex-wrap: nowrap !important;">
+      <div class="col-lg-7 col-md-11 col-sm-12 col-xs-12 mx-auto">
+        <div
+          class="row"
+          style="margin-right: 0px; flex-wrap: nowrap !important;"
+        >
+          <div class="col-md-4">
+            <img
+              src="../../../assets/client/assets/img/1.png"
+              alt="Block Title"
+              class="icon-info"
+            />
+            <h2 *ngIf="langEng; else temp7Arb">SELECT YOUR STAR</h2>
+            <ng-template #temp7Arb>
+              <h2>إختر نجمك</h2>
+            </ng-template>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="../../../assets/client/assets/img/2.png"
+              alt="Block Title"
+              class="icon-info"
+            />
+            <h2 *ngIf="langEng; else temp8Arb">SEND YOUR REQUEST</h2>
+
+            <ng-template #temp8Arb>
+              <h2>أرسل طلبك</h2>
+            </ng-template>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="../../../assets/client/assets/img/3.png"
+              alt="Block Title"
+              class="icon-info"
+            />
+            <h2 *ngIf="langEng; else temp9Arb">GET BLOWN AWAY</h2>
+
+            <ng-template #temp9Arb>
+              <h2>توصل بالمفاجئة</h2>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-container *ngIf="celebrity['userName']">
+  <section class="star-latest-videos clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <h3 class="latest-title">
+            <img
+              *ngIf="deliveriesFlag"
+              src="../../../assets/client/assets/img/celebrity-page/latest.png"
+            />
+            <img
+              style="width: 100%;"
+              *ngIf="!deliveriesFlag"
+              src="../../../assets/client/assets/img/celebrity-page/you-might-also-like.png"
+            />
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Videos Section -->
+  <section class="star-latest-videos pb-5 clearfix" *ngIf="deliveriesFlag">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <section class="row">
+            <div
+              *ngFor="let delivery of deliveries; let i = index"
+              class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+            >
+              <div class="star-mobile-frame mx-auto">
+                <video
+                  #videoPublic
+                  src="{{ delivery['videoUrl'] }}"
+                  preload="auto"
+                  controlsList="nodownload"
+                  loop
+                ></video>
+                <img
+                  class="mobile-frame img-responsive"
+                  (click)="togglePublicVideo(i)"
+                  src="/assets/client/assets/img/celebrity-page/mobile-frame.png"
+                />
+                <img
+                  class="play-button"
+                  *ngIf="delivery.playButton"
+                  (click)="togglePublicVideo(i)"
+                  src="/assets/client/assets/img/celebrity-page/play-button.png"
+                />
+              </div>
+            </div>
+          </section>
+          <!-- <section class="row text-center" *ngIf="!deliveriesFlag">
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <img class="latest-vid-placeholder"
+                src="../../../assets/client/assets/img/celebrity-page/vid-placeholder.png">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <img class="latest-vid-placeholder"
+                src="../../../assets/client/assets/img/celebrity-page/vid-placeholder.png">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <img class="latest-vid-placeholder"
+                src="../../../assets/client/assets/img/celebrity-page/vid-placeholder.png">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <img class="latest-vid-placeholder"
+                src="../../../assets/client/assets/img/celebrity-page/vid-placeholder.png">
+            </div>
+          </section> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="stars-block clearfix"
+    style="margin-bottom: 30px;"
+    *ngIf="!deliveriesFlag"
+  >
+    <div class="container">
+      <div class="row">
+        <ng-container *ngFor="let celebrity of celebrities">
+          <a
+            (click)="navigateUser(celebrity.userName)"
+            class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6"
+            style="cursor: pointer;"
+          >
+            <a
+              class="background-startimg"
+              style="background: url({{ celebrity.imageUrl }});"
+            >
+              <i
+                class="favourite-icon fa fa-circle"
+                [ngClass]="{
+                  'blink-me active':
+                    celebrity['bookableStatus'] && celebrity['price'],
+                  inactive: !celebrity['bookableStatus'] || !celebrity['price']
+                }"
+              ></i>
+            </a>
+            <div class="star-overlay title">
+              <h6 *ngIf="celebrity.title">{{ celebrity.title }}</h6>
+              <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+            </div>
+            <h6 *ngIf="celebrity.fullName" class="celebrity-name">
+              {{ celebrity.fullName }}
+            </h6>
+            <h6 *ngIf="!celebrity.fullName" class="celebrity-name">
+              Star Here!
+            </h6>
+            <div class="star-overlay">
+              <span *ngIf="celebrity.price"
+                ><span class="dollar">$</span>{{ celebrity.price }}</span
+              >
+              <span *ngIf="!celebrity.price">Coming Soon</span>
+              <section class="book-btn-area">
+                <a class="book-btn" *ngIf="langEng; else tempBookBtnArb"
+                  >BOOK NOW</a
+                >
+                <ng-template #tempBookBtnArb>
+                  <a class="book-btn"> احجز الآن</a>
+                </ng-template>
+              </section>
+            </div>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</ng-container>
+
+<app-footer></app-footer>
+
+<ng-template #t let-fill="fill">
+  <span class="star-review" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+</ng-template>

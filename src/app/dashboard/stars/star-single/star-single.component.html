@@ -1,0 +1,124 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <div class="container">
+    <div class="card-hold position-relative">
+      <div class="profile-img">
+        <img src="{{celebrity['imageUrl']}}" alt="HalaHi">
+      </div>
+      <div class="update-profile">
+        <a [routerLink]="[ '/dashboard/star-notification',celebrity['id']]" class="mr-2">Star Notification</a>
+        <a [routerLink]="[ '/dashboard/star-password-change',celebrity['id']]" class="mr-2">Change Password</a>
+        <a [routerLink]="[ '/dashboard/edit-star',celebrity['id']]" class="mr-2">Edit Profile</a>
+      </div>
+      <section class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+          <div class="profile-info mb-3">
+            <h2>{{celebrity['fullName']}}</h2>
+          </div>
+          <table class="table profile-table table-sm" style="table-layout: fixed;">
+            <tr>
+              <th>Username</th>
+              <td>{{celebrity['userName']}}</td>
+            </tr>
+            <tr>
+              <th>Title</th>
+              <td>{{celebrity['title']}}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{celebrity['emailAddress']}}</td>
+            </tr>
+            <tr>
+              <th>Price</th>
+              <td>{{celebrity['price']}}</td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td>{{celebrity['dob']}}</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>{{celebrity['code']}} - {{celebrity['phone']}}</td>
+            </tr>
+            <tr>
+              <th>Bio</th>
+              <td>{{celebrity['bio']}}</td>
+            </tr>
+            <tr>
+              <th>Categories</th>
+              <td style="display: inline-flex;flex-wrap: wrap;">
+                <span *ngFor="let item of selectedItems" class="label label-info">{{item.name}}</span>
+              </td>
+            </tr>
+            <tr>
+              <th>Instagram Handle</th>
+              <td>{{celebrity['instagramHandle']}}</td>
+            </tr>
+            <tr>
+              <th>Instagram Followers</th>
+              <td>{{celebrity['instagramFollowers']}}</td>
+            </tr>
+            <tr>
+              <th>Facebook Handle</th>
+              <td>{{celebrity['facebookHandle']}}</td>
+            </tr>
+            <tr>
+              <th>Facebook followers</th>
+              <td>{{celebrity['facebookFollowers']}}</td>
+            </tr>
+            <tr>
+              <th>Youtube Handle</th>
+              <td>{{celebrity['youtubeHandle']}}</td>
+            </tr>
+            <tr>
+              <th>Youtube Followers</th>
+              <td>{{celebrity['youtubeFollowers']}}</td>
+            </tr>
+            <tr>
+              <th>Twitter Handle</th>
+              <td>{{celebrity['twitterHandle']}}</td>
+            </tr>
+            <tr>
+              <th>Twitter Followers</th>
+              <td>{{celebrity['twitterFollowers']}}</td>
+            </tr>
+            <tr>
+              <th>Tiktok Handle</th>
+              <td>{{celebrity['tiktokHandle']}}</td>
+            </tr>
+            <tr>
+              <th>Tiktok Followers</th>
+              <td>{{celebrity['tiktokFollowers']}}</td>
+            </tr>
+            <tr>
+              <th>Banking Details</th>
+              <td *ngIf="!celebrity['bankName']">BANK DETAILS HERE</td>
+              <td *ngIf="celebrity['bankName']">
+                <p><b>Bank Name:</b> {{celebrity['bankName']}}</p>
+                <p><b>Account #:</b> {{celebrity['bankNo']}}</p>
+                <p><b>IBAN:</b> {{celebrity['IBAN']}}</p>
+                <p><b>Swift Code:</b> {{celebrity['swiftCode']}}</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <div class="profile-info mb-3">
+            <div class="video-hold">
+              <div class="star-video">
+                <div class="position-relative">
+                  <video width="270" height="450" src="{{celebrity['videoUrl']}}" preload="none"
+                    controlsList="nodownload" muted controls>
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

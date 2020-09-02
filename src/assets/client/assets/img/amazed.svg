@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<svg id="amazed" xmlns="http://www.w3.org/2000/svg" width="48.001" height="48.001" viewBox="0 0 48.001 48.001">
+  <path id="Path_4" data-name="Path 4" d="M24,48A24,24,0,1,1,48,24,24.027,24.027,0,0,1,24,48ZM24,3A21,21,0,1,0,45,24,21.024,21.024,0,0,0,24,3Z" fill="#ffde0a"/>
+  <path id="Path_5" data-name="Path 5" d="M19,16a4,4,0,1,1,4-4A4,4,0,0,1,19,16Zm0-5a1,1,0,1,0,1,1A1,1,0,0,0,19,11Z" transform="translate(15.001 8)" fill="#ffde0a"/>
+  <path id="Path_6" data-name="Path 6" d="M20.4,7.732a1.488,1.488,0,0,1-1.06-.44,1,1,0,0,0-1.414,0A1.5,1.5,0,1,1,15.806,5.17a4,4,0,0,1,5.656,0A1.5,1.5,0,0,1,20.4,7.732Z" transform="translate(15.367 4)" fill="#ffde0a"/>
+  <path id="Path_7" data-name="Path 7" d="M9,16a4,4,0,1,1,4-4A4,4,0,0,1,9,16Zm0-5a1,1,0,1,0,1,1A1,1,0,0,0,9,11Z" transform="translate(5 8)" fill="#ffde0a"/>
+  <path id="Path_8" data-name="Path 8" d="M10.4,7.732a1.488,1.488,0,0,1-1.06-.44,1,1,0,0,0-1.414,0A1.5,1.5,0,0,1,5.806,5.17a4,4,0,0,1,5.656,0A1.5,1.5,0,0,1,10.4,7.732Z" transform="translate(5.367 4)" fill="#ffde0a"/>
+  <path id="Path_9" data-name="Path 9" d="M15,27.85c-3.308,0-6-3.1-6-6.9s2.692-6.9,6-6.9,6,3.1,6,6.9S18.308,27.85,15,27.85Zm0-10.8c-1.654,0-3,1.75-3,3.9s1.346,3.9,3,3.9,3-1.75,3-3.9-1.346-3.9-3-3.9Z" transform="translate(9.001 14.051)" fill="#ffde0a"/>
+</svg>

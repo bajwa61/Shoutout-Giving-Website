@@ -1,0 +1,27 @@
+<!-- <app-header></app-header> -->
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<section class="faq-block clearfix">
+  <div class="container">
+    <h2>{{faqData['title'] }}</h2>
+    <p>{{faqData['content']}}</p>
+    <div id="accordion" class="faq-hold">
+      <ng-container *ngFor="let question of faqData['faq'];let i = index">
+      <div class="faq-panel">
+        <div class="faq-panel-heading" [attr.id]="'question' + i">
+          <h6 class="faq-panel-title">
+            <a class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#' +'answer' + i" aria-expanded="true" [attr.aria-controls]="'answer' + i">{{question['question']}}</a>
+          </h6>
+        </div>
+        <div [attr.id]="'answer' + i" class="collapse show" [attr.aria-labelledby]="'question' + i" data-parent="#accordion">
+          <div class="faq-panel-body">
+            <p>{{question['answer']}}</p>
+          </div>
+        </div>
+      </div>
+      </ng-container>
+         </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

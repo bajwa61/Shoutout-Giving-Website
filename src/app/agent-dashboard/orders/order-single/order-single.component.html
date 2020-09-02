@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+<section class="content clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card-hold position-relative">
+          <!--            <div class="update-profile">-->
+          <!--              <a href="#">Delete Order</a>-->
+          <!--            </div>-->
+          <div class="profile-info mb-3">
+            <h2>Order ID #JU893K</h2>
+          </div>
+          <table class="table profile-table">
+            <tr>
+              <th>Order Status</th>
+              <td><span
+                  [ngClass]="order['status'] == 'submitted'?'badge-primary': order['status'] == 'cancelled'?'badge-danger': order['status'] == 'overdue'? 'badge-warning': 'badge-success'"
+                  class="badge ">{{order['status'].toUpperCase()}}</span></td>
+            </tr>
+            <tr>
+              <th>To</th>
+              <td>{{order['myself']?order['name']:order['to']}}</td>
+            </tr>
+            <tr>
+              <th>From</th>
+              <td>{{order['myself']?order['name']:order['from']}}</td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td>{{order['name']}}</td>
+            </tr>
+            <tr>
+              <th>Occasion</th>
+              <td>{{order['occasion']}}</td>
+            </tr>
+            <tr>
+              <th>Instructions for shoutout</th>
+              <td>{{order['instructions']}}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{order['emailAddress']}}</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>{{order['phone']}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="profile-img">
+          <!-- <video width="270" height="450" preload="none" controlsList="nodownload" muted controls autoplay="autoplay" loop>
+              <source src="../../../assets/dashboard/assets/img/video/sample.mp4" type="video/mp4"></source>
+              <source src="../../../assets/dashboard/assets/img/video/sample.ogg" type="video/ogg"></source>
+              <source src="../../../assets/dashboard/assets/img/video/sample.wbm" type="video/webm"></source>
+            </video> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,125 @@
+<app-header></app-header>
+
+<section class="content clearfix">
+  <div class="container">
+    <div class="card-hold">
+      <div class="form-block" [formGroup]="orderForm">
+        <h3 style="color: rgb(92, 23, 156);">Customer Details</h3>
+        <div class="semi-row">
+          <div class="input-hold  mt-3">
+            <label>Name</label>
+            <input formControlName="name" class="check-input" type="text" />
+            <div *ngIf="
+              orderForm.controls.name.errors &&
+                  (orderForm.controls.name.dirty ||
+                  orderForm.controls.name.touched)
+                " class="error-msg mt-1" role="alert">
+              <span *ngIf="orderForm.controls.name.errors.required" style="color: red;">Please provide name
+                .</span>
+            </div>
+          </div>
+          <div class="input-hold mt-3">
+            <label>Phone</label>
+            <input formControlName="phone" class="check-input" type="text" />
+            <div *ngIf="
+                orderForm.controls.phone.errors &&
+                    (orderForm.controls.phone.dirty ||
+                    orderForm.controls.phone.touched)
+                  " class="error-msg mt-1" role="alert">
+              <span *ngIf="orderForm.controls.phone.errors.required" style="color: red;">Please provide phone
+                number.</span>
+            </div>
+          </div>
+        </div>
+        <div class="semi-row">
+          <div class="input-hold mt-3">
+            <label>Email</label>
+            <input formControlName="emailAddress" class="check-input" type="text" />
+            <div *ngIf="
+                  orderForm.controls.emailAddress.errors &&
+                      (orderForm.controls.emailAddress.dirty ||
+                      orderForm.controls.emailAddress.touched)
+                    " class="error-msg mt-1" role="alert">
+              <span *ngIf="orderForm.controls.emailAddress.errors.required" style="color: red;">Please provide email
+                address.</span>
+            </div>
+          </div>
+          <div class="input-hold mt-3">
+            <label>Occasion</label>
+            <select formControlName="occasion" class="check-select" name="occasions">
+              <option value="">Select Occasion</option>
+              <option value="birthday">Birthday</option>
+              <option value="valentine's day">Valentine's Day</option>
+              <option value="mother's day">Mother's Day</option>
+              <option value="pep talk">Pep Talk</option>
+              <option value="announcement">Announcement</option>
+              <option value="advice">Advice</option>
+              <option value="roast">Roast</option>
+              <option value="wedding">Wedding</option>
+              <option value="anniversary">Anniversary</option>
+              <option value="other">Other</option>
+            </select>
+            <div *ngIf="
+            orderForm.controls.occasion.errors &&
+                (orderForm.controls.occasion.dirty ||
+                orderForm.controls.occasion.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="orderForm.controls.occasion.errors.required" style="color: red;">Please select an
+                occasion.</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3 style="color: rgb(92, 23, 156);">Order Details</h3>
+        <div class="semi-row">
+          <div class="input-hold mt-3">
+            <label>Celebrity</label>
+            <select formControlName="celebrityName" class="check-select" name="celebrityName"
+              (change)="setCelebrity($event.target.value)">
+              <option value="">Select Celebrity</option>
+              <option *ngFor="let celebrity of celebrities" [value]="celebrity.emailAddress">
+                {{celebrity.fullName+'   ($ '+celebrity.price+')'}}
+              </option>
+            </select>
+            <div *ngIf="
+            orderForm.controls.celebrityName.errors &&
+                (orderForm.controls.celebrityName.dirty ||
+                orderForm.controls.celebrityName.touched)
+              " class="error-msg mt-1" role="alert">
+              <span *ngIf="orderForm.controls.celebrityName.errors.required" style="color: red;">Please select
+                celebrity.</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-hold mt-3">
+          <label>Instructions</label>
+          <textarea formControlName="instructions" #instructions class="check-textarea" maxlength="300"
+            type="text"></textarea>
+          <span *ngIf="instructions.value.length > 0">{{300 - instructions.value.length}} / 300</span>
+          <div *ngIf="
+              orderForm.controls.instructions.errors &&
+                  (orderForm.controls.instructions.dirty ||
+                  orderForm.controls.instructions.touched)
+                " class="error-msg mt-1" role="alert">
+            <span *ngIf="orderForm.controls.instructions.errors.required" style="color: red;">Please provide some
+              useful instructions to the celebrity.
+            </span>
+          </div>
+        </div>
+        <div class="input-hold mt-3">
+          <br />
+          <label>
+            <input formControlName="notPublic" type="checkbox" name="notPublic">
+            <p>Don't make this video public on HalaHi</p>
+          </label>
+        </div>
+        <hr>
+        <div class="input-hold mt-3">
+          <input (click)="addNewOrder()" type="submit" class="btn-submit" value="Add New Order">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

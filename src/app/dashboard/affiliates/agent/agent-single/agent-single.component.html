@@ -1,0 +1,80 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-hold">
+
+          <div class="input-hold">
+            <a [routerLink]="[ '/dashboard/agent']" class="btn btn-dark" value="Back">Back</a>
+          </div>
+          <br />
+          <h2>{{agent['firstname'] +' '+ agent['lastname']}}</h2>
+
+          <table class="table profile-table table-sm" style="table-layout: fixed;">
+            <tr>
+              <th>Email</th>
+              <td>{{agent['email']}}</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>{{agent['phoneNumber']}}</td>
+            </tr>
+            <tr>
+              <th>Referral Link</th>
+              <td>{{agent['refLink']}}</td>
+            </tr>
+            <tr>
+              <th>Banking Details</th>
+              <td *ngIf="!agent['bankName']">BANK DETAILS HERE</td>
+              <td *ngIf="agent['bankName']">
+                <p><b>Bank Name:</b> {{agent['bankName']}}</p>
+                <p><b>Account #:</b> {{agent['bankNo']}}</p>
+                <p><b>IBAN:</b> {{agent['IBAN']}}</p>
+                <p><b>Swift Code:</b> {{agent['swiftCode']}}</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-hold">
+          <h2>Conversions</h2>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Celebrity</th>
+                <th>Email</th>
+                <th>View Orders</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="allConversions">
+              <ng-container *ngFor="let i = index;let agent of conversions">
+                <tr>
+                  <th scope="row">{{i+1}}</th>
+                  <th>{{agent['name']}}</th>
+                  <td>{{agent['email']}}</td>
+                  <td align="center">
+                    <div class="btn-group" role="group">
+                      <a [routerLink]="[ '/dashboard/celebrity-orders', agent['id']]">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip"
+                          data-placement="top" title="View">
+                          <i class="fa fa-list"></i>
+                        </button></a>
+                    </div>
+                  </td>
+                </tr>
+
+              </ng-container>
+            </tbody>
+            <td *ngIf="!allConversions" colspan="4" align="center">Data Not Available</td>
+          </table>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,60 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <section class="search-hold clearfix">
+    <div class="container">
+      <input class="big-search" type="text" placeholder="Quick Search..." [(ngModel)]="searchText">
+    </div>
+  </section>
+  <div class="container">
+    <div class="card-hold">
+      <div class="table-responsive table-sm">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Enrolment Date</th>
+              <th>Referral Link</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="allAgents">
+            <ng-container *ngFor="let i = index;let agent of agents | filter:searchText">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{agent['firstname']}}</td>
+                <td>{{agent['lastname']}}</td>
+                <td>{{agent['email']}}</td>
+                <td>{{agent['code']}} - {{agent['phone']}}</td>
+                <td><span *ngIf="agent['date']">{{agent['date'].toDate() | date:'EEE, dd MMM yyyy'}}</span></td>
+                <td>{{agent['refLink']}}</td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <a [routerLink]="[ '/dashboard/agent-single',agent['id']]">
+                      <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip"
+                        data-placement="top" title="View">
+                        <i class="fa fa-eye"></i>
+                      </button></a>
+                    <button (click)="deleteAgent(agent['id'],agent['firstname']+' '+
+                    agent['lastname'])" type="button"
+                      class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top"
+                      title="Delete">
+                      <i class="fa fa-trash-o"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </ng-container>
+          </tbody>
+          <td *ngIf="!allAgents" colspan="8" align="center">Data Not Available</td>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</section>
+<app-footer></app-footer>

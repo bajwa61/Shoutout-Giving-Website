@@ -1,0 +1,26 @@
+<!-- <app-dialog></app-dialog> -->
+
+<router-outlet></router-outlet>
+
+<div class="sticky-footer" id="sticky_footer">
+  <div id="navbar" class="bottom-nav">
+    <span>
+      <a [routerLink]="['/']">
+        <i class="fa fa-home"></i>
+        <p>Home</p>
+      </a>
+    </span>
+    <span>
+      <a [routerLink]="['/category']">
+        <i class="fa fa-users"></i>
+        <p>Explore</p>
+      </a>
+    </span>
+    <span>
+      <a [routerLink]="['/enroll-talent']">
+        <i class="fa fa-plus"></i>
+        <p>Enrol As Talent</p>
+      </a>
+    </span>
+  </div>
+</div>

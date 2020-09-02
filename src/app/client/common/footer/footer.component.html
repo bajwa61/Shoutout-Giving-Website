@@ -1,0 +1,314 @@
+<footer class="category-footer"
+  [ngClass]="{'category-footer-blacked': currentRoute === '/enroll-talent' || currentRoute === '/agent-page'}">
+  <div class="container">
+
+    <!-- Footer - Links -->
+    <section class="row">
+      <div class="col-lg-6 col-md-6">
+        <section class="row">
+          <h5 class="footer-heading" *ngIf="langEng; else temp1Arbfooter">CATEGORIES</h5>
+          <ng-template #temp1Arbfooter>
+            <h5 class="footer-heading"> التصنيفات </h5>
+          </ng-template>
+        </section>
+        <section class="row">
+          <ul class="col-xs-12 col-sm-3 col-md-3 col-lg-3 list-group">
+            <li *ngFor="let category of categories | slice:0:4"
+              class="list-group-item bg-transparent border-0 p-0 mb-2">
+
+              <a [routerLink]="['/category']" [state]="{data: category.name}"
+                *ngIf="langEng; else temp2Arb1footer">{{category['name']}}</a>
+              <ng-template #temp2Arb1footer>
+                <a [routerLink]="['/category']" [state]="{data: category.name}">{{category['arabicName']}} </a>
+              </ng-template>
+            </li>
+          </ul>
+          <ul class="col-xs-12 col-sm-3 col-md-3 col-lg-3 list-group">
+            <li *ngFor="let category of categories | slice:4:8"
+              class="list-group-item bg-transparent border-0 p-0 mb-2">
+
+              <a [routerLink]="['/category']" [state]="{data: category.name}"
+                *ngIf="langEng; else temp2Arb2footer">{{category['name']}}</a>
+              <ng-template #temp2Arb2footer>
+                <a [routerLink]="['/category']" [state]="{data: category.name}">{{category['arabicName']}} </a>
+              </ng-template>
+            </li>
+          </ul>
+          <ul class="col-xs-12 col-sm-3 col-md-3 col-lg-3 list-group">
+            <li *ngFor="let category of categories | slice:8:12"
+              class="list-group-item bg-transparent border-0 p-0 mb-2">
+
+              <a [routerLink]="['/category']" [state]="{data: category.name}"
+                *ngIf="langEng; else temp2Arb3footer">{{category['name']}}</a>
+              <ng-template #temp2Arb3footer>
+                <a [routerLink]="['/category']" [state]="{data: category.name}">{{category['arabicName']}} </a>
+              </ng-template>
+            </li>
+          </ul>
+          <ul class="col-xs-12 col-sm-3 col-md-3 col-lg-3 list-group">
+            <li *ngFor="let category of categories | slice:12:16"
+              class="list-group-item bg-transparent border-0 p-0 mb-2">
+
+              <a [routerLink]="['/category']" [state]="{data: category.name}"
+                *ngIf="langEng; else temp2Arb4footer">{{category['name']}}</a>
+              <ng-template #temp2Arb4footer>
+                <a [routerLink]="['/category']" [state]="{data: category.name}">{{category['arabicName']}} </a>
+              </ng-template>
+            </li>
+          </ul>
+
+        </section>
+        <!-- Footer - Contact -->
+        <section class="row footer-top">
+          <div>
+            <h6 *ngIf="langEng; else temp25Arbfooter">Join our Mailing List</h6>
+            <ng-template #temp25Arbfooter>
+              <h6>انضم لقائمتنا البريدية </h6>
+            </ng-template>
+            <p *ngIf="langEng; else temp26Arbfooter">Subscribe for updates on new talent and features</p>
+            <ng-template #temp26Arbfooter>
+              <p>اشترك للحصول على تحديثات حول المواهب والميزات الجديدة على التطبيق</p>
+            </ng-template>
+            <div class="subscribe-hold">
+              <div id="mc_embed_signup">
+                <form [formGroup]="subscribeForm">
+                  <div class="subinputholder">
+                    <input type="email" value="" formControlName="email"
+                      class="sub-input required email" id="mce-EMAIL" placeholder="Enter your Email"
+                      *ngIf="langEng; else temp27Arbfooter">
+                    <ng-template #temp27Arbfooter>
+                      <input type="email" value="" formControlName="email" class="sub-input required email"
+                        id="mce-EMAIL" placeholder="أدخل بريدك الإلكتروني">
+                    </ng-template>
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_086c63139b3715a783b815688_0499e8da25" tabindex="-1" value=""></div>
+                    <input (click)="subscribe()" type="submit" value="Subscribe" name="subscribe"
+                      id="mc-embedded-subscribe" class="sub-btn button" *ngIf="langEng; else tempSubscribeArbfooter">
+                    <ng-template #tempSubscribeArbfooter>
+                      <input (click)="subscribe()" type="submit" value="الإشتراك" name="الإشتراك"
+                        id="mc-embedded-subscribe" class="sub-btn button">
+                    </ng-template>
+                  </div>
+                  <div
+                    *ngIf="subscribeForm.controls.email.errors && (subscribeForm.controls.email.dirty || subscribeForm.controls.email.touched)"
+                    class="error-msg mt-1" role="alert">
+
+                    <span *ngIf="subscribeForm.controls.email.errors.required" style="color: #786c83;">Please enter
+                      valid
+                      email.</span>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- MY ACCOUNT -->
+
+      <!-- <div class="col-lg-2 col-md-6" style="padding-left: 0px">
+        <h5 class="footer-heading">MY ACCOUNT</h5>
+        <ul class="list-group">
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Register As Talent</a>
+          </li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Change Password</a></li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Payment Setting</a></li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Referal Program</a></li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">My Deal</a></li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Wishlit</a></li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Update Cart</a></li>
+          <li class="list-group-item bg-transparent border-0 p-0 mb-2"><a href="javascript:;">Logout</a></li>
+        </ul>
+      </div> -->
+
+      <div class="col-lg-2 col-md-6" style="padding-left: 0px">
+
+        <h5 class="footer-heading" *ngIf="langEng; else temp18Arbfooter">SOCIAL MEDIA</h5>
+        <ng-template #temp18Arbfooter>
+          <h5 class="footer-heading"> وسائل التواصل الاجتماعي</h5>
+        </ng-template>
+        <ul class="list-group">
+          <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://www.facebook.com/halahiofficial/" target="_blank" *ngIf="langEng; else temp19Arbfooter"><i
+                class="fa fa-facebook mr-1"></i>
+              Facebook</a>
+            <ng-template #temp19Arbfooter>
+              <a href="https://www.facebook.com/halahiofficial/" target="_blank"><i class="fa fa-facebook mr-1"></i>
+                فيسبوك</a>
+            </ng-template>
+          </li>
+          <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://www.linkedin.com/company/halahi/" target="_blank" *ngIf="langEng; else temp20Arbfooter"><i
+                class="fa fa-linkedin mr-1"></i>
+              LinkedIn</a>
+            <ng-template #temp20Arbfooter>
+              <a href="https://www.linkedin.com/company/halahi/" target="_blank"><i class="fa fa-linkedin mr-1"></i>
+                لينكدين</a>
+            </ng-template>
+          </li>
+          <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://www.instagram.com/halahiofficial/" target="_blank" *ngIf="langEng; else temp21Arbfooter"><i
+                class="fa fa-instagram mr-1"></i>
+              Instagram</a>
+            <ng-template #temp21Arbfooter>
+              <a href="https://www.instagram.com/halahiofficial/" target="_blank"><i class="fa fa-instagram mr-1"></i>
+                انستغرام </a>
+            </ng-template>
+          </li>
+          <!-- <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://twitter.com/naologicerp" target="_blank">
+              <i class="fa fa-twitter mr-1"></i> Twitter</a>
+          </li> -->
+          <!-- <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://plus.google.com/109511516185666043480" target="_blank">
+              <i class="fa fa-google-plus mr-1"></i> Google+</a>
+          </li> -->
+          <!-- <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://www.reddit.com/r/naologic/" target="_blank">
+              <i class="fa fa-youtube mr-1"></i> Youtube</a>
+          </li>
+          <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://github.com/naologic" target="_blank">
+              <i class="fa fa-vimeo mr-1"></i> Vimeo</a>
+          </li>
+          <li class="list-group-item list-group-social bg-transparent border-0 p-0 mb-2">
+            <a href="https://blog.naologic.com" target="_blank">
+              <i class="fa fa-pinterest mr-1"></i> Pinterest</a>
+          </li> -->
+        </ul>
+      </div>
+
+    
+      <div class="col-lg-4" style="width: 200%;">
+        <H5 class="footer-heading">ARE YOU A BRAND?</H5>
+        <p style="color: rgb(115, 108, 124);">Work with our growing selection of celebrities to increase your reach</p>
+        <a class="enroll-btn footer-btn" style="background-color: rgb(223, 29, 115);">brands.halahi.com</a>
+        <br />
+        <H5 class="footer-heading" style="margin-top: 5%;">ARE YOU A CELEBRITY?</H5>
+        <p style="color: rgb(115, 108, 124);margin-bottom: 1rem !important;">Join our platform to get closer to your fans and supporters</p>
+        <a [routerLink]="[ '/enroll']" class="enroll-btn footer-btn" style="background-color: rgb(52, 182, 208)" *ngIf="langEng; else temp28Arbfooter">Enrol
+          As Talent</a>
+        <ng-template #temp28Arbfooter>
+          <a [routerLink]=" [ '/enroll' ]" class="enroll-btn footer-btn" style="background-color: rgb(52, 182, 208)">سجل كنجم</a>
+        </ng-template>
+
+      </div>
+    </section>
+
+
+    <section class="row">
+      <div class="col-lg-2 col-md-12 col-sm-12">
+        <h5 class="footer-heading">PAYMENT METHOD</h5>
+        <img class="payment-method" [src]="paymentMethodImg" />
+      </div>
+
+
+
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+
+        <h5 class="footer-heading">CC AVENUE PAYMENT OPTIONS</h5>
+
+    
+        <img class="payment-option" [src]="paymentOptionImg1" />
+        <img class="payment-option padding-left" [src]="paymentOptionImg2" />
+        <img class="payment-option padding-left" [src]="paymentOptionImg3" />
+        <img class="payment-option padding-left" [src]="paymentOptionImg4" />
+        <img class="payment-option padding-left" [src]="paymentOptionImg5" />
+      </div>
+
+      <!-- <div class="col-lg-5 mb-5 mb-lg-0 pl-0">
+
+   
+          <h5 class="footer-heading">CC AVENUE SECURITY</h5>
+          <img class="ccAvenueImg" [src]="ccAvenueImg1" />
+          <img class="ccAvenueImg padding-left" [src]="ccAvenueImg2" />
+
+
+        </div>
+      </div>
+
+  
+      <div class="col-lg-4 text-lg-right text-center"> -->
+        <!-- <h6>Follow Us</h6> -->
+        <!-- <ul class="footer-social">
+          <li>
+            <a href="https://www.facebook.com/halahiofficial/" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/halahiofficial/" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul> -->
+
+        <!-- <div class="btn-hold mt-3">
+
+          <a [routerLink]="[ '/enroll']" class="enroll-btn footer-btn" *ngIf="langEng; else temp28Arbfooter">Enrol
+            As Talent</a>
+          <ng-template #temp28Arbfooter>
+            <a [routerLink]="[ '/enroll']" class="enroll-btn footer-btn">سجل كنجم</a>
+          </ng-template>
+
+        </div> 
+      </div>-->
+
+      <div class="col-lg-2 col-md-12 col-sm-12">
+        <H5 class="footer-heading">CONTACT US</H5>
+        <div style="color: rgb(206, 206, 206);">info@halahi.com</div>
+
+      </div>
+>>>>>>> New Changes
+    </section>
+
+    <!-- Footer - All Rights Reserved -->
+    <section class="row footer-down">
+      <div class="col-md-6 text-md-left text-center pl-0">
+
+        <p *ngIf="langEng; else temp29Arbfooter">&copy; 2020. All Rights Reserved. Halahi Events Management LLC, Part of
+          Saif Belhasa Holding</p>
+        <ng-template #temp29Arbfooter>
+          <p>&copy; 2020 .جميع الحقوق محفوظة. هلا هاي لإدارة الفعاليات ذ.م.م ، جزء من سيف بلحصا القابضة</p>
+        </ng-template>
+      </div>
+      <div class="col-md-6 text-md-right text-center">
+        <ul class="info-tags" *ngIf="langEng; else quickLinksArbfooter">
+          <li><a style="cursor: pointer;" (click)="changeLanguage('english')">EN</a></li>
+          <li><a style="cursor: pointer;" (click)="changeLanguage('arabic')">AR</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/faq']">FAQ</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/terms']">Terms</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/privacy']">Privacy</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/refund']">Refund &amp; Cancellation</a></li>
+
+          <!-- <li><a style="cursor: pointer;" [routerLink]="['/about']">About</a></li> -->
+          <li><a style="cursor: pointer;" [routerLink]="['/contact']">Contact</a></li>
+
+          <!-- <li><a style="cursor: pointer;" [routerLink]="['/press']">Press</a></li> -->
+        </ul>
+        <ng-template #quickLinksArbfooter>
+          <ul class="info-tags">
+            <li><a style="cursor: pointer;" (click)="changeLanguage('english')">الإنجليزية</a></li>
+            <li><a style="cursor: pointer;" (click)="changeLanguage('arabic')">عربى</a></li>
+            <li><a style="cursor: pointer;" [routerLink]="['/faq']">الأسئلة المتداولة</a></li>
+            <li><a style="cursor: pointer;" [routerLink]="['/terms']">الشروط و الأحكام</a></li>
+            <li><a style="cursor: pointer;" [routerLink]="['/privacy']">الخصوصية</a></li>
+            <li><a style="cursor: pointer;" [routerLink]="['/refund']">استرداد المدفوعات وإلغاء الطلب</a></li>
+
+            <!-- <li><a style="cursor: pointer;" [routerLink]="['/about']">About</a></li> -->
+            <li><a style="cursor: pointer;" [routerLink]="['/contact']">تواصل معنا</a></li>
+
+            <!-- <li><a style="cursor: pointer;" [routerLink]="['/press']">Press</a></li> -->
+          </ul>
+        </ng-template>
+
+      </div>
+    </section>
+  </div></footer>
+

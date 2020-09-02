@@ -1,0 +1,113 @@
+<app-header></app-header>
+
+
+<section class="content clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-hold">
+          <h2>Add New Star</h2>
+          <div class="form-block">
+            <form [formGroup]="talentForm">
+              <div class="input-hold mt-3">
+                <label>Email</label>
+                <input class="check-input" formControlName="emailAddress" type="email" placeholder="hi@halahi.com">
+                <div class="help-block with-errors">
+                  <div
+                    *ngIf="talentForm.controls.emailAddress.errors && (talentForm.controls.emailAddress.dirty || talentForm.controls.emailAddress.touched)"
+                    class="error-msg mt-1" role="alert">
+                    <span *ngIf="talentForm.controls.emailAddress.errors.required">Please provide an email
+                      address</span>
+                    <span *ngIf="talentForm.controls.emailAddress.errors.pattern">Please provide valid email address and
+                      in lower case</span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-hold mt-3">
+                <label>Password</label>
+                <input formControlName="password" class="check-input" [type]="fieldTextType ? 'text' : 'password'" style="width:90%;">
+                <div class="input-group-append" style="display: inline-flex;">
+                  <span class="input-group-text">
+                    <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}"
+                      (click)="toggleFieldTextType()"></i>
+                  </span>
+                </div>
+                <div
+                  *ngIf="talentForm.controls.password.errors && (talentForm.controls.password.dirty || talentForm.controls.password.touched)"
+                  class="error-msg mt-1" role="alert">
+                  <span *ngIf="talentForm.controls.password.errors.required">Password is required.</span>
+                </div>
+              </div>
+              <div class="input-hold mt-3">
+                <label>Retype Password</label>
+                <input formControlName="confirmPassword" class="check-input"
+                  [type]="fieldTextType ? 'text' : 'password'">
+                <div
+                  *ngIf="talentForm.controls.confirmPassword.errors && (talentForm.controls.confirmPassword.dirty || talentForm.controls.confirmPassword.touched)"
+                  class="error-msg mt-1" role="alert">
+                  <span *ngIf="talentForm.controls.confirmPassword.errors.required">Retype password is required</span>
+                </div>
+                <div *ngIf="(talentForm.controls.confirmPassword.dirty || talentForm.controls.confirmPassword.touched)"
+                  class="error-msg mt-1" role="alert">
+                  <span *ngIf="talentForm.getRawValue()['password'] != talentForm.getRawValue()['confirmPassword']">Your
+                    password and confirmation password do not match..</span>
+                </div>
+              </div>
+              <div class="input-hold mt-4">
+                <input type="submit" (click)="submitData()" class="btn-submit" value="Add New Star">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-hold">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="isDataAvailable">
+                <tr *ngFor="let celebrity of celebrities;let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>
+
+                    <img *ngIf="celebrity['imageUrl']" [attr.src]="celebrity['imageUrl']" alt="Star Name"
+                      class="star-thumb">
+                    <img *ngIf="!celebrity['imageUrl']" src="../../../assets/dashboard/assets/img/logo.png"
+                      alt="Star Name" class="star-thumb">
+                  </td>
+
+                  <td>{{celebrity.fullName !=null?celebrity.fullName:celebrity.email}}</td>
+                  <td>
+                    <div class="btn-group" role="group">
+                      <button [routerLink]="[ '/dashboard/star-single',celebrity['id']]" type="button"
+                        class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top"
+                        title="View">
+                        <i class="fa fa-eye"></i>
+                      </button>
+                      <button (click)="deleteStar(celebrity['id'])" type="button"
+                        class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top"
+                        title="Delete">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+              <td *ngIf="!isDataAvailable" colspan="4" align="center">Data Not Available</td>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

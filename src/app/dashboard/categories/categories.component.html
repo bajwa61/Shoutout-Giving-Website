@@ -1,0 +1,89 @@
+<app-header></app-header>
+<form [formGroup]="categoryForm">
+
+  <section class="content clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-hold">
+            <h2>Add New Category</h2>
+            <div class="form-block">
+              <div class="input-hold mt-3">
+                <label>Title</label>
+                <input class="check-input" type="text" placeholder="Actor" formControlName="name">
+                <div
+                  *ngIf="categoryForm.controls.name.errors && (categoryForm.controls.name.dirty || categoryForm.controls.name.touched)"
+                  class="error-msg mt-1" role="alert">
+                  <span *ngIf="categoryForm.controls.name.errors.required">Title is required</span>
+                </div>
+              </div>
+              <div class="input-hold mt-3">
+                <label>Arabic Title</label>
+                <input class="check-input" type="text" placeholder="الممثل" formControlName="arabicName">
+                <div
+                  *ngIf="categoryForm.controls.arabicName.errors && (categoryForm.controls.arabicName.dirty || categoryForm.controls.arabicName.touched)"
+                  class="error-msg mt-1" role="alert">
+                  <span *ngIf="categoryForm.controls.arabicName.errors.required">Arabic title is required</span>
+                </div>
+              </div>
+              <div class="input-hold mt-3">
+                <label>Image</label>
+                <input formControlName="imageFile" (change)="changeFile($event.target.files)" type="file"
+                  accept="image/*" name="categoryimage">
+                <div
+                  *ngIf="categoryForm.controls.imageFile.errors && categoryForm.controls.imageFile.touched"
+                  class="error-msg mt-1" role="alert">
+                  <span *ngIf="categoryForm.controls.imageFile.errors.required">Image is required</span>
+                </div>
+              </div>
+              <div class="input-hold mt-4">
+                <input (click)="addCategory()" class="btn-submit" value="{{id?'Edit Category':'Add New Category'}}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-hold">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Title (Arabic)</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="isDataAvailable">
+                  <tr *ngFor="let category of categories;let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td><img src="{{category['imageUrl']}}" alt="{{category['name']}}" class="star-thumb"></td>
+                    <td>{{category['name']}} ({{category['arabicName']}})</td>
+                    <td>
+                      <div class="btn-group" role="group">
+                        <button (click)="editCategory(category)" type="button" class="btn btn-outline-secondary btn-sm"
+                          data-toggle="tooltip" data-placement="top" title="Edit">
+                          <i class="fa fa-pencil"></i>
+                        </button>
+                        <button (click)="deleteCategory(category['id'])" type="button"
+                          class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top"
+                          title="Delete">
+                          <i class="fa fa-trash-o"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <td *ngIf="!isDataAvailable" colspan="4" align="center">Data Not Available</td>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</form>
+
+
+<app-footer></app-footer>

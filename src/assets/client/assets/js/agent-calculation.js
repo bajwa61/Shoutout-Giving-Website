@@ -1,0 +1,1 @@
+jQuery("input").keyup(function(){var e=Number(jQuery("#pricepervideo").val())*Number(jQuery("#numberofvideo").val())*.05;jQuery("#videoearning").html(e)});

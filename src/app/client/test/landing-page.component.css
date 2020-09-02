@@ -1,0 +1,447 @@
+.search-hold .live-search {
+    position: absolute;
+    text-align: left;
+    display: block;
+}
+
+.sticky-search-hold .live-search {
+    position: absolute;
+    text-align: left;
+    display: block;
+    /* right: 340px; */
+    left: 340px;
+    top: 0px;
+}
+
+.search-hold .search-slide {
+    width: 250px;
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    /* left: 25px; */
+    left: 60px;
+}
+
+.sticky-search-hold .search-slide {
+    width: 250px;
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    /* left: 25px; */
+    right: 25px;
+}
+
+.search-slide ul {
+    list-style: none;
+}
+
+.search-slide li {
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.search-slide li a {
+    padding: 15px 21px;
+    display: flex;
+}
+
+.search-slide li a .simg img {
+    width: 48px;
+    border-radius: 10px;
+}
+
+.search-slide li a .scat {
+    font-size: 13px;
+    line-height: 1.9em;
+    font-weight: 400;
+    color: #606060;
+    display: block;
+}
+
+.search-slide li a .sinfo {
+    padding-left: 15px;
+}
+
+.search-slide li a .sdetail {
+    display: inline-flex;
+}
+
+.search-slide li a .sname {
+    font-size: 15px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.search-slide li a .sprice {
+    font-size: 12px;
+    border-radius: 6px;
+    background-color: rgba(60, 30, 84, 0.6);
+    font-weight: 400;
+    padding: 0 9px;
+    margin-left: 11px;
+    color: #FFFFFF;
+    height: fit-content;
+}
+
+.background-startimg {
+    border-radius: 15px;
+    height: 240px !important;
+    position: relative;
+    display: flex;
+}
+
+.background-startimg .star-overlay {
+    border-radius: 40px !important;
+}
+
+.carousel-background-startimg {
+    position: relative;
+    display: flex;
+}
+
+.carousel-background-startimg h2 {
+    font-size: 15px;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 20px;
+    left: 12px;
+    right: 12px;
+    text-align: center;
+    position: absolute;
+}
+
+/* min width */
+
+@media (min-width : 414px) {
+    .background-startimg {
+        height: 240px !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .carousel-background-startimg {
+        max-width: 200px !important;
+    }
+}
+
+@media (min-width : 768px) {
+    .background-startimg {
+        height: 240px !important;
+    }
+}
+
+@media (min-width : 980px) {
+    .background-startimg {
+        height: 240px !important;
+    }
+}
+
+@media (min-width : 1200px) {
+    .background-startimg {
+        height: 240px !important;
+        max-width: 200px !important;
+    }
+}
+
+/* max width */
+@media (max-width : 767px) {
+    .category-header-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-background-startimg {
+        max-width: 150px !important;
+    }
+}
+
+@media (max-width : 375px) {
+    .carousel-background-startimg {
+        max-width: 125px !important;
+    }
+
+    .background-startimg {
+        height: 200px !important;
+    }
+}
+
+/* Slick Slider Celebrities */
+
+.stars-block {
+    position: relative;
+}
+
+.stars a h2 {
+    font-size: 15px;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 20px;
+    left: 12px;
+    right: 12px;
+    text-align: center;
+    position: absolute;
+}
+
+.stars-block .chevron-left,
+.stars-block .chevron-right {
+    position: absolute;
+    top: 25%;
+    z-index: 1;
+    font-size: 40px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+}
+
+.stars-block .chevron-left {
+    background: url(src/assets/client/assets/img/left-chevron.png);
+    background-size: contain;
+    background-position: center;
+}
+
+.stars-block .chevron-right {
+    right: 2%;
+    background: url(src/assets/client/assets/img/right-chevron.png);
+    background-size: contain;
+    background-position: center;
+}
+
+.stars-block .chevron-left:hover,
+.stars-block .chevron-right:hover {
+    cursor: pointer;
+}
+
+
+.slick-slide {
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+
+.starsRow {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+}
+
+.slick-row .carousel button.slick-prev:before {
+    content: "<" !important;
+    color: red !important;
+    font-size: 30px !important;
+}
+
+.slick-row .carousel button.slick-prev:before {
+    content: ">" !important;
+    color: red !important;
+    font-size: 30px !important;
+}
+
+.background-startimg-slick {
+    padding-right: 10px;
+    outline: none;
+}
+
+.img-fluid-landing {
+    width: 100%;
+}
+
+/* Advertisement Banner */
+.advertisement-banners {
+    background-size: cover;
+    width: 100%;
+    height: 230px;
+}
+
+@media screen and (max-width : 1439px) {
+    .advertisement-banners {
+        background-size: cover;
+        width: 100%;
+        height: 185px;
+    }
+}
+
+@media screen and (max-width : 767px) {
+
+    .advertisement-banners {    
+        height: 130px;
+    }
+
+    .starsRow::-webkit-scrollbar {
+        display: none;
+    }
+
+    .starsRow {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+}
+
+@media screen and (max-width : 576px) {
+    .stars {
+        flex: 0 0 146px;
+        margin: 6px 6px 20px;
+        position: relative;
+        color: #d3d3d3;
+    }
+    
+    .advertisement-banners {
+        height: 85px;
+    }
+}
+
+@media (max-width : 414px) {
+    .background-startimg-slick {
+        height: 200px !important;
+        max-width: 160px;
+    }
+}
+
+@media (max-width : 375px) {
+    .background-startimg-slick {    
+        height: 180px !important;
+        max-width: 140px;
+    }
+}
+
+/* Min Width */
+@media (min-width : 415px) {
+    .background-startimg-slick {
+        height: 240px !important;
+        max-width: 200px;
+    }
+}
+
+@media (min-width : 768px) {
+    .background-startimg-slick {
+        height: 240px !important;
+        max-width: 200px;
+    }
+}
+
+@media (min-width : 980px) {
+    .background-startimg-slick {
+        height: 240px !important;
+        max-width: 200px;
+    }
+}
+
+@media (min-width : 1200px) {
+    .background-startimg-slick {
+        height: 240px !important;
+        max-width: 200px;
+    }
+}
+
+.star {
+    flex: 0 0 146px;
+    margin: 6px 6px 20px;
+    position: relative;
+    color: #d3d3d3;
+}
+
+.celebrity-name {
+    font-family: 'Futura New Book', sans-serif;
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+    color: #1a2531;
+    margin-top: 5px;
+    margin-bottom: -3px;
+    font-size: 1rem;
+    max-width: 200px;
+}
+
+.star-overlay {
+    font-family: 'Futura New Bold', sans-serif;
+    text-align: center;
+    color: #0e394b;
+    font-size: .8rem;
+    margin-bottom: -5px;
+    max-width: 200px;
+}
+
+.star-overlay.title {
+    background: #28023f;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.star-overlay.title h6 {
+    font-family: 'Futura New', sans-serif;
+    color: #ffffff;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.star-overlay .dollar {
+    font-size: .7rem;
+}
+
+.stars-block a .star-overlay-trans {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+
+.stars-block a:hover .star-overlay-trans {
+    visibility: visible;
+    opacity: 1;
+    background: rgba(60, 30, 84, 0.4);
+    border-radius: 10px;
+}
+
+
+.star.star--influencer {
+    flex: 0 0 210px;
+}
+
+/* Book Button */
+.book-btn-area a.book-btn {
+    font-family: 'Futura New Heavy', sans-serif;
+    background-color: #28023F;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    /* padding: 5px 15px; */
+    padding: 0px 35px;
+    display: inline-block;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 9px 26px 2px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 9px 26px 2px rgba(0, 0, 0, 0.57);
+    box-shadow: 0px 9px 26px 2px rgba(0, 0, 0, 0.57);
+}
+
+.book-btn-area.book-btn-area-slick {
+    min-height: 60px;
+}
+
+/* Rating */
+ngb-rating {
+    width: 100%;
+    justify-content: center;
+    outline: none;
+}
+
+.star-review {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    color: #d3d3d3;
+}
+
+.full {
+    color: purple;
+}
+
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: purple;
+}

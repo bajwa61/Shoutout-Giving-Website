@@ -1,0 +1,66 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <section class="enroll-form-block clearfix" style="padding-top: 10px;">
+    <div class="container">
+      <div class="col-xl-8 col-lg-10 mx-auto">
+        <div class="input-group mb-3">
+          <input class="form-control check-input" style="height: calc(2.5em + 0.75rem + 2px);" type="url"
+            placeholder="https://halahi.com/enroll/" [(ngModel)]="uniqueUrl" #userinput />
+          <div class="input-group-append">
+            <a class="btn btn-dark" type="button" style="top: -1px; margin-left: 2px; color: white;"
+              (click)="copyMessage(userinput)">Copy Link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-hold">
+          <h3>Total Conversions</h3>
+
+          <h5 align="center" style="font-size: 500%;">
+            {{ totalConversions }}
+          </h5>
+
+          <h3>Earnings this Month</h3>
+
+          <h5 align="center" style="font-size: 500%;">
+            {{moneyGeneratedMonth*5/100}}
+          </h5>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-hold">
+          <h3>Recent Conversions</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="totalconversions">
+              <ng-container *ngFor="let i = index; let conversion; of: conversions">
+                <tr>
+                  <td>{{ conversion["email"] }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+            <td *ngIf="!totalconversions" align="center"><br />Data Not Available</td>
+          </table>
+          <table *ngIf="!totalconversions" class="table table-hover">
+            <tr>
+              <td>
+                <br />
+                <h5 align="center" style="font-size: 200%;"></h5>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

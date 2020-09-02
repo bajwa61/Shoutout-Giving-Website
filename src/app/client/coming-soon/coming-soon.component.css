@@ -1,0 +1,32 @@
+.bgimg {
+    background-image: url('src/assets/client/assets/img/banners/coming-soon-bg.png');
+    height: calc(100vh);
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgimg .middle {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.bgimg .middle img {
+    width: 140%;
+}
+
+.bgimg .bottom {
+    font-family: 'Abject Failure', sans-serif;
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.bgimg .bottom h1 {
+    font-size: 9.5vw;
+}

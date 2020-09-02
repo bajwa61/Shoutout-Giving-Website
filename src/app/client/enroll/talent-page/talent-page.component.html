@@ -1,0 +1,464 @@
+<!-- <app-header></app-header> -->
+
+<section class="search-hold" id="searchHold">
+  <a style="display: inline-flex;" (click)="enableSearch()">
+    <!-- <img class="search-icon" src="../../../assets/client/assets/img/search-icon.png"> -->
+    <div class="search-icon"></div>
+  </a>
+  <input
+    *ngIf="searchFlag"
+    class="big-search"
+    type="text"
+    placeholder="Search..."
+    (keyup)="searchData($event.target.value)"
+  />
+  <div *ngIf="searchFlag" class="live-search">
+    <div class="search-slide shadow">
+      <ul *ngFor="let celebrity of celebritiesSearch">
+        <li>
+          <a [routerLink]="['/star', celebrity.userName]">
+            <div class="simg">
+              <img
+                src="{{ celebrity.imageUrl }}"
+                alt="Name of Celeb"
+                class="img-fluid"
+              />
+            </div>
+            <div class="sinfo">
+              <span class="scat"
+                >Category Name - Category Name - Category Name</span
+              >
+              <div class="sdetail">
+                <span class="sname">{{ celebrity.fullName }}</span>
+                <div class="sprice">${{ celebrity.price }}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<header class="category-header">
+  <nav class="category-header-nav navbar">
+    <div class="header-logo">
+      <a [routerLink]="['/']">
+        <!-- <a [routerLink]="['/home']"> -->
+        <img
+          src="../../../assets/client/assets/img/logo.png"
+          class="logo"
+          alt=""
+        />
+      </a>
+    </div>
+    <ul class="navbar-nav category-navbar">
+      <li class="nav-item rotated">
+        <a
+          class="nav-link"
+          [routerLink]="['/category']"
+          *ngIf="langEng; else temp1Arb"
+          >EXPLORE</a
+        >
+        <ng-template #temp1Arb>
+          <a class="nav-link" [routerLink]="['/category']">إكتشف</a>
+        </ng-template>
+      </li>
+      <li class="nav-item rotated">
+        <a
+          class="nav-link"
+          [routerLink]="['/enroll-talent']"
+          *ngIf="langEng; else tempArb"
+          >ENROL AS TALENT</a
+        >
+        <ng-template #tempArb>
+          <a class="nav-link" [routerLink]="['/enroll-talent']">سجل كنجم</a>
+        </ng-template>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <div class="category-header-scroll">
+      <img
+        src="../../../assets/client/assets/img/hand-scroll.gif"
+        class="logo"
+        alt=""
+      />
+      <!-- <p>SCROLL DOWN</p> -->
+    </div>
+  </nav>
+
+  <div style="width: 100%;">
+    <section class="signup-banner clearfix">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-xl-6 col-md-7 align-self-center">
+            <h1 *ngIf="langEng; else temp2Arb">{{ enrollData["title"] }}</h1>
+            <ng-template #temp2Arb>
+              <h1>{{ enrollData["arabicTitle"] }}</h1>
+            </ng-template>
+            <p *ngIf="langEng; else temp3Arb">{{ enrollData["content"] }}</p>
+            <ng-template #temp3Arb>
+              <p>{{ enrollData["arabicContent"] }}</p>
+            </ng-template>
+            <div class="btn-hold">
+              <a
+                href="https://apps.apple.com/us/app/halahi/id1501878836"
+                target="_blank"
+                style="cursor: pointer;"
+              >
+                <img
+                  width="auto"
+                  height="65"
+                  src="../../../../assets/client/assets/img/applestore.png"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.nujumz.halahi"
+                target="_blank"
+                style="cursor: pointer;"
+              >
+                <img
+                  width="auto"
+                  height="65"
+                  src="../../../../assets/client/assets/img/android.png"
+                />
+              </a>
+
+              <a
+                [routerLink]="['/enroll']"
+                style="cursor: pointer;"
+                class="enroll-btn"
+                *ngIf="langEng; else temp4Arb"
+                >ENROL NOW</a
+              >
+              <ng-template #temp4Arb>
+                <a
+                  [routerLink]="['/enroll']"
+                  style="cursor: pointer;"
+                  class="enroll-btn"
+                >
+                  سجل الآن</a
+                >
+              </ng-template>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-5 d-none d-md-flex align-items-end">
+            <div *ngIf="isLogin" class="logout_buttons">
+              <p>welcome mark</p>
+              <a href="#" class="logout">log out</a>
+            </div>
+
+            <div *ngIf="!isLogin" class="logout_buttons">
+              <a href="#" class="logout">sign in</a>
+            </div>
+
+            <img
+              src="../../../../assets/client/assets/img/enroll.png"
+              alt="Banner Girl"
+              class="celebrity-img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</header>
+
+<section class="enroll-info clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <img
+          src="../../../../assets/client/assets/img/icon-select-star.svg"
+          alt="Block Title"
+          class="icon-info"
+        />
+
+        <h2 *ngIf="langEng; else tempnaArb">Keep It Simple</h2>
+        <ng-template #tempnaArb>
+          <h2>الموضوع بسيط</h2>
+        </ng-template>
+        <p *ngIf="langEng; else temp5Arb">
+          Record your video message anywhere - at any time! Whether you are in
+          the airport, taking an Uber, going for a stroll or even lying in bed.
+          All of your videos are delivered straight through the HalaHi app.
+        </p>
+        <ng-template #temp5Arb>
+          <p>
+            سجل رسالة الفيديو الخاصة بك في أي مكان - في أي وقت! سواء كنت في
+            المطار، داخل سيارة أجرة، في نزهة أو حتى مستلقي على السرير. يتم تسليم
+            جميع رسائل الفيديو الخاصة بك مباشرة إلى المستخدم من خلال تطبيق هلا
+            هاي
+          </p>
+        </ng-template>
+      </div>
+      <div class="col-lg-4">
+        <img
+          src="../../../../assets/client/assets/img/icon-send-request.svg"
+          alt="Block Title"
+          class="icon-info"
+        />
+
+        <h2 *ngIf="langEng; else temp6Arb">Earn Cash</h2>
+        <ng-template #temp6Arb>
+          <h2>اكسب المال</h2>
+        </ng-template>
+        <p *ngIf="langEng; else temp7Arb">
+          Earn anywhere between $20 to $500 for a single video that takes you
+          less than 30 seconds. You set your own price and can even donate the
+          money to your favourite charity.
+        </p>
+        <ng-template #temp7Arb>
+          <p>
+            اكسب ما بين ٢٠ إلى ١٠٠٠ دولار مقابل مقطع فيديو واحد يستغرق أقل من 30
+            ثانية. يمكنك تحديد السعر الخاص بك ويمكنك حتى التبرع بالمال لمؤسستك
+            الخيرية المفضلة
+          </p>
+        </ng-template>
+      </div>
+      <div class="col-lg-4">
+        <img
+          src="../../../../assets/client/assets/img/icon-review-video.svg"
+          alt="Block Title"
+          class="icon-info"
+        />
+
+        <h2 *ngIf="langEng; else temp8Arb">Blow Your Fans Away</h2>
+        <ng-template #temp8Arb>
+          <h2>أبهر معجبيك</h2>
+        </ng-template>
+        <p *ngIf="langEng; else temp9Arb">
+          Fans on HalaHi will be blown away by your message! A viral video that
+          will allow you to connect with your fans like never before and grow
+          you brand.
+        </p>
+        .
+        <ng-template #temp9Arb>
+          <p>فاجئ معجبيك بفيديو شخصي لن ينسوه أبدا!</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phone-block clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 col-lg-8 mx-auto">
+        <div class="row">
+          <div class="col-md-6 pointers-info">
+            <div class="offer-text-block">
+              <img
+                src="../../../../assets/client/assets/img/money-bag.svg"
+                alt="MoneyBag"
+                class="overlapimg"
+              />
+
+              <p *ngIf="langEng; else temp10Arb">
+                Keep <strong>75% of your earnings</strong>, and get paid every
+                <strong>30 days</strong>
+              </p>
+              <ng-template #temp10Arb>
+                <p>
+                  <strong> احتفظ بـ 75٪ من أرباحك، و الدفع كل 30 يومًا </strong>
+                </p>
+              </ng-template>
+            </div>
+            <div class="offer-text-block">
+              <img
+                src="../../../../assets/client/assets/img/thumb.svg"
+                alt="MoneyBag"
+                class="overlapimg"
+              />
+
+              <p *ngIf="langEng; else temp11Arb">
+                Only do the request <strong>you want to do</strong>
+              </p>
+              <ng-template #temp11Arb>
+                <p style="font-size: 16px;">
+                  قم فقط بالطلب الذي تريد القيام به
+                </p>
+              </ng-template>
+            </div>
+            <div class="offer-text-block">
+              <img
+                src="../../../../assets/client/assets/img/money-eye.svg"
+                alt="MoneyBag"
+                class="overlapimg"
+              />
+
+              <p *ngIf="langEng; else temp12Arb">
+                <strong>Set your own price</strong>, and change it whenever you
+                want
+              </p>
+              <ng-template #temp12Arb>
+                <p style="font-size: 16px;">
+                  حدد السعر الخاص بك وقم بتغييره وقتما تشاء
+                </p>
+              </ng-template>
+            </div>
+            <div class="offer-text-block">
+              <img
+                src="../../../../assets/client/assets/img/clap.svg"
+                alt="MoneyBag"
+                class="overlapimg"
+              />
+
+              <p *ngIf="langEng; else temp13Arb">
+                Share <strong>incredible memories</strong> with your fans
+              </p>
+              <ng-template #temp13Arb>
+                <p style="font-size: 16px;">إصنع مع معجبيك ذكريات رائعة</p>
+              </ng-template>
+            </div>
+            <div class="offer-text-block">
+              <img
+                src="../../../../assets/client/assets/img/hourglass.svg"
+                alt="MoneyBag"
+                class="overlapimg"
+              />
+
+              <p *ngIf="langEng; else temp14Arb">
+                Just <strong>10-30 seconds</strong> of your time for each video
+              </p>
+              <ng-template #temp14Arb>
+                <p style="font-size: 16px;">
+                  ١٠ إلى ٣٠ ثانية فقط من وقتك لكل فيديو
+                </p>
+              </ng-template>
+            </div>
+          </div>
+          <div class="col-md-6 d-none d-md-block" style="position: relative;">
+            <img
+              src="../../../../assets/client/assets/img/phone.png"
+              class="phone-img img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="celeb-block clearfix">
+  <div class="container text-center">
+    <h3 *ngIf="langEng; else temp17Arb">{{ enrollData["companyTitle"] }}</h3>
+    <ng-template #temp17Arb>
+      <h3>أنت في شركة جيدة</h3>
+    </ng-template>
+    <p *ngIf="langEng; else temp18Arb">{{ enrollData["companySubtitle"] }}</p>
+    <ng-template #temp18Arb>
+      <p>انضم إلى قائمة عالمية من المواهب المذهلة</p>
+    </ng-template>
+  </div>
+</section>
+
+<section class="stars-block clearfix">
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let celebrity of enrollData['featuredStars']">
+        <a
+          [routerLink]="['/star', celebrity.userName]"
+          class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6"
+          style="cursor: pointer;"
+        >
+          <a
+            class="background-startimg"
+            style="background: url({{ celebrity.imageUrl }});"
+          >
+            <i
+              class="favourite-icon fa fa-circle"
+              [ngClass]="{
+                'blink-me active':
+                  celebrity['bookableStatus'] && celebrity['price'],
+                inactive: !celebrity['bookableStatus'] || !celebrity['price']
+              }"
+            ></i>
+          </a>
+          <div class="star-overlay title">
+            <h6 *ngIf="celebrity.title">{{ celebrity.title | uppercase }}</h6>
+            <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+          </div>
+          <!--<h6 *ngIf="celebrity.fullName" class="celebrity-name">{{celebrity.fullName}}</h6>-->
+          <!--<h6 *ngIf="!celebrity.fullName" class="celebrity-name">Star Here!</h6>-->
+          <div class="star-overlay">
+            <!--<span *ngIf="celebrity.price"><span class="dollar">$</span>{{celebrity.price}}</span>-->
+            <span *ngIf="!celebrity.price">Coming Soon</span>
+            <section class="book-btn-area">
+              <!-- <a class="book-btn" *ngIf="langEng; else tempBookBtnArb">BOOK NOW</a>-->
+              <ng-template #tempBookBtnArb>
+                <a class="book-btn"> احجز الآن</a>
+              </ng-template>
+            </section>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="calculation-block clearfix">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 *ngIf="langEng; else temp15Arb">
+          If I charge
+          <input
+            type="number"
+            class="calc-input"
+            id="pricepervideo"
+            placeholder="0"
+          />$ and complete
+          <input
+            type="number"
+            class="calc-input"
+            id="numberofvideo"
+            placeholder="0"
+          />
+          Hala's per day. <br class="d-none d-md-block" />I can make about
+          <span id="videoearning">0</span><span>$</span> per year.
+        </h3>
+
+        <ng-template #temp15Arb>
+          <h3>
+            إذا حددت سعر الفيديو
+            <input
+              type="number"
+              class="calc-input"
+              id="pricepervideo"
+              placeholder="0"
+            />$ و أكملت
+            <input
+              type="number"
+              class="calc-input"
+              id="numberofvideo"
+              placeholder="0"
+            />
+            فيديو يوميا. <br class="d-none d-md-block" />
+            يمكنني أن أكسب <span id="videoearning">0</span><span>$</span> في
+            السنة.
+          </h3>
+        </ng-template>
+        <a
+          style="cursor: pointer;"
+          [routerLink]="['/enroll']"
+          class="enrollcta-btn"
+          *ngIf="langEng; else temp16Arb"
+          >Enrol Now</a
+        >
+        <ng-template #temp16Arb>
+          <a
+            style="cursor: pointer;"
+            [routerLink]="['/enroll']"
+            class="enrollcta-btn"
+            *ngIf="langEng; else temp16Arb"
+            >سجل الآن</a
+          >
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,1 @@
+window.onscroll=function(){stickySearchFunc()};var stickySearchFunc=function(){let s=$("#searchHold").offset().top;y>s?($("#searchHold").addClass("sticky-search-hold"),$("#searchHold").removeClass("search-hold")):y<50&&($("#searchHold").removeClass("sticky-search-hold"),$("#searchHold").addClass("search-hold"))};

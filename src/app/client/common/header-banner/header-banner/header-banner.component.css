@@ -1,0 +1,60 @@
+.main-menu[_ngcontent-bkv-c113]
+  ul[_ngcontent-bkv-c113]
+  li[_ngcontent-bkv-c113]:hover {
+  background: none;
+}
+
+.header {
+  background-color: #28023f;
+}
+
+header .main-menu ul:hover li {
+  background: none;
+}
+
+header .main-menu ul li:hover a {
+  background: none;
+}
+
+.logo {
+  width: 50px;
+}
+
+@media (max-width: 767px) {
+  .header {
+    display: none;
+  }
+}
+
+.main-menu ul li:first-child {
+  border: none;
+}
+
+.main-menu ul li {
+  padding: 3px 0;
+  border-radius: 40px;
+  border: 2px solid #fff;
+}
+
+header .main-menu ul li:hover {
+  background: none;
+}
+
+header .main-menu ul li a:hover {
+  background: none;
+}
+
+.main-menu ul li a {
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  display: inline;
+  color: #fff;
+  padding: 3px 30px;
+  display: inline;
+  margin: 0;
+}
+
+.main-menu ul li a span {
+  font-size: 16px;
+  font-weight: 400;
+}

@@ -1,0 +1,87 @@
+<!-- <app-header></app-header> -->
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+<section class="faq-block clearfix">
+  <div class="container">
+    <div class="row">
+      <!-- Section Titile -->
+      <div class="col-md-4 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
+        <h1 class="section-title">{{contactData['title']}}</h1>
+        <div class="content-block" [innerHTML]="contactData['content']"></div>
+      </div>
+      <!-- contact form -->
+      <div class="col-md-8 wow animated fadeInRight" data-wow-delay=".2s">
+        <form [formGroup]="contactForm" class="shake" role="form" method="post" id="contactForm" name="contact-form"
+          data-toggle="validator">
+          <!-- Name -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="name">Name *</label>
+            <input formControlName="name" class="form-control check-input" id="name" name="name" type="text"
+              placeholder="Your full name">
+            <div class="help-block with-errors">
+              <div
+                *ngIf="contactForm.controls.name.errors && (contactForm.controls.name.dirty || contactForm.controls.name.touched)"
+                class="error-msg mt-1" role="alert">
+                <span *ngIf="contactForm.controls.name.errors.required">Please enter your name</span>
+              </div>
+            </div>
+          </div>
+          <!-- Email Address -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="emailAddress">Email Address *</label>
+            <input formControlName="emailAddress" class="form-control check-input" id="emailAddress" name="emailAddress"
+              type="email" placeholder="hello@halahi.com">
+            <div class="help-block with-errors">
+              <div
+                *ngIf="contactForm.controls.emailAddress.errors && (contactForm.controls.emailAddress.dirty || contactForm.controls.emailAddress.touched)"
+                class="error-msg mt-1" role="alert">
+                <span *ngIf="contactForm.controls.emailAddress.errors.required">Please provide email address</span>
+                <span *ngIf="contactForm.controls.emailAddress.errors.pattern">Please provide valid email address</span>
+              </div>
+            </div>
+          </div>
+          <!-- Phone Number -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="phone">Phone Number</label>
+            <input formControlName="phone" class="form-control check-input" type="number" placeholder="+971 555 555 5555">
+          </div>
+          <!-- Subject -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="subject">Subject *</label>
+            <input formControlName="subject" class="form-control check-input" id="subject" name="subject" type="text"
+              placeholder="Please enter subject">
+            <div class="help-block with-errors">
+              <div
+                *ngIf="contactForm.controls.subject.errors && (contactForm.controls.subject.dirty || contactForm.controls.subject.touched)"
+                class="error-msg mt-1" role="alert">
+                <span *ngIf="contactForm.controls.subject.errors.required">Please provide subject</span>
+              </div>
+            </div>
+          </div>
+          <!-- Message -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="message">Message/Query *</label>
+            <textarea formControlName="message" class="form-control" rows="3" id="message" name="message" required
+            data-error="Write your message here"></textarea>
+            <div class="help-block with-errors">
+              <div
+                *ngIf="contactForm.controls.message.errors && (contactForm.controls.message.dirty || contactForm.controls.message.touched)"
+                class="error-msg mt-1" role="alert">
+                <span *ngIf="contactForm.controls.message.errors.required">Please provide your message</span>
+              </div>
+            </div>
+          </div>
+          <!-- Form Submit -->
+          <div class="form-submit mt-5">
+            <button (click)="submitMessage()" class="btn btn-dark" type="submit" id="form-submit"><i
+                class="material-icons mdi mdi-message-outline"></i> Send Message</button>
+            <div id="msgSubmit" class="h3 text-center hidden"></div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,28 @@
+.signup-banner {
+    background: #F7F7F7 url('src/assets/client/assets/img/enroll-bg.png') no-repeat bottom right;
+    background-size: 100%;
+    min-height: 420px;
+    display: flex;
+  }
+  
+  .signup-banner .row {
+    height: 100%;
+  }
+  
+  .signup-banner .celebrity-img {
+    margin: 0 auto;
+    display: block;
+    max-height: 420px;
+  }
+  
+  .signup-banner h1 {
+    font-size: 54px;
+    line-height: 1.1em;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 21px;
+  }
+  
+  .signup-banner p {
+    margin: 0;
+  }

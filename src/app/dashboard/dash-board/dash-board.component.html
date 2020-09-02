@@ -1,0 +1,122 @@
+<app-header></app-header>
+  <section class="content clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-hold">
+            <h3>Sales Status</h3>
+            <ul class="sale-status">
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Today's Sale</p>
+                  <h6 class="mb-0">{{salesCountToday}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Sales this Week</p>
+                  <h6 class="mb-0">{{salesCountWeek}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Sales this Month</p>
+                  <h6 class="mb-0">{{salesCountMonth}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+            </ul>
+
+            <h3>Stars Enrolled</h3>
+            <ul class="sale-status">
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Today's Enrollment</p>
+                  <h6 class="mb-0">{{startEnrolledToday}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Enrollment this Week</p>
+                  <h6 class="mb-0">{{startEnrolledWeek}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Enrollment this Month</p>
+                  <h6 class="mb-0">{{startEnrolledMonth}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+            </ul>
+
+            <h3>Recent Orders</h3>
+            <ul class="sale-status" *ngFor="let recentOrder of recentOrders;let i = index">
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-0"><strong>Star:</strong>{{recentOrder.celebrityName}}</p>
+                  <p class="text-muted mb-2" *ngIf="!recentOrder.myself"><strong>To:</strong>{{recentOrder.to}}</p>
+                  <p class="text-muted mb-2" *ngIf="recentOrder.myself"><strong>To:</strong>{{recentOrder.name}}</p>
+                </div>
+                <div class="sale-icon">
+                  <p class="text-muted mb-0"><strong>${{recentOrder.price}}</strong></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-hold">
+            <h3>Money Generated</h3>
+            <ul class="sale-status">
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Today's Sale</p>
+                  <h6 class="mb-0">{{moneyGeneratedToday}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Sales this Week</p>
+                  <h6 class="mb-0">{{moneyGeneratedWeek}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+              <li>
+                <div class="sale-info">
+                  <p class="text-muted mb-2">Sales this Month</p>
+                  <h6 class="mb-0">{{moneyGeneratedMonth}}</h6>
+                </div>
+                <div class="sale-icon">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<app-footer></app-footer>

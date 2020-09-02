@@ -1,0 +1,25 @@
+<section class="search-hold" id="searchHold">
+  <a style="display: inline-flex;" (click)="enableSearch()">
+    <div class="search-icon"></div>
+  </a>
+  <input *ngIf="searchFlag" class="big-search" type="text" placeholder="Search..."
+    (keyup)="searchData($event.target.value)">
+  <div *ngIf="searchFlag" class="live-search">
+    <div class="search-slide shadow">
+      <ul *ngFor="let celebrity of celebritiesSearch">
+        <li>
+          <a [routerLink]="[ '/star',celebrity.userName]">
+            <div class="simg"><img src="{{celebrity.imageUrl}}" alt="Name of Celeb" class="img-fluid"></div>
+            <div class="sinfo">
+              <span class="scat">Category Name - Category Name - Category Name</span>
+              <div class="sdetail">
+                <span class="sname">{{celebrity.fullName}}</span>
+                <div class="sprice">${{celebrity.price}}</div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

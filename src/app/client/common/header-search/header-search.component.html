@@ -1,0 +1,60 @@
+<header class="header clearfix">
+  <div class="container-fluid">
+    <div class="row align-items-center header-wrap-setting">
+      <div class="col-1">
+        <a [routerLink]="[ '/']">
+          <img src="../../../../assets/client/assets/img/logo.png" alt="HalaHi" class="logo">
+        </a>
+      </div>
+      <div class="col-6 d-flex">
+        <div class="main-menu main-menu-search">
+          <ul>
+            <li>
+              <a [routerLink]="[ '/']" *ngIf="langEng; else temp1Arb">HOME</a>
+              <ng-template #temp1Arb>
+                <a [routerLink]="[ '/']">الصفحة الرئيسية</a>
+              </ng-template>
+            </li>
+            <li *ngIf="currentRoute !== '/category'">
+              <a [routerLink]="[ '/category']" *ngIf="langEng; else temp2Arb">EXPLORE</a>
+              <ng-template #temp2Arb>
+                <a [routerLink]="[ '/category']">إكتشف</a>
+              </ng-template>
+            </li>
+            <!-- <li>
+              <a [routerLink]="[ '/enroll-talent']" *ngIf="langEng; else temp3Arb">ENROL AS TALENT</a>
+              <ng-template #temp3Arb>
+                <a [routerLink]="[ '/enroll-talent']">التسجيل كشريك</a>
+              </ng-template>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="col-5 d-flex justify-content-end">
+        <div class="main-menu">
+          <section class="search-hold-header" id="searchHold">
+            <input class="big-search" type="text" placeholder="Search..." (keyup)="searchData($event.target.value)">
+            <div class="live-search">
+              <div class="search-slide shadow">
+                <ul *ngFor="let celebrity of celebritiesSearch">
+                  <li>
+                    <a [routerLink]="[ '/star',celebrity.userName]">
+                      <div class="simg"><img src="{{celebrity.imageUrl}}" alt="Name of Celeb" class="img-fluid"></div>
+                      <div class="sinfo">
+                        <!-- <span class="scat">Category Name - Category Name - Category Name</span> -->
+                        <div class="sdetail">
+                          <span class="sname">{{celebrity.fullName}}</span>
+                          <div class="sprice">${{celebrity.price}}</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

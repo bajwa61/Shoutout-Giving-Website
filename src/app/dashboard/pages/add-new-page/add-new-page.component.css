@@ -1,0 +1,12 @@
+.remove-icon{ 
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: #ffffff;
+}
+
+.remove-icon:hover{ 
+    cursor: pointer;
+}

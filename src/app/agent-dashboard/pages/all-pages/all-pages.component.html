@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+  <section class="content clearfix">
+    <div class="container">
+      <div class="card-hold">
+        <div class="table-responsive table-sm">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let i = index;let newpage of pages">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td><strong>{{newpage['type'].toUpperCase()}}</strong></td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <button [routerLink]="[ '/dashboard/new-page',newpage.id]" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <app-footer></app-footer>

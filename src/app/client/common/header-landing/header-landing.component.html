@@ -1,0 +1,91 @@
+<header
+  class="header clearfix"
+  [ngClass]="{ 'explore-page-specific': currentRoute === '/category' }"
+>
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- <div [ngClass]="{'col-2': currentRoute === '/' || currentRoute === '/category', 'col-1': currentRoute !== '/' && currentRoute !=='/category'}"> -->
+
+      <div class="col-2">
+        <a [routerLink]="['/']">
+          <img
+            src="../../../../assets/client/assets/img/logo.png"
+            alt="HalaHi"
+            class="logo"
+          />
+        </a>
+      </div>
+      <!-- <div class="main-menu d-flex" [ngClass]="{'col-1': currentRoute === '/' || currentRoute === '/category', 'col-2': currentRoute !== '/' && currentRoute !== '/category'}"> -->
+
+      <div class="main-menu d-flex col-1">
+        <ul>
+          <li *ngIf="currentRoute === '/category'">
+            <a
+              [routerLink]="['/']"
+              *ngIf="langEng; else tempHomeArb"
+              style="background-color: white; color: black;"
+              >HOME</a
+            >
+            <ng-template #tempHomeArb>
+              <a
+                [routerLink]="['/']"
+                style="background-color: white; color: black;"
+                >الصفحة الرئيسية</a
+              >
+            </ng-template>
+          </li>
+          <li *ngIf="currentRoute !== '/category'">
+            <a
+              [routerLink]="['/category']"
+              *ngIf="langEng; else tempExploreArb"
+              style="background-color: white; color: black;"
+              >EXPLORE</a
+            >
+            <ng-template #tempExploreArb>
+              <a
+                [routerLink]="['/category']"
+                style="background-color: white; color: black;"
+                >إكتشف</a
+              >
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="col-9 d-flex justify-content-end">
+        <div class="main-menu">
+          <ul>
+            <li
+              *ngIf="
+                currentRoute === '/enroll-form' || currentRoute === '/enroll'
+              "
+            >
+              <a
+                [routerLink]="['/faq']"
+                *ngIf="langEng; else tempFAQArb"
+                style="background-color: rgb(52, 182, 208);"
+                >FAQ</a
+              >
+              <ng-template #tempFAQArb>
+                <a
+                  [routerLink]="['/faq']"
+                  style="background-color: rgb(52, 182, 208);"
+                  >الأسئلة المتداولة</a
+                >
+              </ng-template>
+            </li>
+            <!-- <li>
+              <a [routerLink]="[ '/enroll-talent']" *ngIf="langEng; else temp1Arb">ENROL AS TALENT</a>
+              <ng-template #temp1Arb>
+                <a
+                  [routerLink]="['/enroll-talent']"
+                  style="background-color: rgb(52, 182, 208);"
+                  >التسجيل كشريك</a
+                >
+              </ng-template>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

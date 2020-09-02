@@ -1,0 +1,39 @@
+<app-header></app-header>
+<section class="content profile-content clearfix">
+    <div class="container">
+        <div class="card-hold position-relative">
+            <div class="profile-info">
+                <div class="form-block">
+                    <div class="semi-row">
+                        <h3 style="color:purple;text-decoration:underline">Upload Video</h3>
+                    </div>
+                    <div class="input-hold">
+                        <input class="btn-submit" type="file" id="file" accept="video/*"
+                            (change)="handleFileInput($event.target.files)">
+                        <br>
+                        <div *ngIf="videoUploadPercentage | async as pct">
+                            <progress [value]="pct" max="100"></progress>
+                            <span *ngIf="!this._uploadvideoService.downloadURLvid"> Uploading Please Wait...
+                                {{ pct | number }}%</span>
+                            <span *ngIf="this._uploadvideoService.downloadURLvid"> Done</span>
+                        </div>
+                        <div *ngIf="videoUploadSnapshot | async as snap">
+                            {{ snap.bytesTransferred }} of {{ snap.totalBytes }}
+                            <button (click)="this._uploadvideoService.videoUploadTask.pause();"
+                                [disabled]="!this._uploadvideoService.isActive(snap)">Pause</button>
+                            <button (click)="this._uploadvideoService.videoUploadTask.cancel()"
+                                [disabled]="!this._uploadvideoService.isActive(snap)">Cancel</button>
+                            <button (click)="this._uploadvideoService.videoUploadTask.resume()"
+                                [disabled]="!(snap?.state === 'paused')">Resume</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="input-hold mt-4">
+                        <input (click)="deliverOrder()" type="submit" class="btn-submit" value="Deliver Order">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

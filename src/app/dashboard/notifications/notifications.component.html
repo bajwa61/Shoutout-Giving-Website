@@ -1,0 +1,49 @@
+<app-header></app-header>
+<section class="content clearfix">
+    <div class="container">
+        <div class="card-hold row">
+            <div class="language-block col-md-6">
+                <h2>Miscellaneous Announcements/Updates</h2>
+                <h5>Send custom notifications for miscellaneous announcements/updates.</h5>
+                <div class="form-block mb-5 pb-4">
+                    <div class="input-hold mt-4">
+                        <label>Notification Title</label>
+                        <input [(ngModel)]="titlemau" class="check-input" type="text" placeholder="Title"
+                            name="titlemau">
+                    </div>
+
+                    <div class="input-hold mt-4">
+                        <label>Notification Text</label>
+                        <textarea [(ngModel)]="textmau" class="check-input" placeholder="Text"></textarea>
+                    </div>
+                    <div class="input-hold mt-4">
+                        <input type="submit" class="btn-submit" (click)="sendMiscNotifications(titlemau, textmau)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-block col-md-6">
+                <h2>Price Change Recommendation</h2>
+                <h5>Send a price change recommendation from Halahi during high or low season.</h5>
+                <div class="form-block mb-5 pb-4">
+                    <div class="input-hold mt-4">
+                        <label>Notification Title</label>
+                        <input [(ngModel)]="titlepcr" class="check-input" type="text" placeholder="Title"
+                            name="titlepcr">
+                    </div>
+
+                    <div class="input-hold mt-4">
+                        <label>Notification Text</label>
+                        <textarea [(ngModel)]="textpcr" class="check-input" placeholder="Text"></textarea>
+                    </div>
+                    <div class="input-hold mt-4">
+                        <input type="submit" class="btn-submit"
+                            (click)="sendPriceChangeNotifications(titlepcr, textpcr)">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

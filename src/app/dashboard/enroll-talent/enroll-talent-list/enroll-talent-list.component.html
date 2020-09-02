@@ -1,0 +1,58 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <section class="search-hold clearfix">
+    <div class="container">
+      <input class="big-search" type="text" placeholder="Quick Search..." [(ngModel)]="searchText">
+    </div>
+  </section>
+  <div class="container">
+    <div class="card-hold">
+      <div class="table-responsive table-sm">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Request Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i = index;let enrollRequest of enrollRequests | filter:searchText">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{enrollRequest['name']}}</td>
+              <td>{{enrollRequest['emailAddress']}}</td>
+              <td>{{enrollRequest['code']}} - {{enrollRequest['phone']}}</td>
+              <td><span *ngIf="enrollRequest['date']">{{enrollRequest['date'].toDate() | date:'EEE, dd MMM yyyy'}}</span></td>
+              <td>
+                <div class="btn-group" role="group">
+                  <a (click)="addUser(enrollRequest)">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip"
+                      data-placement="top" title="Add">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </a>
+                  <a [routerLink]="[ '/dashboard/enroll-talent-single',enrollRequest['id']]">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip"
+                      data-placement="top" title="View">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </a>
+                  <button (click)="deleteRequest(enrollRequest['id'], enrollRequest['name'])" type="button"
+                    class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" 
+                    data-placement="top" title="Delete">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

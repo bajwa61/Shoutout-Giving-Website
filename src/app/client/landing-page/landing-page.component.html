@@ -1,0 +1,447 @@
+<app-sticky-search></app-sticky-search>
+
+<!-- <app-header-landing></app-header-landing> -->
+<app-header-banner></app-header-banner>
+
+<!-- <header class="category-header">
+  <div class="category-header-carousel desktop-only">
+    <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="false">
+      <ng-template
+        ngbSlide
+        *ngFor="let img of images; index as i"
+        class="desktop-only"
+      >
+        <div class="picsum-img-wrapper">
+          <div class="clicker">
+            <a class="getstarted" (click)="scroll(scrolltohere)"></a>
+            <a
+              class="howitworks"
+              href="https://www.youtube.com/watch?v=-zUgeRDqNNg&feature=youtu.be"
+              target="_blank"
+            ></a>
+          </div>
+          <img [src]="img" alt="Halahi banner is loading..." />
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="category-header-carousel mobile-only">
+    <ngb-carousel #carousel [interval]="10000" [pauseOnHover]="false">
+      <ng-template ngbSlide *ngFor="let img of imagesMobile; index as i">
+        <div class="picsum-img-wrapper">
+          <img [src]="img" alt="Halahi banner is loading..." />
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</header> -->
+
+<div
+  class="slide"
+  style="
+    background: url(../../../assets/client/assets/img/Artboard.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  "
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+        <div class="slide_headings">
+          <h3>A world of brand collaborations</h3>
+          <h1>One Click Away</h1>
+          <p>
+            Collaboration with over 200 Celebrities and influencers and<br />reach
+            over 150 Million consumers worldwide
+          </p>
+          <a href="#" class="btn btn-primary">Explore Talent</a>
+          <a href="#" class="btn btn-primary second">How it Works</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Special banner -->
+<!-- <section class="featured-block clearfix" #scrolltohere>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-4 mb-md-0">
+        <a [routerLink]="['/star/MickMorrone']" style="cursor: pointer;">
+          <img
+            [src]="featuredBanner"
+            alt="Featured Banner"
+            class="img-fluid desktop-only"
+            style="width: 100%;"
+          />
+          <img
+            [src]="featuredBannerMobile"
+            alt="Featured Banner"
+            class="img-fluid mobile-only"
+            style="width: 100%;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- 25 stars -->
+<section class="stars-block clearfix">
+  <div class="container-fluid px-9 py-9">
+    <div class="row">
+      <ng-container *ngFor="let celebrity of celebrities | slice: 0:25">
+        <a
+          (click)="navigateUser(celebrity.userName, celebrity.videoUrl)"
+          class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6"
+          style="cursor: pointer;"
+        >
+          <a
+            class="background-startimg"
+            style="background: url({{ celebrity.imageUrl }});"
+          >
+            <i
+              class="favourite-icon fa fa-circle"
+              [ngClass]="{
+                'blink-me active':
+                  celebrity['bookableStatus'] && celebrity['price'],
+                inactive: !celebrity['bookableStatus'] || !celebrity['price']
+              }"
+            ></i>
+          </a>
+          <div class="star-overlay title">
+            <h6 *ngIf="celebrity.title">{{ celebrity.title | uppercase }}</h6>
+            <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+          </div>
+          <h6 *ngIf="celebrity.fullName" class="celebrity-name">
+            {{ celebrity.fullName }}
+          </h6>
+          <h6 *ngIf="!celebrity.fullName" class="celebrity-name">Star Here!</h6>
+          <div class="star-overlay">
+            <!-- <span *ngIf="celebrity.price">
+              <span class="dollar">$</span>{{ celebrity.price }}</span> -->
+            <span *ngIf="!celebrity.price">Coming Soon</span>
+            <section class="book-btn-area">
+              <a class="book-btn" *ngIf="langEng; else tempBookBtnArb">
+                <span *ngIf="islogin; else singUp"> BOOK NOW</span>
+                <ng-template #singUp>
+                  <span data-toggle="modal" data-target="#exampleModalCenter"
+                    >SIGIN UP</span
+                  >
+                </ng-template>
+              </a>
+              <ng-template #tempBookBtnArb>
+                <a class="book-btn"> احجز الآن</a>
+              </ng-template>
+            </section>
+
+            <!-- <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating> -->
+          </div>
+        </a>
+        <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6">
+          <a class="background-startimg" (click)="navigateUser(celebrity.userName, celebrity.videoUrl)"
+            style="background: url({{celebrity.imageUrl}});">
+            <h2>{{celebrity.fullName}}</h2>
+            <div class="star-overlay">
+              <span>${{celebrity.price}}</span>
+            </div>
+          </a>
+        </div> -->
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- Dual banners -->
+<section class="featured-block clearfix">
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-6 mb-4 mb-md-0">
+        <a [href]="leftAdvertUrl" target="_blank" style="cursor: pointer;">
+          <img [src]="leftAdvert" alt="ShoutOut" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-6 mb-4 mb-md-0 d-none d-md-block">
+        <a [href]="rightAdvertUrl" target="_blank" style="cursor: pointer;">
+          <img [src]="rightAdvert" alt="Tiktok" class="img-fluid">
+        </a>
+      </div> -->
+      <div class="col-md-12 mb-4 mb-md-0">
+        <div class="row" style="height: 100%; position: absolute; width: 100%;">
+          <!-- <a class="col-1"></a> -->
+          <a
+            class="col-2"
+            href="https://youtu.be/1X0OYu8NMOo"
+            target="_blank"
+          ></a>
+          <a
+            class="col-2"
+            href="https://youtu.be/1X0OYu8NMOo"
+            target="_blank"
+          ></a>
+          <a
+            class="col-3"
+            href="https://www.thenational.ae/arts-culture/halahi-you-can-now-get-mona-kattan-zareen-khan-and-more-to-send-you-a-personalised-video-shout-out-1.1031234"
+            target="_blank"
+          ></a>
+          <a
+            class="col-3"
+            href="https://www.tmz.com/2020/06/30/365-days-michele-morrone-sequel-coming-back-netflix-halahi/"
+            target="_blank"
+          ></a>
+          <a
+            class="col-2"
+            href="https://etbilarabi.com/%D9%85%D9%8A%D9%83%D8%B3/%D9%87%D9%84-%D9%8A%D9%83%D9%88%D9%86-%D9%85%D8%B9%D8%AA%D8%B5%D9%85-%D8%A7%D9%84%D9%86%D9%87%D8%A7%D8%B1-%D9%86%D8%AC%D9%85-%D9%87%D9%84%D8%A7-%D9%87%D8%A7%D9%8A%D8%9F?utm_source=KwikPlayer&utm_medium=KwikShare&utm_campaign=KwikMotion"
+            target="_blank"
+          ></a>
+          <!-- <a class="col-1"></a> -->
+        </div>
+
+        <!-- <div class="advertisement-banners"
+          style="background: url('https://firebasestorage.googleapis.com/v0/b/halahi-7cc6d.appspot.com/o/homePageBanners%2Fbanner_asseenon.jpg?alt=media&token=928dd5f7-992e-422c-82ff-d48b7ca463e0');background-repeat:no-repeat;background-size: contain;">
+        </div> -->
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/halahi-7cc6d.appspot.com/o/homePageBanners%2Fbanner_asseenon.jpg?alt=media&token=928dd5f7-992e-422c-82ff-d48b7ca463e0"
+          alt="As Seen On"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 stars -->
+<section class="stars-block clearfix">
+  <div class="container-fluid">
+    <div class="row">
+      <ng-container *ngFor="let celebrity of celebrities | slice: 25:45">
+        <a
+          (click)="navigateUser(celebrity.userName, celebrity.videoUrl)"
+          class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6"
+          style="cursor: pointer;"
+        >
+          <a
+            class="background-startimg"
+            style="background: url('{{ celebrity.imageUrl }}');"
+          >
+            <i
+              class="favourite-icon fa fa-circle"
+              [ngClass]="{
+                'blink-me active':
+                  celebrity['bookableStatus'] && celebrity['price'],
+                inactive: !celebrity['bookableStatus'] || !celebrity['price']
+              }"
+            ></i>
+          </a>
+          <div class="star-overlay title">
+            <h6 *ngIf="celebrity.title">{{ celebrity.title | uppercase }}</h6>
+            <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+          </div>
+          <h6 *ngIf="celebrity.fullName" class="celebrity-name">
+            {{ celebrity.fullName }}
+          </h6>
+          <h6 *ngIf="!celebrity.fullName" class="celebrity-name">Star Here!</h6>
+          <div class="star-overlay">
+            <span *ngIf="celebrity.price"
+              ><span class="dollar">$</span>{{ celebrity.price }}</span
+            >
+            <span *ngIf="!celebrity.price">Coming Soon</span>
+            <section class="book-btn-area">
+              <a class="book-btn" *ngIf="langEng; else tempBookBtnArb">
+                <span *ngIf="islogin; else singUp"> BOOK NOW</span>
+                <ng-template #singUp>
+                  <span data-toggle="modal" data-target="#exampleModalCenter"
+                    >SIGIN UP</span
+                  >
+                </ng-template>
+              </a>
+              <ng-template #tempBookBtnArb>
+                <a class="book-btn"> احجز الآن</a>
+              </ng-template>
+            </section>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="featured-block clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4 mb-md-0">
+        <a
+          [routerLink]="['/category']"
+          [state]="{ data: 'Tiktok' }"
+          style="cursor: pointer;"
+        >
+          <div
+            class="advertisement-banners"
+            style="
+              background: url('https://firebasestorage.googleapis.com/v0/b/halahi-7cc6d.appspot.com/o/homePageBanners%2FBanner%202.png?alt=media&token=5bc2fc69-4382-4e88-b0d8-a8b31814a04a');
+              background-size: cover;
+            "
+          ></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stars-block clearfix">
+  <div class="container-fluid">
+    <div class="row">
+      <ng-container
+        *ngFor="let celebrity of celebrities | slice: 45:celebrities.length"
+      >
+        <a
+          (click)="navigateUser(celebrity.userName, celebrity.videoUrl)"
+          class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-6"
+          style="cursor: pointer;"
+        >
+          <a
+            class="background-startimg"
+            style="background: url({{ celebrity.imageUrl }});"
+          >
+            <i
+              class="favourite-icon fa fa-circle"
+              [ngClass]="{
+                'blink-me active':
+                  celebrity['bookableStatus'] && celebrity['price'],
+                inactive: !celebrity['bookableStatus'] || !celebrity['price']
+              }"
+            ></i>
+          </a>
+          <div class="star-overlay title">
+            <h6 *ngIf="celebrity.title">{{ celebrity.title | uppercase }}</h6>
+            <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+          </div>
+          <h6 *ngIf="celebrity.fullName" class="celebrity-name">
+            {{ celebrity.fullName }}
+          </h6>
+          <h6 *ngIf="!celebrity.fullName" class="celebrity-name">Star Here!</h6>
+          <div class="star-overlay">
+            <span *ngIf="celebrity.price"
+              ><span class="dollar">$</span>{{ celebrity.price }}</span
+            >
+            <span *ngIf="!celebrity.price">Coming Soon</span>
+            <section class="book-btn-area">
+              <a class="book-btn" *ngIf="langEng; else tempBookBtnArb">
+                <span *ngIf="islogin; else singUp"> BOOK NOW</span>
+                <ng-template #singUp>
+                  <span data-toggle="modal" data-target="#exampleModalCenter"
+                    >SIGIN UP</span
+                  >
+                </ng-template>
+              </a>
+              <ng-template #tempBookBtnArb>
+                <a class="book-btn"> احجز الآن</a>
+              </ng-template>
+            </section>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="featured-block clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4 mb-md-0">
+        <a
+          [routerLink]="['/category']"
+          [state]="{ data: 'Models' }"
+          style="cursor: pointer;"
+        >
+          <div
+            class="advertisement-banners"
+            style="
+              background: url('https://firebasestorage.googleapis.com/v0/b/halahi-7cc6d.appspot.com/o/homePageBanners%2FBanner%201.png?alt=media&token=28f0c209-881a-4039-9c29-cd7998a343ca');
+              background-size: cover;
+            "
+          ></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stars-block clearfix">
+  <div class="container" style="position: relative;">
+    <i class="chevron-left" (click)="prev()"></i>
+    <i class="chevron-right" (click)="next()"></i>
+    <section class="starsRow slick-row">
+      <ngx-slick-carousel
+        class="carousel"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+      >
+        <div
+          ngxSlickItem
+          *ngFor="let celebrity of celebrities"
+          class="slide"
+          style="outline: none;"
+        >
+          <a
+            (click)="navigateUser(celebrity.userName, celebrity.videoUrl)"
+            style="cursor: pointer; outline: none;"
+          >
+            <a
+              class="background-startimg background-startimg-slick"
+              style="background: url({{ celebrity.imageUrl }});"
+            >
+              <i
+                class="favourite-icon fa fa-circle"
+                [ngClass]="{
+                  'blink-me active':
+                    celebrity['bookableStatus'] && celebrity['price'],
+                  inactive: !celebrity['bookableStatus'] || !celebrity['price']
+                }"
+              ></i>
+            </a>
+            <div class="star-overlay title">
+              <h6 *ngIf="celebrity.title">{{ celebrity.title | uppercase }}</h6>
+              <h6 *ngIf="!celebrity.title">CELEBRITY</h6>
+            </div>
+            <h6 *ngIf="celebrity.fullName" class="celebrity-name">
+              {{ celebrity.fullName }}
+            </h6>
+            <h6 *ngIf="!celebrity.fullName" class="celebrity-name">
+              Star Here!
+            </h6>
+            <div class="star-overlay">
+              <!-- <span *ngIf="celebrity.price"
+                ><span class="dollar">$</span>{{ celebrity.price }}</span
+              >
+              <span *ngIf="!celebrity.price">Coming Soon</span> -->
+              <section class="book-btn-area book-btn-area-slick">
+                <a class="book-btn" *ngIf="langEng; else tempBookBtnArb">
+                  <span *ngIf="islogin; else singUp"> BOOK NOW</span>
+                  <ng-template #singUp>
+                    <span data-toggle="modal" data-target="#exampleModalCenter"
+                      >SIGIN UP</span
+                    >
+                  </ng-template>
+                </a>
+                <ng-template #tempBookBtnArb>
+                  <a class="book-btn"> احجز الآن</a>
+                </ng-template>
+              </section>
+            </div>
+          </a>
+        </div>
+      </ngx-slick-carousel>
+    </section>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+<ng-template #t let-fill="fill">
+  <span class="star-review" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+</ng-template>
+

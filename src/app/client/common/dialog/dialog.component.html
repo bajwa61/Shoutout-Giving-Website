@@ -1,0 +1,45 @@
+<!-- The overlay -->
+<div id="dialogSubscribe" class="overlay" *ngIf="overlayflag">
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <div class="dialog-bg">
+      <div class="dialog-content-area">
+        <p class="dialog-text-disclaimer">Signup and get a chance to win a <br><b style="font-weight: 900;">free video shoutout</b> from your favorite star!</p>
+        <div class="subscribe-hold">
+          <div id="mc_embed_signup" class="w-100">
+            <form [formGroup]="dialogSignupForm">
+              <div class="subinputholder">
+                <input type="email" value="" formControlName="emailAddress" class="sub-input required email" id="dialog-EMAIL"
+                  placeholder="Enter email address" *ngIf="langEng; else tempDialogInput">
+                <ng-template #tempDialogInput>
+                  <input type="email" value="" formControlName="emailAddress" class="sub-input required email" id="dialog-EMAIL"
+                    placeholder="أدخل بريدك الإلكتروني">
+                </ng-template>
+                <input (click)="signup()" type="submit" value="Submit" name="submit" id="dialog-SUBMIT"
+                  class="sub-btn button" *ngIf="langEng; else tempDialogSubmit">
+                <ng-template #tempDialogSubmit>
+                  <input (click)="signup()" type="submit" value="إرسال" name="submit" id="dialog-SUBMIT"
+                    class="sub-btn button">
+                </ng-template>
+              </div>
+              <div
+                *ngIf="dialogSignupForm.controls.emailAddress.errors && (dialogSignupForm.controls.emailAddress.dirty || dialogSignupForm.controls.emailAddress.touched)"
+                class="error-msg mt-1" role="alert">
+                <span *ngIf="dialogSignupForm.controls.emailAddress.errors.required">Please provide us your email address</span>
+                <span *ngIf="dialogSignupForm.controls.emailAddress.errors.pattern">Please provide valid email address and in lower case</span>
+              </div>
+            </form>
+          </div>
+        </div>
+        <p class="dialog-text-terms">By clicking submit you automatically agree to our Terms & Conditions</p>
+      </div>
+      <img class="dialog-logo" src="/assets/client/assets/img/dialog/logo-high.png">
+      <a class="closebtn" (click)="close()">
+        <img src="/assets/client/assets/img/dialog/close-button.png">
+      </a>
+      <img class="dialog-yes-fav" src="/assets/client/assets/img/dialog/yes-fav.png">
+    </div>
+  </div>
+
+</div>

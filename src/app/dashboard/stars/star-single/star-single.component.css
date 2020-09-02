@@ -1,0 +1,20 @@
+.label {
+    border-radius: 0;
+    text-shadow: none;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 3px 5px 3px;
+    margin-left: 10px;
+    color: white;
+    background-color: #abbac3 !important
+}
+
+.label-info {
+    background-color: #3a87ad !important;
+    padding: 0px 5px;
+    margin-bottom: 5px;
+}
+
+.profile-img {
+    min-height: 100px;
+}

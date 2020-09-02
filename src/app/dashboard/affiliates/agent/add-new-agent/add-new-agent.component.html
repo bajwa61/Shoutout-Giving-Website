@@ -1,0 +1,98 @@
+<app-header></app-header>
+
+<section *ngIf="!urlSwitch" class="content clearfix">
+  <div class="container">
+    <div class="card-hold">
+      <div class="form-block" [formGroup]="agentForm">
+        <div class="input-hold">
+          <label>First Name</label>
+          <input formControlName="firstname" class="check-input" type="text" />
+          <div *ngIf="
+              agentForm.controls.firstname.errors &&
+              (agentForm.controls.firstname.dirty ||
+                agentForm.controls.firstname.touched)
+            " class="error-msg mt-1" role="alert">
+            <span *ngIf="agentForm.controls.firstname.errors.required" style="color: red;">Please enter first name.</span>
+          </div>
+        </div>
+        <div class="input-hold">
+          <label>Last Name</label>
+          <input formControlName="lastname" class="check-input" type="text" />
+          <div *ngIf="
+              agentForm.controls.lastname.errors &&
+              (agentForm.controls.lastname.dirty ||
+                agentForm.controls.lastname.touched)
+            " class="error-msg mt-1" role="alert">
+            <span *ngIf="agentForm.controls.lastname.errors.required" style="color: red;">Please enter last name.</span>
+          </div>
+        </div>
+        <div class="input-hold">
+          <label>Email</label>
+          <input formControlName="email" class="check-input" type="email" />
+          <div *ngIf="
+              agentForm.controls.email.errors &&
+              (agentForm.controls.email.dirty || agentForm.controls.email.touched)
+            " class="error-msg mt-1" role="alert">
+            <span *ngIf="agentForm.controls.email.errors.required" style="color: red;">Please enter email address.</span>
+            <span *ngIf="agentForm.controls.email.errors.email" style="color: red;">Please enter valid email
+              address.</span>
+          </div>
+        </div>
+        <div class="input-hold">
+          <label>Phone Number</label>
+          <input formControlName="phoneNumber" class="check-input" type="number" />
+          <div *ngIf="agentForm.controls.phoneNumber.errors && (agentForm.controls.phoneNumber.dirty ||
+            agentForm.controls.phoneNumber.touched)" class="error-msg mt-1" role="alert">
+            <span *ngIf="agentForm.controls.phoneNumber.errors.required" style="color: red;">Please enter the phone number</span>
+          </div>
+        </div>
+        <table class="input-hold">
+          <tr>
+            <td><label>Referral Link</label></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              {{ halahiUrl }}
+            </td>
+            <td>
+              <input formControlName="ref" class="check-input" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div *ngIf="agentForm.controls.ref.errors &&
+                  (agentForm.controls.ref.dirty ||
+                    agentForm.controls.ref.touched)" class="error-msg mt-1" role="alert">
+                <span *ngIf="agentForm.controls.ref.errors.required" style="color: red;">Please enter referral
+                  code.</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <button style="margin-left: 2%;" type="submit" class="btn btn-dark" (click)="submitEnrollRequest()">
+        Add New Agent
+      </button>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="urlSwitch" class="content clearfix">
+  <div class="container">
+    <div class="card-hold">
+      <div class="form-block">
+        <h3 style="font-weight: 600;">Share this unique referral link</h3>
+        <div class="input-hold">
+          <input class="form-control check-input" style="height: calc(2.5em + 0.75rem + 2px);" type="url"
+            placeholder="https://halahi.com/enroll/" [(ngModel)]="uniqueUrl" #userinput />
+          <button type="submit" class="btn btn-dark" (click)="copyMessage(userinput)">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

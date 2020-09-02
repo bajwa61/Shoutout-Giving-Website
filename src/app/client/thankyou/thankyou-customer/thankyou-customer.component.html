@@ -1,0 +1,161 @@
+<app-sticky-search></app-sticky-search>
+<app-header-landing></app-header-landing>
+
+<section class="header-thankyou">
+  <div class="container">
+    <div class="row spacing">
+      <div class="col-lg-12 col-md-12">
+        <div class="left_box">
+          <!-- <img [src]="celebrity['imageUrl']" class="img-fluid"> -->
+          <img class="img-fluid">
+        </div>
+        <div class="rit_box">
+          <h3>Your Request is Booked</h3>
+          <p>your request was sent to Michele.
+            You Should RECIEVE AN EMAIL SHORTLY. </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+        <div class="left_headings">
+          <h3>Let's Get To Know Each Other.</h3>
+          <p>Tell Us WHICH CATEGORIES you love so we can keep you in the loop.
+            select all that apply</p>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+        <div class="buttons pull-right">
+          <!-- <a *ngFor="let item of selectedItems" [routerLink]="['/category']" [state]="{data: item.name}"
+            class="btn btn-primary">{{item.name}}</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="what-happen">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-12">
+        <div class="request_img">
+          <div class="requesimage text-center">
+            <img src="../../../../assets/client/assets/img/request_img.png">
+          </div>
+          <!-- <div class="bottom_articles" *ngIf="mySelf; else templateShow"> -->
+            <div class="bottom_articles">
+            <p>
+              <b>For :</b>
+              <!-- <span>{{order['name']}}</span> -->
+            </p>
+            <p>
+              <b>Cost :</b>
+              <!-- <span>{{transaction['amount'] | currency}}</span> -->
+            </p>
+            <p>
+              <b>Transaction # :</b>
+              <!-- <span>{{transaction['trackingId']}}</span> -->
+            </p>
+            <p>
+              <b>Transaction Date :</b>
+              <!-- <span *ngIf="transaction['date']">{{transaction['date'].toDate() | date:'EEEE, dd MMM yyyy'}}</span> -->
+            </p>
+            <p>
+              <b>Transaction Time :</b>
+              <!-- <span *ngIf="transaction['date']">{{transaction['date'].toDate() | date:'hh:mm aaa'}}</span> -->
+            </p>
+          </div>
+          <ng-template #templateShow>
+            <div class="bottom_articles">
+              <p>
+                <b>To :</b>
+                <!-- <span>{{order['to']}}</span> -->
+              </p>
+              <p>
+                <b>From :</b>
+                <!-- <span>{{order['name']}}</span> -->
+              </p>
+              <p>
+                <b>Cost :</b>
+                <!-- <span>{{transaction['amount'] | currency }}</span> -->
+              </p>
+              <p>
+                <b>Transaction # :</b>
+                <!-- <span>{{transaction['trackingId']}}</span> -->
+              </p>
+              <p>
+                <b>Transaction Date :</b>
+                <!-- <span *ngIf="transaction['date']">{{transaction['date'].toDate() | date:'EEEE, dd MMM yyyy' }}</span> -->
+              </p>
+              <p>
+                <b>Transaction Time :</b>
+                <!-- <span *ngIf="transaction['date']">{{transaction['date'].toDate() | date:'hh:mm aaa'}}</span> -->
+              </p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-12">
+        <div class="what-happen-heading">
+          <div class="top_heading">
+          </div>
+          <div class="heading_with_icons">
+            <hr class="left_line">
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/calendar.png">
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  <!-- {{celebrity['name']}} has {{celebrity['responseTime']}} days to complete your request. -->
+                </p>
+              </section>
+            </div>
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/bill.png">
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  Your receipt and order updates will be sent to the email provided under Delivery Information.
+                </p>
+              </section>
+            </div>
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/gift.png">
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  When your request is completed, we'll email and text you a link to view, share, or download your
+                  video.
+                </p>
+              </section>
+            </div>
+            <div class="whn_icon">
+              <section class="icon_section">
+                <div class="icon_frame">
+                  <img src="../../../../assets/client/assets/img/checkout-page/money-back.png">
+                </div>
+              </section>
+              <section class="text_section">
+                <p>
+                  If for some reason your video isn't completed, the $20 charged to your card will
+                  be refunded within 5-7 business days.
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

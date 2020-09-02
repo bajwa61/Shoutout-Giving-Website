@@ -1,0 +1,148 @@
+.header {
+    background: url('/assets/client/assets/img/header.png');
+    min-height: 100px;
+    background-size: cover;
+    padding: 9px 0;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+.logo {
+    width: 60px;
+}
+
+.main-menu ul li {
+    border: none;
+}
+
+.search-hold-header {
+    position: relative;
+    left: unset;
+    top: unset;
+    text-align: center;
+    visibility: visible;
+    z-index: 50000;
+    display: inline-flex;
+}
+
+.search-hold-header .big-search {
+    border: 1px solid #DDDDDD;
+    padding: 6px 15px 6px 51px;
+    height: 50px;
+    width: 300px;
+    font-size: 16px;
+    background: #ffffff url('/assets/client/assets/img/search.svg') no-repeat left 17px center;
+    background-size: 17px;
+    border-radius: 100px;
+    box-shadow: inset 0 -1px 0 #DDDDDD;
+    margin-left: 10px;
+}
+
+.search-hold-header .live-search {
+    position: absolute;
+    text-align: left;
+    display: block;
+}
+
+.search-hold-header .search-slide {
+    width: 250px;
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 40px;
+}
+
+.search-slide ul {
+    list-style: none;
+}
+
+.search-slide li {
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.search-slide li a {
+    padding: 15px 21px;
+    display: flex;
+}
+
+.search-slide li a .simg img {
+    width: 48px;
+    border-radius: 10px;
+}
+
+.search-slide li a .scat {
+    font-size: 13px;
+    line-height: 1.9em;
+    font-weight: 400;
+    color: #606060;
+    display: block;
+}
+
+.search-slide li a .sinfo {
+    padding-left: 15px;
+}
+
+.search-slide li a .sdetail {
+    display: inline-flex;
+}
+
+.search-slide li a .sname {
+    font-size: 15px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.search-slide li a .sprice {
+    font-size: 12px;
+    border-radius: 6px;
+    background-color: rgba(60, 30, 84, 0.6);
+    font-weight: 400;
+    padding: 0 9px;
+    margin-left: 11px;
+    color: #FFFFFF;
+    height: fit-content;
+}
+
+
+@media screen and (max-width : 767px) {
+
+    .main-menu-search {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width : 420px) {
+
+    .header-wrap-setting{
+        flex-wrap: nowrap;
+    }
+
+    .search-hold-header .big-search {
+        width: 200px;
+    }
+
+    .search-hold-header .search-slide {
+        width: 160px;
+        left: 30px;
+    }
+
+    .search-slide li a {
+        text-align: left;
+    }
+
+    .search-slide li a .simg img {
+        display: none;
+    }
+
+    .search-slide li a .sname {
+        font-size: 10px;
+    }
+
+    .search-slide li a .sprice {
+        font-size: 10px;
+    }
+
+}

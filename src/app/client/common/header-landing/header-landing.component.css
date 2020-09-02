@@ -1,0 +1,37 @@
+.main-menu[_ngcontent-bkv-c113]
+  ul[_ngcontent-bkv-c113]
+  li[_ngcontent-bkv-c113]:hover {
+  background: none;
+}
+
+.header {
+  background-color: #28023f;
+}
+
+header .main-menu ul:hover li {
+  background: none;
+}
+
+header .main-menu ul li:hover a {
+  background: none;
+}
+
+.logo {
+  width: 50px;
+}
+
+.main-menu {
+  margin-right: 0px;
+}
+
+@media (max-width: 767px) {
+  .header {
+    display: none;
+  }
+}
+
+.explore-page-specific {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}

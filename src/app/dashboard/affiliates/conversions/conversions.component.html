@@ -1,0 +1,36 @@
+<app-header></app-header>
+<section class="content clearfix">
+  <section class="search-hold clearfix">
+    <div class="container">
+      <input class="big-search" type="text" placeholder="Quick Search..." [(ngModel)]="searchText">
+    </div>
+  </section>
+  <div class="container">
+    <div class="card-hold">
+      <div class="table-responsive table-sm">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Celebrity</th>
+              <th>Email</th>
+              <th>Referral Link</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="isDataAvailable">
+            <ng-container *ngFor="let i = index;let agent of conversions | filter:searchText">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{agent['name']}}</td>
+                <td>{{agent['email']}}</td>
+                <td>https://halahi.com/enroll/?grsf={{agent['ref']}}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+          <td *ngIf="!isDataAvailable" colspan="4" align="center">Data Not Available</td>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
